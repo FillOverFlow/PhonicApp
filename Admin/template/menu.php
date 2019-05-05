@@ -48,9 +48,10 @@
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
-                            
+                             <!-- <img src="../img/logo.png" style="width: 100%;" alt="homepage" class="light-logo" /> -->
+                            <h3 style="margin-top:10px; ">Phonic App</h3>
                         </span>
+
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
