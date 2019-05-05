@@ -26,13 +26,13 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">เพิ่มข้อมูลผู้ใช้งาน</h4>
+                        <h4 class="page-title">แก้ไขข้อมูลผู้ใช้งาน</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                     <li class="breadcrumb-item"><a href="Manageuser.php">ข้อมูลผู้ใช้งาน</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">เพิ่มข้อมูลผู้ใช้งาน</li>
+                                    <li class="breadcrumb-item active" aria-current="page">แก้ไขข้อมูลผู้ใช้งาน</li>
                                 </ol>
                             </nav>
                         </div>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button onclick="location.href='adduser_script.php';" type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+                                        <button onclick="location.href='adduser_script.php';" type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
 
                                         <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>

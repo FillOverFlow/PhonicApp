@@ -76,7 +76,6 @@
                                                     <a href="#" style="color: gray;" title="view"><i class="fas fa-search"></i></a>
                                                     <a href="edituser.php" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
                                                     <a href="deleteuser.php" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
-
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -94,6 +93,7 @@
         </div>
         <!-- End Page wrapper  -->
     </div>
+    
     <!-- End Wrapper -->
     <!-- All Jquery -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
