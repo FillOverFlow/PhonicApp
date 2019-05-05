@@ -41,12 +41,11 @@
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- Container fluid  -->
             <div class="container-fluid">
-              
                 <!-- แสดงตารางข้อมูลผู้ใช้งาน -->
                 <div class="card">
                     <!-- ปุ่มเพิ่มข้อมุล -->
                         <div class="card-body">
-                            <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</button>
+                            <a href="adduser.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
                         </div>
                      <!-- ปุ่มเพิ่มข้อมุล -->
                             <div class="card-body">
@@ -75,8 +74,8 @@
                                                 <td>kantiya@gmail.com</td>
                                                 <td>
                                                     <a href="#" style="color: gray;" title="view"><i class="fas fa-search"></i></a>
-                                                    <a href="#" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
-                                                    <a href="#" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                                    <a href="edituser.php" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
+                                                    <a href="deleteuser.php" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
 
                                                 </td>
                                             </tr>
