@@ -50,16 +50,49 @@
                                     <h4 class="card-title">ข้อมูลผู้ใช้งาน</h4>
 
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
+                                        <label for="Username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="fname" placeholder="">
+                                            <input type="text" class="form-control" id="Username" placeholder="กรอกชื่อผู้ใช้งาน">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
+                                        <label for="Password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="fname" placeholder="">
+                                            <input type="password" class="form-control" id="Password" placeholder="กรอกรหัสผ่าน">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="fname" placeholder="กรอกชื่อ - สกุล">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="Position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
+                                        <div class="col-sm-6">
+                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
+                                                    <option>-เลือกระดับ-</option>
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="HI">Hawaii</option>
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="HI">Hawaii</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" id="education" placeholder="กรอกสถานศีกษา">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" id="email" placeholder="กรอกอีเมล์">
                                         </div>
                                     </div>
                                   
@@ -67,6 +100,8 @@
                                 <div class="border-top">
                                     <div class="card-body">
                                         <button onclick="location.href='adduser_script.php';" type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+
+                                        <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>
                                 </div>
                             </form>
@@ -86,11 +121,7 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
-    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
-    <script>
-         /* Basic Table */
-        $('#zero_config').DataTable();
-    </script>
+    
 
 </body>
 
