@@ -220,10 +220,10 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Manageuser.php" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">จัดการข้อมูลผู้ใช้งาน</span></a></li>
                        
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">เพิ่มบทเรียนและคำศัพท์ </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">ข้อมูลบทเรียนและคำศัพท์ </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="form-add-lesson.php" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> เพิ่มบทเรียน </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                                <li class="sidebar-item"><a href="Manage-lesson.php" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> บทเรียนและคำศัพท์ </span></a></li>
+                                <!-- <li class="sidebar-item"><a href="form-wizard.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li> -->
                             </ul>
                         </li>
                     </ul>

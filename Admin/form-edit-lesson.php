@@ -33,7 +33,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">เพิ่มบทเรียนและคำศัพท์</li>
+                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลผู้ใช้งาน</li>
                                 </ol>
                             </nav>
                         </div>
@@ -91,13 +91,14 @@
                             <br>
                             <hr>
                             <h4 class="card-title">เพิ่มหน้าที่แสดงและคำศัพท์</h4>
+                            
                             <div class="form-group row">
                                 <div class="col-sm-9">
                                 <div><a id="btn-page" class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</a></div>
                                 <br>
                                 
                                 <!-- start form add word  -->
-                                <div id="accordion" >
+                                <div id="accordion">
                                     <div class="card">
                                     
                                     <div class="card-header  fas fa-book" style="background-color:#ffcc99;">
