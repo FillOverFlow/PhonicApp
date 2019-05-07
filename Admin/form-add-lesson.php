@@ -97,7 +97,7 @@
                                 <br>
                                 
                                 <!-- start form add word  -->
-                                <div id="accordion" >
+                                <div id="accordion">
                                     <div class="card">
                                     
                                     <div class="card-header  fas fa-book" style="background-color:#ffcc99;">
