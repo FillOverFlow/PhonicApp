@@ -6,6 +6,39 @@
 <!-- jquery link use for responce form add lesson and word -->
 
     <title>Administrator Phonic App by Aj.Aum</title>
+    <!-- css for button_addword -->
+    <style type="text/css">
+        .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .button_addword{
+            background-color: white;
+            color:black;
+            border:2px solid #555555;
+
+        }
+        .button_showimg{
+            
+            color:black;
+            border:2px solid #555555;
+            background-size: 65px;
+            width: 85px;
+            height: 58px;
+        }
+        /*shadow box*/
+        .button:hover{
+             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
 </head>
 
 <body>
@@ -28,12 +61,12 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">เพิ่มบทเรียนและคำศัพท์</h4>
+                        <h4 class="page-title">แก้ไขบทเรียนและคำศัพท์</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลผู้ใช้งาน</li>
+                                    <li class="breadcrumb-item active" aria-current="page">แก้ไขบทเรียนและคำศัพท์</li>
                                 </ol>
                             </nav>
                         </div>
@@ -57,7 +90,7 @@
               <div class="card">
                     <form class="form-horizontal">
                     <div class="card-body">
-                    <h4 class="card-title">เพิ่มบทเรียน</h4>
+                    <h4 class="card-title">แก้ไขบทเรียน</h4>
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">รูปบทเรียน</label>
                             <div class="col-sm-6">
@@ -90,8 +123,7 @@
                             </div>
                             <br>
                             <hr>
-                            <h4 class="card-title">เพิ่มหน้าที่แสดงและคำศัพท์</h4>
-                            
+                            <h4 class="card-title">แก้ไขหน้าที่แสดงและคำศัพท์</h4>
                             <div class="form-group row">
                                 <div class="col-sm-9">
                                 <div><a id="btn-page" class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</a></div>
@@ -107,11 +139,16 @@
                                         </a>
                                     </div>
                                     <div id="collapseOne" class="collapse " data-parent="#accordion">
+                                        <div>
+                                            <div class="col-md-12" style="background-color: #ffffcc;">
+                                                  <a href="#" class="button button_addword" data-toggle="modal" data-target="#modal_addword"><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></a>
+                                                  <button class="button button_showimg" style="background-image: url('assets/images/ant.jpg');"><span><i class="fa fa-pencil"  aria-hidden="true"></i></span></button>
+                                            </div>
+                                        </div>
                                         <div  class="card-body" style="background-color: #ffffcc;">
-                                            <p>เพิ่มคำศัพท์ในหน้าที่ 1</p>
-                                            <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a>
-                                            <!-- คำศัพท์ คำแรก -->
-                                            <hr>
+                                           
+                                        
+                                            <!-- <hr>
                                             <p>1</p>
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
@@ -132,7 +169,7 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                        </div>
+                                        </div> -->
                                         
                                         <!-- สิ้นสุดคำศัพท์คำแรก -->
                                     </div>
@@ -146,14 +183,58 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+                                <button type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
                                 <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
                             </div>
                         </div>
                     </form>
                 </div>
               <!-- End form add lesson -->
-                        
+              <!-- modal addword -->
+              <div class="modal fade" id="modal_addword" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <!-- <h4 class="modal-title">Modal Header</h4> -->
+                        </div>
+                        <div class="modal-body">
+                          
+                          <!-- <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a> -->
+                         <!-- button add word -->
+                         <!-- คำศัพท์ คำแรก -->
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" id="cono1" >
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ชื่อคำศัพท์</label>
+                                <div class="col-sm-9">
+                                     <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง A a">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">เสียงคำศัพท์</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง ant">
+                                </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success" data-dismiss="modal">อัพเดทข้อมูล</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- end modal -->
                 
             </div>
             <!-- End Container fluid  -->
