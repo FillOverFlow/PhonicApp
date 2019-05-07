@@ -6,6 +6,39 @@
 <!-- jquery link use for responce form add lesson and word -->
 
     <title>Administrator Phonic App by Aj.Aum</title>
+    <!-- css for button_addword -->
+    <style type="text/css">
+        .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .button_addword{
+            background-color: white;
+            color:black;
+            border:2px solid #555555;
+
+        }
+        .button_showimg{
+            
+            color:black;
+            border:2px solid #555555;
+            background-size: 65px;
+            width: 85px;
+            height: 58px;
+        }
+        /*shadow box*/
+        .button:hover{
+             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
 </head>
 
 <body>
@@ -106,11 +139,16 @@
                                         </a>
                                     </div>
                                     <div id="collapseOne" class="collapse " data-parent="#accordion">
+                                        <div>
+                                            <div class="col-md-12" style="background-color: #ffffcc;">
+                                                  <a href="#" class="button button_addword" data-toggle="modal" data-target="#modal_addword"><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></a>
+                                                  <button class="button button_showimg" style="background-image: url('assets/images/ant.jpg');"><span><i class="fa fa-pencil"  aria-hidden="true"></i></span></button>
+                                            </div>
+                                        </div>
                                         <div  class="card-body" style="background-color: #ffffcc;">
-                                            <p>เพิ่มคำศัพท์ในหน้าที่ 1</p>
-                                            <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a>
-                                            <!-- คำศัพท์ คำแรก -->
-                                            <hr>
+                                           
+                                        
+                                            <!-- <hr>
                                             <p>1</p>
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
@@ -131,7 +169,7 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                        </div>
+                                        </div> -->
                                         
                                         <!-- สิ้นสุดคำศัพท์คำแรก -->
                                     </div>
@@ -152,7 +190,51 @@
                     </form>
                 </div>
               <!-- End form add lesson -->
-                        
+              <!-- modal addword -->
+              <div class="modal fade" id="modal_addword" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <!-- <h4 class="modal-title">Modal Header</h4> -->
+                        </div>
+                        <div class="modal-body">
+                          
+                          <!-- <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a> -->
+                         <!-- button add word -->
+                         <!-- คำศัพท์ คำแรก -->
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" id="cono1" >
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ชื่อคำศัพท์</label>
+                                <div class="col-sm-9">
+                                     <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง A a">
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cono1" class="col-sm-3 text-right control-label col-form-label">เสียงคำศัพท์</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง ant">
+                                </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success" data-dismiss="modal">บันทึก</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- end modal -->
                 
             </div>
             <!-- End Container fluid  -->
