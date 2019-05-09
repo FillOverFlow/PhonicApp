@@ -1,3 +1,10 @@
+<?php 
+
+include '../db_connection.php';
+$sql ="SELECT * FROM user_account";
+$query = mysqli_query($conn,$sql);
+
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -50,7 +57,7 @@
                      <!-- ปุ่มเพิ่มข้อมุล -->
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="zero_config" class="table table-bordered table-sm">
+                                    <table id="zero_config" class="table table-bordered table-sm table-hover">
                                         <thead class="table-secondary">
                                             <tr >
                                                 <th>ลำดับ</th>
@@ -63,23 +70,36 @@
                                                 <th>ตัวเลือก</th>
                                             </tr>
                                         </thead>
+                                        
                                         <tbody>
+                                        <?php 
+                                            $i =1;
+                                            while($result=mysqli_fetch_array($query,MYSQLI_ASSOC)){
+                                        ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>admin2</td>
-                                                <td>rlqc.xnOtzQ6A</td>
-                                                <td>kantiya vongvian</td>
-                                                <td>อาจารย์</td>
-                                                <td>มหาวิทยาลัยราชภัฏเลย</td>
-                                                <td>kantiya@gmail.com</td>
+                                                <td><?= number_format($i);?></td>
+                                                <td><?php echo $result["user_name"];?></td>
+                                                <td><?php echo $result["user_pwd"];?></td>
+                                                <td><?php echo $result["user_fullname"];?></td>
+                                                <td><?php echo $result["user_position"];?></td>
+                                                <td><?php echo $result["user_school"];?></td>
+                                                <td><?php echo $result["user_email"];?></td>
                                                 <td>
                                                     <a href="#" style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
                                                     <a href="edituser.php" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
                                                     <a href="deleteuser.php"  style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                                 </td>
                                             </tr>
+                                            <?php
+                                        $i++;
+                                        }
+                                        ?>
                                         </tbody>
+                                   
                                     </table>
+                                    <?php
+                                    mysqli_close($conn);
+                                    ?>
                                 </div>
 
                             </div>

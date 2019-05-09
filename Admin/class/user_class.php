@@ -13,8 +13,8 @@
     
     class User{
         /*add edit delete user*/
-        function add(){
-            echo 'class add new user work';
+        function add($username,$password){
+
         }
         function edit(){
             echo 'class edit user';
