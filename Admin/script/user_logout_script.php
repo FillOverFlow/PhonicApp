@@ -4,7 +4,7 @@
 	
 	
 	//redirect to login
-	header("location:../authentication-login.php");
+	header("location:../login.php");
 
 
  ?>

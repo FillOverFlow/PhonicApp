@@ -12,7 +12,7 @@
 	else
 	{
 		$_SESSION["status"] = "Failed";
-		header('Location: ../authentication-login.php');
+		header('Location: ../login.php');
 	}
 
 
