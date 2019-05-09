@@ -46,12 +46,13 @@
            
             <div class="auth-box bg-dark border-top border-secondary">
                 <?php
-                if($_SESSION["status"]== "Failed"){?>
-                 <div class="alert alert-warning">
-                    <strong>Warning!</strong><p>ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง</p>
-                </div>
+                if(isset($_SESSION["status"])){
+                   if($_SESSION["status"] == "Failed"){?>
+                    <div class="alert alert-warning">
+                        <strong>Warning!</strong><p>ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง</p>
+                    </div>
+                    <?php } ?> 
                 <?php }?>
-            
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="assets/images/logo.png" alt="logo" /></span>
