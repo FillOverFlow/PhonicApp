@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if($_SESSION["loggedin"]!=True){
+        //if not login redirect to login.php 
+        header("location:login.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

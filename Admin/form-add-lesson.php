@@ -126,11 +126,11 @@
                             <h4 class="card-title">เพิ่มหน้าที่แสดงและคำศัพท์</h4>
                             <div class="form-group row">
                                 <div class="col-sm-9">
-                                <div><a id="btn-page" class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</a></div>
+                                <div><button onclick=addpage() class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</button></div>
                                 <br>
                                 
                                 <!-- start form add word  -->
-                                <div id="accordion">
+                                <!-- <div id="accordion">
                                     <div class="card">
                                     
                                     <div class="card-header  fas fa-book" style="background-color:#ffcc99;">
@@ -138,17 +138,20 @@
                                         หน้าที่ 1
                                         </a>
                                     </div>
-                                    <div id="collapseOne" class="collapse " data-parent="#accordion">
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
                                         <div>
                                             <div class="col-md-12" style="background-color: #ffffcc;">
                                                   <a href="#" class="button button_addword" data-toggle="modal" data-target="#modal_addword"><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span></a>
+                                                
+                                                  <i id="word"></i>
                                                   <button class="button button_showimg" style="background-image: url('assets/images/ant.jpg');"><span><i class="fa fa-pencil"  aria-hidden="true"></i></span></button>
+                                                  
                                             </div>
                                         </div>
                                         <div  class="card-body" style="background-color: #ffffcc;">
                                            
                                         
-                                            <!-- <hr>
+                                           <hr>
                                             <p>1</p>
                                             <div class="form-group row">
                                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
@@ -169,11 +172,12 @@
                                                 </div>
                                             </div>
                                             <hr>
-                                        </div> -->
+                                        </div> 
                                         
-                                        <!-- สิ้นสุดคำศัพท์คำแรก -->
+                                        สิ้นสุดคำศัพท์คำแรก 
                                     </div>
-                                    </div>
+                                    </div> -->
+                                    <br>
                                     <div id="page"></div>
                                   
                                     
@@ -226,7 +230,7 @@
                         <hr>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-success" data-dismiss="modal">บันทึก</button>
+                      <button onclick="addword()" type="button" class="btn btn-success" data-dismiss="modal">บันทึก</button>
                       <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
                       
                     </div>
@@ -255,15 +259,35 @@
     </script>
     <!-- script for create html by javascript -->
     <script>
-        $(document).ready(function(){
-           
-            $("#btn-page").click(function(){
-                $("#page").append("<div class='card'><div class='card-header'><a class='collapsed card-link' data-toggle='collapse' href='#collapseTwo'>หน้าต่อไป</a></div><div id='collapseTwo' class='collapse' data-parent='#accordion'><div class='card-body'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div></div></div>");
-            });
-        });
-        
-        
+        //init page number 
+        var page_number = 1;
+        function makeid(length) {
+            //for make page id 
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+        function addword(){
+            //click modal and save to page
+            var page_id = window.value;
+            var word_markup = "<button class='button button_showimg' style='background-image: url('assets/images/ant.jpg');'><span><i class='fa fa-pencil'  aria-hidden='true'></i></span></button>"
+            $("#"+page_id+"").append(word_markup);
+            
+        }
+        function addpage(){
+            //random page id and use to locat page and word
+            var page_id = makeid(4);
+            var page_markup = "<div id='accordion'><div class='card'><div class='card-header  fas fa-book' style='background-color:#ffcc99;'><a class='card-link' data-toggle='collapse' href='#"+page_id+"'> หน้าที่ "+page_number+"</a></div><div class='card-body' style='background-color: #ffffcc;'><div id='"+page_id+"' class='collapse show' data-parent='#accordion'><div class='col-md-12' style='background-color: #ffffcc;'><a href='#' class='button button_addword' data-toggle='modal' data-target='#modal_addword'><span><i class='fa fa-plus-circle' aria-hidden='true'></i></span></a><i id='"+page_id+"'></i></div></div></div></div></div>";
+            $("#page").append(page_markup);
+            page_number++;
+            window.value=page_id; 
+        }
     </script>
+   
     
 
 </body>
