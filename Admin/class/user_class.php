@@ -15,17 +15,25 @@
         /*add edit delete user*/
         function add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_email)
         {
-            ini_set('display_errors', 1);
-            error_reporting(~0);
-
+            $this->user_name = $user_name;
+            $this->user_pwd = $user_pwd;
+            $this->user_fullname = $user_fullname;
+            $this->user_position = $user_position;
+            $this->user_school = $user_school;
+            $this->user_email = $user_email;
             include '../../db_connection.php';
 
-            $sql = "INSERT INTO user_account (user_name,user_pwd,user_fullname,user_position,user_school,user_email) 
-                VALUES ('$user_name','$user_pwd','$user_fullname','$user_position','$user_school','$user_email')";
+            $stmt = $conn->prepare("INSERT INTO user_account(user_name,user_pwd,user_fullname,user_position,user_school,user_email) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('ssssss', $this->user_name, 
+            $this->user_pwd,
+            $this->user_fullname,
+            $this->user_position,
+            $this->user_school,
+            $this->user_email);
+            $stmt->execute();
+            $newId = $stmt->insert_id;
 
-            $query = mysqli_query($conn,$sql);
-
-            if($query) {
+            if($stmt) {
                 echo '<script language="javascript" type="text/javascript"> ';
                 echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
                 echo ' location.href="../Manageuser.php"';
@@ -40,29 +48,37 @@
                 echo '</script>';
             }
 
-            mysqli_close($conn);
+            $stmt->close();
+            
         }
         function edit(){
             echo 'class edit user';
         }   
         function delete($user_id){
             
-            ini_set('display_errors', 1);
-            error_reporting(~0);
-
+            $this->user_id = $user_id;
             include '../../db_connection.php';
-            // $user_id = $_GET["user_id"];
-            $sql = "DELETE FROM user_account WHERE user_id = '".$user_id."' ";
+            
+            $stmt = $conn->prepare("DELETE FROM user_account WHERE user_id = ?");
+            $stmt->bind_param('i', $this->user_id);
+            $stmt->execute(); 
+            
+            if($stmt) {
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("ลบข้อมูลสำเร็จ")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+                exit;  
+            }else{
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("ลบข้อมูลไม่สำเร็จ!!!!")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+            }
 
-            $query = mysqli_query($conn,$sql);
-
-            if (mysqli_query($conn, $sql)) {
-                echo "Record deleted successfully";
-             } else {
-                echo "Error deleting record: " . mysqli_error($conn);
-             }
-
-            mysqli_close($conn);
+            $stmt->close();
         }
 
         /* authentication */
