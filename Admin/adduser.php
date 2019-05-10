@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en">
 
 <head>
-<link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <title>Administrator Phonic App by Aj.Aum</title>
 </head>
 
@@ -53,32 +53,31 @@
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="กรอกชื่อผู้ใช้งาน">
+                                            <input type="text" class="form-control" name="username" id="username" placeholder="กรอกชื่อผู้ใช้งาน" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
                                         <div class="col-sm-6">
-                                            <input type="password" class="form-control" name="password" id="password" placeholder="กรอกรหัสผ่าน">
+                                            <input type="password" class="form-control" name="password" id="password" placeholder="กรอกรหัสผ่าน" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล">
+                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="Position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
                                         <div class="col-sm-6">
-                                            <select class="select2 form-control custom-select" name="Position" style="width: 100%; height:36px;" >
-                                                    <option>-เลือกระดับ-</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
+                                            <select class="select2 form-control custom-select" name="Position" style="width: 100%; height:36px;" required >
+                                                    <option value="">-เลือกระดับ-</option>
+                                                    <option value="นักเรียน">นักเรียน</option>
+                                                    <option value="ผู้ปกครอง">ผู้ปกครอง</option>
+                                                    <option value="อาจารย์">อาจารย์</option>
                                             </select>
                                         </div>
                                     </div>
@@ -86,14 +85,14 @@
                                     <div class="form-group row">
                                         <label for="education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="education" id="education" placeholder="กรอกสถานศีกษา">
+                                            <input type="text" class="form-control" name="education" id="education" placeholder="กรอกสถานศีกษา" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
                                         <div class="col-sm-6">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="กรอกอีเมล์">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="กรอกอีเมล์" required>
                                         </div>
                                     </div>
                                   

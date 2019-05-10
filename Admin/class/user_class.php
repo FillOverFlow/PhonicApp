@@ -13,14 +13,56 @@
     
     class User{
         /*add edit delete user*/
-        function add($username,$password){
+        function add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_email)
+        {
+            ini_set('display_errors', 1);
+            error_reporting(~0);
 
+            include '../../db_connection.php';
+
+            $sql = "INSERT INTO user_account (user_name,user_pwd,user_fullname,user_position,user_school,user_email) 
+                VALUES ('$user_name','$user_pwd','$user_fullname','$user_position','$user_school','$user_email')";
+
+            $query = mysqli_query($conn,$sql);
+
+            if($query) {
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+                exit;  
+            }else{
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("บันทึกข้อมูลไม่สำเร็จ!!!! /n กรุณากรอกข้อมูลและบันทึกใหม่อีกครั้ง")) {';//msg
+                echo ' location.href="../adduser.php"';
+                echo '}';
+                echo '</script>';
+            }
+
+            mysqli_close($conn);
         }
         function edit(){
             echo 'class edit user';
         }   
-        function delete(){
-            echo 'delete user';
+        function delete($user_id){
+            
+            ini_set('display_errors', 1);
+            error_reporting(~0);
+
+            include '../../db_connection.php';
+            // $user_id = $_GET["user_id"];
+            $sql = "DELETE FROM user_account WHERE user_id = '".$user_id."' ";
+
+            $query = mysqli_query($conn,$sql);
+
+            if (mysqli_query($conn, $sql)) {
+                echo "Record deleted successfully";
+             } else {
+                echo "Error deleting record: " . mysqli_error($conn);
+             }
+
+            mysqli_close($conn);
         }
 
         /* authentication */

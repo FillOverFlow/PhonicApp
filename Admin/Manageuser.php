@@ -1,7 +1,7 @@
 <?php 
 
 include '../db_connection.php';
-$sql ="SELECT * FROM user_account";
+$sql ="SELECT * FROM user_account ORDER BY create_date DESC";
 $query = mysqli_query($conn,$sql);
 
 ?>
@@ -62,7 +62,6 @@ $query = mysqli_query($conn,$sql);
                                             <tr >
                                                 <th>ลำดับ</th>
                                                 <th>ชื่อผู้ใช้งาน</th>
-                                                <th>รหัสผ่าน</th>
                                                 <th>ชื่อ-สกุล</th>
                                                 <th>ระดับ</th>
                                                 <th>สถานศึกษา</th>
@@ -79,15 +78,14 @@ $query = mysqli_query($conn,$sql);
                                             <tr>
                                                 <td><?= number_format($i);?></td>
                                                 <td><?php echo $result["user_name"];?></td>
-                                                <td><?php echo $result["user_pwd"];?></td>
                                                 <td><?php echo $result["user_fullname"];?></td>
                                                 <td><?php echo $result["user_position"];?></td>
                                                 <td><?php echo $result["user_school"];?></td>
                                                 <td><?php echo $result["user_email"];?></td>
                                                 <td>
-                                                    <a href="#" style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
+                                                    <a href="" style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
                                                     <a href="edituser.php" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
-                                                    <a href="deleteuser.php"  style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                                    <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='script/deluser_script.php?idu=<?php echo $result["user_id"];?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                                 </td>
                                             </tr>
                                             <?php
