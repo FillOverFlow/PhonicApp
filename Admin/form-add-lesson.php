@@ -126,11 +126,11 @@
                             <h4 class="card-title">เพิ่มหน้าที่แสดงและคำศัพท์</h4>
                             <div class="form-group row">
                                 <div class="col-sm-9">
-                                <div><button onclick=addpage() class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</button></div>
+                                <div><a onclick=addpage() class="btn btn-success btn-sm" style ="color:#fff"><i class="fas fa-plus-circle"></i> เพิ่มหน้าที่แสดง</a></div>
                                 <br>
                                 
                                 <!-- start form add word  -->
-                                <!-- <div id="accordion">
+                               <!-- <div id="accordion">
                                     <div class="card">
                                     
                                     <div class="card-header  fas fa-book" style="background-color:#ffcc99;">
@@ -176,7 +176,7 @@
                                         
                                         สิ้นสุดคำศัพท์คำแรก 
                                     </div>
-                                    </div> -->
+                                    </div>  -->
                                     <br>
                                     <div id="page"></div>
                                   
@@ -205,35 +205,36 @@
                           <!-- <h4 class="modal-title">Modal Header</h4> -->
                         </div>
                         <div class="modal-body">
-                          
+                        
                           <!-- <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a> -->
                          <!-- button add word -->
                          <!-- คำศัพท์ คำแรก -->
                         <div class="form-group row">
                             <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปคำศัพท์</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="cono1" >
+                                    <input type="file" id="file" name="file"  class="form-control" >
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ชื่อคำศัพท์</label>
                                 <div class="col-sm-9">
-                                     <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง A a">
+                                     <input type="text" name="wordname" class="form-control" id="wordname" placeholder="ตัวอย่าง A a">
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="cono1" class="col-sm-3 text-right control-label col-form-label">เสียงคำศัพท์</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง ant">
+                                    <input type="text" name="wordsound" class="form-control" id="wordsound" placeholder="ตัวอย่าง ant" >
                                 </div>
                         </div>
                         <hr>
                     </div>
                     <div class="modal-footer">
-                      <button onclick="addword()" type="button" class="btn btn-success" data-dismiss="modal">บันทึก</button>
+                      <button  id="but_upload" class="btn btn-success" data-dismiss="modal">บันทึก</button>
                       <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
                       
                     </div>
+                 
                   </div>
                   
                 </div>
@@ -260,7 +261,9 @@
     <!-- script for create html by javascript -->
     <script>
         //init page number 
-        var page_number = 1;
+        var page_number = 0;
+        var word_number = 1;
+        var lesson_id   = makeid(10);
         function makeid(length) {
             //for make page id 
             var result           = '';
@@ -271,21 +274,54 @@
             }
             return result;
         }
-        function addword(){
-            //click modal and save to page
-            var page_id = window.value;
-            var word_markup = "<button class='button button_showimg' style='background-image: url('assets/images/ant.jpg');'><span><i class='fa fa-pencil'  aria-hidden='true'></i></span></button>"
-            $("#"+page_id+"").append(word_markup);
-            
-        }
         function addpage(){
+            page_number++;
+            word_number=1;
             //random page id and use to locat page and word
             var page_id = makeid(4);
             var page_markup = "<div id='accordion'><div class='card'><div class='card-header  fas fa-book' style='background-color:#ffcc99;'><a class='card-link' data-toggle='collapse' href='#"+page_id+"'> หน้าที่ "+page_number+"</a></div><div class='card-body' style='background-color: #ffffcc;'><div id='"+page_id+"' class='collapse show' data-parent='#accordion'><div class='col-md-12' style='background-color: #ffffcc;'><a href='#' class='button button_addword' data-toggle='modal' data-target='#modal_addword'><span><i class='fa fa-plus-circle' aria-hidden='true'></i></span></a><i id='"+page_id+"'></i></div></div></div></div></div>";
             $("#page").append(page_markup);
-            page_number++;
-            window.value=page_id; 
+            
+            window.value=page_id;
         }
+        //เพิ่มหน้า
+        //ทำงานเมื่อเพิ่มคำศัพท์
+        //add word
+        $("#but_upload").click(function(){
+            var wordname = $("#wordname").val();
+            var wordsound = $("#wordsound").val();
+            var fd = new FormData();
+            var files = $('#file')[0].files[0];
+            fd.append('file',files);
+            fd.append('wordname',wordname);
+            fd.append('wordsound',wordsound);
+            fd.append('lesson_id',lesson_id);
+            fd.append('page_no',page_number);
+            fd.append('word_no',word_number);
+            if($('#wordname').val() == "")
+            {
+                alert("กรุณากรอกชื่อ คำศัพท์");
+            }else if($('#wordsound').val() == ""){
+                alert("กรุณากรอกเสียง คำศัพท์");
+            }else{
+                $.ajax({
+                url: 'script/addword_script.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    console.log(response);
+                    var page_id = window.value;
+                    var word_markup = "<button class='button button_showimg' style='background-image: url('assets/images/ant.jpg');'><span><i class='fa fa-pencil'  aria-hidden='true'></i></span></button>"
+                    $("#"+page_id+"").append(word_markup);
+                    word_number++;
+                },
+                });
+            }
+           
+        });
+        
     </script>
    
     
