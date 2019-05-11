@@ -1,3 +1,15 @@
+<?php
+//1. เชื่อมต่อ database: 
+include '../db_connection.php';  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+
+$user_id = $_GET["user_id"];
+
+//2. query ข้อมูลจากตาราง: 
+$sql = "SELECT * FROM user_account WHERE user_id='$user_id' ";
+$result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
+$row = mysqli_fetch_array($result);
+// extract($row);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -46,61 +58,86 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="script/edituser_script.php?user_id=<?php echo $_GET["user_id"];?>" method="post" >
                                 <div class="card-body">
                                     <h4 class="card-title">ข้อมูลผู้ใช้งาน</h4>
 
                                     <div class="form-group row">
-                                        <label for="Username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
+                                        <label for="edit_username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="Username" placeholder="กรอกชื่อผู้ใช้งาน">
+                                            <input type="text" class="form-control" name="edit_username" id="edit_username" value="<?php echo $row["user_name"]; ?>" placeholder="กรอกชื่อผู้ใช้งาน">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="Password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
+                                        <label for="edit_password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
                                         <div class="col-sm-6">
-                                            <input type="password" class="form-control" id="Password" placeholder="กรอกรหัสผ่าน">
+                                            <input type="password" class="form-control" name="edit_password" id="edit_password" value ="<?php echo $row["user_pwd"]; ?>" placeholder="กรอกรหัสผ่าน"><br>
+                                            <input type="checkbox" onclick="myFunction()"> แสดงรหัสผ่าน
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
+                                        <label for="edit_fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="fname" placeholder="กรอกชื่อ - สกุล">
+                                            <input type="text" class="form-control" name="edit_fname" id="edit_fname" value ="<?php echo $row["user_fullname"]; ?>" placeholder="กรอกชื่อ - สกุล">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="Position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
+                                        <label for="edit_position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
                                         <div class="col-sm-6">
-                                            <select class="select2 form-control custom-select" style="width: 100%; height:36px;">
-                                                    <option>-เลือกระดับ-</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="HI">Hawaii</option>
+                                            <select class="select2 form-control custom-select" name="edit_position" style="width: 100%; height:36px;">
+                                            <option value="ยังไม่ได้เลือก">กรุณาเลือก</option>
+                                            <!-- เลือกนักเรียน -->
+                                            <? if ($row["user_position"]=="นักเรียน") { ?>
+                                              <option value="นักเรียน" selected>นักเรียน</option>
+                                            <? }else{?>
+                                              <option value="นักเรียน">นักเรียน</option>
+                                            <? }?>
+                                            
+                                            <!-- เลือกผู้ปกครอง -->
+                                            <? if ($row["user_position"]=="ผู้ปกครอง") { ?>
+                                              <option value="ผู้ปกครอง" selected>ผู้ปกครอง</option>
+                                            <? }else{?>
+                                              <option value="ผู้ปกครอง">ผู้ปกครอง</option>
+                                            <? }?>
+                                            
+                                            <!-- เลือกครู -->
+                                            <? if ($row["user_position"]=="ครู") { ?>
+                                              <option value="ครู" selected>ครู</option>
+                                            <? }else{?>
+                                              <option value="ครู">ครู</option>
+                                            <? }?>
+                                            
+                                            <!-- เลือกอาจารย์ -->
+                                            <? if ($row["user_position"]=="อาจารย์") { ?>
+                                              <option value="อาจารย์" selected>อาจารย์</option>
+                                            <? }else{?>
+                                              <option value="อาจารย์">อาจารย์</option>
+                                            <? }?>
+
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
+                                        <label for="edit_education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="education" placeholder="กรอกสถานศีกษา">
+                                            <input type="text" class="form-control" name="edit_education" id="edit_education" value ="<?php echo $row["user_school"]; ?>" placeholder="กรอกสถานศีกษา">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
+                                        <label for="edit_email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
                                         <div class="col-sm-6">
-                                            <input type="email" class="form-control" id="email" placeholder="กรอกอีเมล์">
+                                            <input type="email" class="form-control" name="edit_email" id="edit_email" value ="<?php echo $row["user_email"]; ?>"placeholder="กรอกอีเมล์">
                                         </div>
                                     </div>
                                   
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button onclick="location.href='adduser_script.php';" type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
+                                        <button type="submit" class="btn btn-primary btn-sm" ><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
 
                                         <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>
@@ -122,6 +159,17 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
+    <script>
+    // แสดงรหัสผ่าน
+        function myFunction() {
+            var x = document.getElementById("edit_password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
     
 
 </body>

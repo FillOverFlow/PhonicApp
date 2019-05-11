@@ -83,9 +83,9 @@ $query = mysqli_query($conn,$sql);
                                                 <td><?php echo $result["user_school"];?></td>
                                                 <td><?php echo $result["user_email"];?></td>
                                                 <td>
-                                                    <a href="" style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
-                                                    <a href="edituser.php" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
-                                                    <a href="JavaScript:if(confirm('Confirm Delete?')==true){window.location='script/deluser_script.php?user_id=<?php echo base64_encode(base64_encode($result["user_id"]));?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                                    <a href=""  style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
+                                                    <a href="JavaScript:if(confirm('คุณต้องการแก้ไขข้อมูลใช่หรือไม่ ?')==true){window.location='edituser.php?user_id=<?php echo $result["user_id"];?>';}" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
+                                                    <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"];?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                                 </td>
                                             </tr>
                                             <?php

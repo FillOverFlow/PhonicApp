@@ -51,8 +51,52 @@
             $stmt->close();
             
         }
-        function edit(){
-            echo 'class edit user';
+        function edit($user_id,$user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_email){
+
+            $this->user_id = $user_id;
+            $this->user_name = $user_name;
+            $this->user_pwd = $user_pwd;
+            $this->user_fullname = $user_fullname;
+            $this->user_position = $user_position;
+            $this->user_school = $user_school;
+            $this->user_email = $user_email;
+            include '../../db_connection.php';
+
+            $stmt = $conn->prepare("UPDATE user_account SET user_name = ?, 
+            user_pwd = ?, 
+            user_fullname = ?,  
+            user_position = ?,  
+            user_school = ?,
+            user_email = ?   
+            WHERE user_id = ?");
+            $stmt->bind_param('sssssss',
+            $_POST['edit_username'],
+            crypt($_POST["edit_password"], 'rl'),
+            $_POST['edit_fname'],
+            $_POST['edit_position'], 
+            $_POST['edit_education'],
+            $_POST['edit_email'],
+            $this->user_id);
+            
+            $stmt->execute(); 
+
+            if($stmt) {
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("อัพเดทข้อมูลเรียบร้อย")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+                exit;  
+            }else{
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("อัพเดทข้อมูลไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+            }
+
+            $stmt->close();
+
         }   
         function delete($user_id){
             
