@@ -71,7 +71,7 @@
             WHERE user_id = ?");
             $stmt->bind_param('sssssss',
             $_POST['edit_username'],
-            crypt($_POST["edit_password"], 'rl'),
+            $_POST["edit_password"], // ต้องทำการ decode กลับเพื่อแสดง
             $_POST['edit_fname'],
             $_POST['edit_position'], 
             $_POST['edit_education'],
@@ -124,7 +124,6 @@
 
             $stmt->close();
         }
-
         /* authentication */
         function login($username,$password) //params username ,password
         {

@@ -72,8 +72,8 @@ $row = mysqli_fetch_array($result);
                                     <div class="form-group row">
                                         <label for="edit_password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
                                         <div class="col-sm-6">
-                                            <input type="password" class="form-control" name="edit_password" id="edit_password" value ="<?php echo $row["user_pwd"]; ?>" placeholder="กรอกรหัสผ่าน"><br>
-                                            <input type="checkbox" onclick="myFunction()"> แสดงรหัสผ่าน
+                                            <input type="password" class="form-control" name="edit_password" id="edit_password" value ="<?php echo $row["user_pwd"]; ?>" placeholder="กรอกรหัสผ่าน">
+                                            <!-- <input type="checkbox" onclick="myFunction()"> แสดงรหัสผ่าน -->
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -87,35 +87,15 @@ $row = mysqli_fetch_array($result);
                                         <label for="edit_position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
                                         <div class="col-sm-6">
                                             <select class="select2 form-control custom-select" name="edit_position" style="width: 100%; height:36px;">
-                                            <option value="ยังไม่ได้เลือก">กรุณาเลือก</option>
-                                            <!-- เลือกนักเรียน -->
-                                            <? if ($row["user_position"]=="นักเรียน") { ?>
-                                              <option value="นักเรียน" selected>นักเรียน</option>
-                                            <? }else{?>
-                                              <option value="นักเรียน">นักเรียน</option>
-                                            <? }?>
-                                            
-                                            <!-- เลือกผู้ปกครอง -->
-                                            <? if ($row["user_position"]=="ผู้ปกครอง") { ?>
-                                              <option value="ผู้ปกครอง" selected>ผู้ปกครอง</option>
-                                            <? }else{?>
-                                              <option value="ผู้ปกครอง">ผู้ปกครอง</option>
-                                            <? }?>
-                                            
-                                            <!-- เลือกครู -->
-                                            <? if ($row["user_position"]=="ครู") { ?>
-                                              <option value="ครู" selected>ครู</option>
-                                            <? }else{?>
-                                              <option value="ครู">ครู</option>
-                                            <? }?>
-                                            
-                                            <!-- เลือกอาจารย์ -->
-                                            <? if ($row["user_position"]=="อาจารย์") { ?>
-                                              <option value="อาจารย์" selected>อาจารย์</option>
-                                            <? }else{?>
-                                              <option value="อาจารย์">อาจารย์</option>
-                                            <? }?>
-
+                                                <option value="ยังไม่ได้เลือก">กรุณาเลือก</option>
+                                                <!-- เลือกนักเรียน -->
+                                                <option value="นักเรียน"<?php if ($row["user_position"] == 'นักเรียน') echo ' selected="selected"'; ?>>นักเรียน</option>
+                                                <!-- เลือกผู้ปกครอง -->
+                                                <option value="ผู้ปกครอง"<?php if ($row["user_position"] == 'ผู้ปกครอง') echo ' selected="selected"'; ?>>ผู้ปกครอง</option>
+                                                <!-- เลือกครู -->
+                                                <option value="ครู"<?php if ($row["user_position"] == 'ครู') echo ' selected="selected"'; ?>>ครู</option>
+                                                <!-- เลือกอาจารย์ -->
+                                                <option value="อาจารย์"<?php if ($row["user_position"] == 'อาจารย์') echo ' selected="selected"'; ?>>อาจารย์</option>
                                             </select>
                                         </div>
                                     </div>

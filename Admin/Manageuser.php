@@ -83,8 +83,10 @@ $query = mysqli_query($conn,$sql);
                                                 <td><?php echo $result["user_school"];?></td>
                                                 <td><?php echo $result["user_email"];?></td>
                                                 <td>
-                                                    <a href=""  style="color: gray;" title="view" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-search"></i></a>
+                                                    <a href="#"  style="color: gray;" title="view" class="view_data" id="<?php echo $result["user_id"];?>" ><i class="fas fa-search"></i></a>
+
                                                     <a href="JavaScript:if(confirm('คุณต้องการแก้ไขข้อมูลใช่หรือไม่ ?')==true){window.location='edituser.php?user_id=<?php echo $result["user_id"];?>';}" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
+
                                                     <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"];?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                                 </td>
                                             </tr>
@@ -106,31 +108,41 @@ $query = mysqli_query($conn,$sql);
             </div>
             <!-- End Container fluid  -->
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">รายละเอียดข้อมูล</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+            <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
+              <div class="modal fade" id="dataModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-notify modal-info" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                      <!--Header-->
+                      <div class="modal-header">
+                        <p class="heading lead" id="myModalLabel">รายละเอียด</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                      </div>
+
+                      <!--Body-->
+                      <div class="modal-body">
+                        <div class="text-center">
+                        <div class="container-fluid">
+                            <div class="row" id="employee_detail1">
+                               
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+
+                      <!--Footer-->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" >close</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="modal-body">
-                <!-- แสดงข้อมูลบน modal -->
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>ชื่อผู้ใช้งาน</b>  :  admin2</li>
-                        <li class="list-group-item"><b>ชื่อผู้ใช้งาน</b>  :  admin2</li>
-                        <li class="list-group-item"><b>ชื่อผู้ใช้งาน</b>  :  admin2</li>
-                    </ul>
-                <!-- แสดงข้อมูลบน modal -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-            </div>
+
+             <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
 
             <!-- footer -->
             <?php include 'template/footer.php';?>
@@ -145,6 +157,24 @@ $query = mysqli_query($conn,$sql);
     <script>
          /* Basic Table */
         $('#zero_config').DataTable();
+    </script>
+   <!-- แสดงข้อมูล modal -->
+   <script type="text/javascript">
+        $(document).on('click', '.view_data', function(){  
+           var user_id = $(this).attr("id");  
+           if(user_id != '')  
+           {  
+                $.ajax({  
+                     url:"script/showprocess_script.php",  
+                     method:"POST",  
+                     data:{id:user_id},  
+                     success:function(data){  
+                          $('#employee_detail1').html(data);  
+                          $('#dataModal1').modal('show');  
+                     }  
+                });  
+           }            
+      });  
     </script>
 
 </body>
