@@ -9,6 +9,20 @@ $query = mysqli_query($conn, $sql);
 <head>
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <title>Administrator Phonic App by Aj.Aum</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        img {
+            border: 0px solid #ddd;
+            border-radius: 0px;
+            padding: 0px;
+            width: 55px;
+            height: 25px;
+        }
+
+        img:hover {
+            box-shadow: 0 0 1px 1px rgba(0, 140, 186, 0.5);
+        }
+    </style>
 </head>
 
 <body>
@@ -60,7 +74,7 @@ $query = mysqli_query($conn, $sql);
                                     <tr>
                                         <th width="15px">ลำดับ</th>
                                         <th>Level</th>
-                                        <th>ชื่อบทเรียน</th>
+                                        <th>บทเรียน</th>
                                         <th>คำอธิบายบทเรียน</th>
                                         <th>รูปบทเรียน</th>
                                         <th width="50px">ตัวเลือก</th>
@@ -77,7 +91,7 @@ $query = mysqli_query($conn, $sql);
                                             <td><?php echo $result["level"]; ?></td>
                                             <td><?php echo $result["lesson_name"]; ?></td>
                                             <td><?php echo $result["lesson_desc"]; ?></td>
-                                            <td align="center"><img src="../<?php echo $result["small_image"]; ?>" width="50px" height="30px"></td>
+                                            <td align="center"><a href="../<?php echo $result["small_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["small_image"]; ?>"></a></td>
 
                                             <td width="65px;" align="center">
                                                 <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
@@ -102,6 +116,36 @@ $query = mysqli_query($conn, $sql);
                 <!-- Sales chart -->
             </div>
             <!-- End Container fluid  -->
+            <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
+            <div class="modal fade" id="dataModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead" id="myModalLabel">ข้อมูลคำศัพท์ </p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <div class="card" id="employee_detail1">
+                                    <!-- แสดงข้อมูล -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- footer -->
             <?php include 'template/footer.php'; ?>
             <!-- End footer -->
@@ -115,6 +159,25 @@ $query = mysqli_query($conn, $sql);
     <script>
         /* Basic Table */
         $('#zero_config').DataTable();
+    </script>
+    <!-- แสดงข้อมูล modal -->
+    <script type="text/javascript">
+        $(document).on('click', '.view_data', function() {
+            var user_id = $(this).attr("id");
+            if (user_id != '') {
+                $.ajax({
+                    url: "script/showdetaillesson_script.php",
+                    method: "POST",
+                    data: {
+                        id: user_id
+                    },
+                    success: function(data) {
+                        $('#employee_detail1').html(data);
+                        $('#dataModal1').modal('show');
+                    }
+                });
+            }
+        });
     </script>
 
 </body>
