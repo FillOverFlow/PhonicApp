@@ -77,12 +77,12 @@ $query = mysqli_query($conn, $sql);
                                             <td><?php echo $result["level"]; ?></td>
                                             <td><?php echo $result["lesson_name"]; ?></td>
                                             <td><?php echo $result["lesson_desc"]; ?></td>
-                                            <td><img src="<?php echo $result["big_image"]; ?>"></td>
+                                            <td align="center"><img src="../<?php echo $result["small_image"]; ?>" width="50px" height="30px"></td>
 
                                             <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["user_id"]; ?>"><i class="fas fa-search"></i></a>
+                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
 
-                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/dellesson_script.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                             </td>
                                         </tr>
                                         <?php
