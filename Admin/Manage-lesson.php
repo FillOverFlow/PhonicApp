@@ -123,7 +123,7 @@ $query = mysqli_query($conn, $sql);
                     <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
-                            <p class="heading lead" id="myModalLabel">ข้อมูลคำศัพท์ </p>
+                            <p class="heading lead" id="myModalLabel">ข้อมูลคำศัพท์  </p>
 
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="white-text">&times;</span>
@@ -133,8 +133,10 @@ $query = mysqli_query($conn, $sql);
                         <!--Body-->
                         <div class="modal-body">
                             <div class="text-center">
-                                <div class="card" id="employee_detail1">
-                                    <!-- แสดงข้อมูล -->
+                                <div class="container-fluid">
+                                    <div class="card" id="employee_detail1">
+                                        <!-- แสดงข้อมูล -->
+                                    </div>
                                 </div>
                             </div>
                         </div>

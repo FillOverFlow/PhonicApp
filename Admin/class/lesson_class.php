@@ -52,7 +52,14 @@ Class Lesson{
         }
 
     }
+    function delete_lesson($params){
+        include '../../db_connection.php';
+        $lesson_id   = $params['lesson_id'];
+
+        $stmt = $conn->prepare("DELETE FROM movies WHERE filmID = ?");
+        $stmt->bind_param('i', $_POST['filmID']);
+        $stmt->execute(); 
+        $stmt->close();
+
+    }
 }
-
-
-?>
