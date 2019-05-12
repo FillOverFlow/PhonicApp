@@ -18,52 +18,51 @@ $row = mysqli_fetch_array($result);
         <div class="card">
           <div class="card-body">
               <i class="fa fa-user fa-4x mb-3 animated rotateIn"></i>
-              <p style="color: #FFC300;"><?php echo $row['user_name']; ?></p>
+              <p style="color: #FFC300;"><?php echo $row['user_fullname']; ?></p>
           </div>
         </div>
     </div>
     <div class="col-sm-8" align="left">
     	<!-- แสดงตารางข้อมูลผู้ใช้งาน -->
-    <div class="table-responsive">
-	<table class="table table-bordered table-sm">
-	    <tbody>
-	      <tr>
-	        <td><b>ชื่อผู้ใช้งาน</b></td>
-	        <td><?php echo $row['user_name']; ?></td>
-	      </tr>
-	      <tr>
-	        <td><b>รหัสผ่าน</b></td>
-	        <td><?php echo $row['user_pwd']; ?></td>
-	      </tr>
-	      <tr>
-	        <td><b>ชื่อ - สกุล</b></td>
-	        <td><?php echo $row['user_fullname']; ?></td>
-	      </tr>
-	      <tr>
-	        <td><b>ระดับ</b></td>
-	        <td><?php echo $row['user_position']; ?></td>
-	      </tr>
-	       <tr>
-	        <td><b>สถาบัน</b></td>
-	        <td><?php echo $row['user_school']; ?></td>
-	      </tr>
-	      <tr>
-	        <td><b>อีเมล์</b></td>
-	        <td><?php echo $row['user_email']; ?></td>
-	      </tr>
-	    </tbody>
-	 </table>
-    </div>
-    <table class="table table-borderless table-sm" >
-
-    	<tbody>
-    		<td width="80%"><p style="font-size: 11px;color: gray;">วันที่อัพเดทข้อมูลล่าสุด <?php echo date("d/m/Y", strtotime($row['syear'])); ?></p></td>
-    		<td width="20%" align="right"><a href="edituser.php?user_id=<?php echo $row["user_id"];?>" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a></td>
-    	</tbody>
-    	
-    </table>
-    
-
+				<div class="table-responsive">
+				<table class="table table-bordered table-sm">
+						<tbody>
+							<tr>
+								<td><b>ชื่อผู้ใช้งาน</b></td>
+								<td><?php echo $row['user_name']; ?></td>
+							</tr>
+							<tr>
+								<td><b>รหัสผ่าน</b></td>
+								<td><?php echo $row['user_pwd']; ?></td>
+							</tr>
+							<tr>
+								<td><b>ชื่อ - สกุล</b></td>
+								<td><?php echo $row['user_fullname']; ?></td>
+							</tr>
+							<tr>
+								<td><b>ระดับ</b></td>
+								<td><?php echo $row['user_position']; ?></td>
+							</tr>
+							<tr>
+								<td><b>สถาบัน</b></td>
+								<td><?php echo $row['user_school']; ?></td>
+							</tr>
+							<tr>
+								<td><b>อีเมล์</b></td>
+								<td><?php echo $row['user_email']; ?></td>
+							</tr>
+						</tbody>
+				</table>
+				</div>
+				
+				<table class="table table-borderless table-sm" >
+					<tbody>
+						<td width="80%"><p style="font-size: 11px;color: gray;">วันที่อัพเดทข้อมูลล่าสุด <?php echo date("d/m/Y", strtotime($row['syear'])); ?></p>
+						</td>
+						<td width="20%" align="right"><a href="edituser.php?user_id=<?php echo $row["user_id"];?>" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
+						</td>
+					</tbody>
+				</table>
     </div>
 
 
