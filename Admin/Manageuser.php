@@ -116,7 +116,7 @@ $query = mysqli_query($conn,$sql);
                     <div class="modal-content">
                       <!--Header-->
                       <div class="modal-header">
-                        <p class="heading lead" id="myModalLabel">รายละเอียด</p>
+                        <p class="heading lead" id="myModalLabel">Modal Info</p>
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true" class="white-text">&times;</span>
@@ -126,11 +126,17 @@ $query = mysqli_query($conn,$sql);
                       <!--Body-->
                       <div class="modal-body">
                         <div class="text-center">
-                        <div class="container-fluid">
-                            <div class="row" id="employee_detail1">
-                               
+                            <div class="row">
+                                <div class="col-sm-3">
+                                     <i class="fa fa-user fa-4x mb-3 animated rotateIn"></i>
+                                </div>
+                                <div class="col-sm-9" >
+                                    <p id="employee_detail1">
+                                    <!-- แสดงข้อมูล -->
+                                </div>
                             </div>
-                        </div>
+                           
+                          </p>
                         </div>
                       </div>
 
