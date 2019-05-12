@@ -102,12 +102,15 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        
+                        
+                        <!-- <div class="form-group row">
                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">ลำดับบทเรียน</label>
                             <div class="col-sm-6">
+                                <p>ลำดับล่าสุด</p>
                                 <input type="text" class="form-control" name="lesson_no" id="lesson_no" placeholder="" required>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">รูปบทเรียน</label>
                             <div class="col-sm-6">

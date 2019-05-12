@@ -3,9 +3,16 @@
     require '../class/lesson_class.php';
     //prepare params 
     /*location lesson image*/
+    
     if($_FILES){
+        /* คำนวณลำดับ ของ lesson_no */
+        include '../../db_connection.php';
         $level       = $_POST['level'];
-        $lesson_no   = $_POST['lesson_no'];
+        $sql = "SELECT MAX(lesson_no) from lesson_detail WHERE level = $level";
+        $result  = $conn->query($sql);
+        $row = $result->fetch_assoc();
+
+        $lesson_no   = $row['MAX(lesson_no)'];
         $lesson_id   = $_POST['lesson_id'];
         $lesson_name = $_POST['lesson_name'];
         $lesson_desc = $_POST['lesson_desc'];
@@ -18,7 +25,7 @@
         $params = array(
             'level'       => $level,
             'lesson_id'   => $lesson_id,
-            'lesson_no'   => $lesson_no,
+            'lesson_no'   => $lesson_no+1,  //+1 จะกลายเป็น Lesson_no 
             'small_image' => 'img/level'.$level.'/'.$small_image,
             'big_image'   => 'img/level'.$level.'/'.$small_image,
             'lesson_name' => $lesson_name,
