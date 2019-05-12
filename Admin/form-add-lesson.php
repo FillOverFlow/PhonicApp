@@ -199,7 +199,7 @@
                                     </div>  -->
                                     <br>
                                     <div id="page"></div>
-                                  
+                                    
                                     
                                 </div>
                             </div>
@@ -250,6 +250,7 @@
                         <hr>
                     </div>
                     <div class="modal-footer">
+                    
                       <button  id="but_upload" class="btn btn-success" data-dismiss="modal">บันทึก</button>
                       <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
                       
@@ -332,8 +333,10 @@
                 processData: false,
                 success: function(response){
                     console.log(response);
+                    console.log('file:',files['name']);
                     var page_id = window.value;
-                    var word_markup = "<button class='button button_showimg' style='background-image: url('assets/images/ant.jpg');'><span><i class='fa fa-pencil'  aria-hidden='true'></i></span></button>"
+                    var image = '../img/word/'+files['name'];
+                    var word_markup = "<button class='button button_showimg' style='background-image: url("+image+");'><span><i class='fa fa-pencil'  aria-hidden='true'></i></span></button>"
                     $("#"+page_id+"").append(word_markup);
                     word_number++;
                 },
@@ -345,7 +348,7 @@
         $('#btn_lesson').click(function(){
             var r = confirm("ยืนยันการเพิ่มบทเรียนนี้");
             if(r == true){
-                var lesson_no   = $('#lesson_no').val();  //ลำดับ lesson
+            var lesson_no   = $('#lesson_no').val();  //ลำดับ lesson
             var lesson_name = $('#lesson_name').val();
             var lesson_desc = $('#lesson_desc').val();
             var level       = $('#level').val();
