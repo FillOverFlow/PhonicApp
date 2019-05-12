@@ -31,9 +31,20 @@
         'page_no'   => $_POST['page_no'],
         'word_show' => $_POST['wordname'],
         'word_speak'=> $_POST['wordsound'],
-        'word_image'=> $_FILES['file']['name']
+        'word_image'=> "img/word/".$_FILES['file']['name']
     );
-    print_r($params);
+    //use lesson class 
+    $lesson = new Lesson();
+    if($lesson->add_word($params) == true){
+        echo '<script language="javascript" type="text/javascript"> ';
+        echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
+        echo ' location.href="../Manage-lesson.php"';
+        echo '}';
+        echo '</script>';
+        exit;
+    }
+    
+
     
 
 ?>

@@ -88,37 +88,54 @@
               <!-- End Example image -->
               <!-- Form for add lesson -->
               <div class="card">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal"  method="post" >
                     <div class="card-body">
                     <h4 class="card-title">เพิ่มบทเรียน</h4>
-                    <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">รูปบทเรียน</label>
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Level</label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="fname" placeholder="First Name Here">
+                                <select name="level" id="level" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">ลำดับบทเรียน</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="lesson_no" id="lesson_no" placeholder="" required>
                             </div>
-                            <div class="form-group row">
+                        </div>
+                        <div class="form-group row">
+                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">รูปบทเรียน</label>
+                            <div class="col-sm-6">
+                                <input type="file" class="form-control" name="small_image" id="small_image" placeholder="First Name Here" required>
+                            </div>
+                        </div>
+                            <!-- <div class="form-group row">
                                 <label for="lname" class="col-sm-3 text-right control-label col-form-label">รูปบทเรียนใหญ่</label>
                                 <div class="col-sm-6">
-                                    <input type="file" class="form-control" id="lname" placeholder="Last Name Here">
+                                    <input type="file" class="form-control" name="big_image" id="big_image" placeholder="Last Name Here" required>
                                 </div>
-                            </div>
-                            <div class="form-group row">
+                            </div> -->
+                            <!-- <div class="form-group row">
                                 <label for="lname" class="col-sm-3 text-right control-label col-form-label">ภาพตัวอย่าง</label>
                                 <div class="col-sm-6">
-                                    <input type="file" class="form-control" id="lname" placeholder="Password Here">
+                                    <input type="file" class="form-control" name="" placeholder="Password Here" required>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group row">
                                 <label for="email1" class="col-sm-3 text-right control-label col-form-label">ชื่อบทเรียน</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="email1" placeholder="ตัวอย่าง Lesson 4">
+                                    <input type="text" class="form-control" name="lesson_name" id="lesson_name" placeholder="ตัวอย่าง Lesson 4" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">คำอธิบายบทเรียน</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="cono1" placeholder="ตัวอย่าง Word with Short Vowel ' a '">
+                                    <input type="text" class="form-control" name="lesson_desc" id="lesson_desc" placeholder="ตัวอย่าง Word with Short Vowel ' a '" required>
                                 </div>
                             </div>
                             <br>
@@ -187,7 +204,7 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary btn-sm" ><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+                                <button type="submit" id="btn_lesson" class="btn btn-primary btn-sm" ><i class="fas fa-check"> บันทึกข้อมูล</i></button>
                                 <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
                             </div>
                         </div>
@@ -320,6 +337,43 @@
                 });
             }
            
+        });
+        //button upload lesson
+        $('#btn_lesson').click(function(){
+            var r = confirm("ยืนยันการเพิ่มบทเรียนนี้");
+            if(r == true){
+                var lesson_no   = $('#lesson_no').val();  //ลำดับ lesson
+            var lesson_name = $('#lesson_name').val();
+            var lesson_desc = $('#lesson_desc').val();
+            var level       = $('#level').val();
+            var small_image = $('#small_image')[0].files[0];
+            var maxpage     = page_number;
+
+            var fd = new FormData();
+            fd.append('lesson_no',lesson_no);
+            fd.append('lesson_name',lesson_name);
+            fd.append('lesson_desc',lesson_desc);
+            fd.append('lesson_id',lesson_id);
+            fd.append('level',level);
+            fd.append('small_image',small_image);
+            fd.append('maxpage',maxpage);
+
+            $.ajax({
+                url: 'script/addlesson_script.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response){
+                    console.log(response);
+                    alert('ทำรายการเรียบร้อยแล้ว');
+                    
+                },
+                });
+            }else{
+                alert('ยกเลิกแล้ว');
+            }
+            
         });
         
     </script>
