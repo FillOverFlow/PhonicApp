@@ -13,9 +13,10 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>Login - Administrator Phonic App by Aj.Aum</title>
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,8 +56,18 @@
                 <?php }?>
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="assets/images/logo.png" alt="logo" /></span>
+                        <!-- <span class="db"><img src="assets/images/logo.png" alt="logo" /></span> -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <span class="db" style ="color:#fff;" ><i class="fas fa-user-lock fa-4x mb-3 animated rotateIn " style="font-size:70px"></i></span>
+                             <span class="db"><h4 style="margin-top:10px;color:#fff; ">Login : Phonic App</h4></span>
+                            
+                        </span>
                     </div>
+                    <!-- Logo text -->
+                    
+
+                        <!-- Logo icon -->
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" id="loginform" action="script/user_login_script.php" method="post">
                         <div class="row p-b-30">
