@@ -33,15 +33,15 @@
             'maxpage'     => $maxpage,
         );
         print_r($params);
-        // //use class to upload lesson
-        // $lesson = new Lesson();
-        // $lesson->add_lesson($params);
-        // //upload image to directory location
-        // if(move_uploaded_file($_FILES['small_image']['tmp_name'],$location.$_FILES['small_image']['name'])){
-        //     //echo 'uploadimage:'.$location.$_FILES['small_image']['name'];
-        // }else{
-        // echo "<script>alert('No image');</script>";
-        // }
+        //use class to upload lesson
+        $lesson = new Lesson();
+        $lesson->add_lesson($params);
+        //upload image to directory location
+        if(move_uploaded_file($_FILES['small_image']['tmp_name'],$location.$_FILES['small_image']['name'])){
+            //echo 'uploadimage:'.$location.$_FILES['small_image']['name'];
+        }else{
+        echo "<script>alert('No image');</script>";
+        }
     }
     
 ?>
