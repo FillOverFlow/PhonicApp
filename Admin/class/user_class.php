@@ -51,24 +51,23 @@
             $stmt->close();
             
         }
-        function edit($user_id,$user_pwd,$user_fullname,$user_position,$user_school,$user_email){
+        function edit($user_id,$user_fullname,$user_position,$user_school,$user_email){
 
             $this->user_id = $user_id;
-            $this->user_pwd = $user_pwd;
+            // $this->user_pwd = $user_pwd;
             $this->user_fullname = $user_fullname;
             $this->user_position = $user_position;
             $this->user_school = $user_school;
             $this->user_email = $user_email;
             include '../../db_connection.php';
 
-            $stmt = $conn->prepare("UPDATE user_account SET user_pwd = ?, 
-            user_fullname = ?,  
+            $stmt = $conn->prepare("UPDATE user_account SET user_fullname = ?,  
             user_position = ?,  
             user_school = ?,
             user_email = ?   
             WHERE user_id = ?");
-            $stmt->bind_param('ssssss',
-            crypt($_POST["edit_password"], 'rl'), // ต้องทำการ decode กลับเพื่อแสดง
+            $stmt->bind_param('sssss',
+            // $_POST["edit_password"],// ต้องทำการ decode กลับเพื่อแสดง
             $_POST['edit_fname'],
             $_POST['edit_position'], 
             $_POST['edit_education'],
@@ -121,38 +120,10 @@
 
             $stmt->close();
         }
-        /* authentication */
-        // function login($username,$password) //params username ,password
-        // {
-        //     $this->username = $username;
-        //     $this->password = $password;
-        //     include '../../db_connection.php';
-        //     echo 'username:'.$this->username;
-        //     echo 'password:'.$this->password;
-        //     // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-        //     if ($stmt = $conn->prepare('SELECT admin_id, admin_password FROM admin_account WHERE admin_username = ?')){
-        //     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-        //     $stmt->bind_param('s', $this->username);
-        //     $stmt->execute();
-        //     //store result
-        //     $stmt->store_result();
-        //     //if have user_name in database 
-        //     if($stmt->num_rows > 0){
-        //         $stmt->bind_result($admin_id,$admin_password);
-        //         $stmt->fetch();
-        //         //verify  password
-        //         if(password_verify($this->password,$admin_password)){
-        //         //verify sucess !! User has loggin
-        //         //create session
-        //             $_SESSION['loggedin'] = True;
-        //             $_SESSION['name'] = $this->username;
-        //             $_SESSION['id'] = $admin_id;
-        //             return True;
-        //         }else{echo "Incorrect Password!";return False;}
-        //         }else{echo "Incorrect Username";}
-        //          $stmt->close();
-        //         }
-        // }/*end function login*/
+        function change_Password()
+        {
+            # code...
+        }
     /*end class user*/ 
     }
 

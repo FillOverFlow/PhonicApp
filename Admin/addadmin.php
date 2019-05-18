@@ -64,6 +64,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="con_password" class="col-sm-3 text-right control-label col-form-label">ยืนยันรหัสผ่าน</label>
+                                        <div class="col-sm-6">
+                                            <input type="con_password" class="form-control" name="con_password" id="con_password" placeholder="กรอกรหัสผ่าน" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล" required>
