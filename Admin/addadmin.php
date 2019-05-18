@@ -1,11 +1,3 @@
-<?php 
-session_start();
-include '../db_connection.php';
-if($_SESSION["loggedin"]!=True){
-    //if not login redirect to login.php 
-    header("location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -34,13 +26,13 @@ if($_SESSION["loggedin"]!=True){
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">เพิ่มข้อมูลผู้ใช้งาน</h4>
+                        <h4 class="page-title">เพิ่มข้อมูลผู้ดูแลระบบ</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="Manageuser.php">ข้อมูลผู้ใช้งาน</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">เพิ่มข้อมูลผู้ใช้งาน</li>
+                                    <li class="breadcrumb-item"><a href="Manageadmin.php">ข้อมูลผู้ดูแลระบบ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">เพิ่มข้อมูลผู้ดูแลระบบ</li>
                                 </ol>
                             </nav>
                         </div>
@@ -54,9 +46,9 @@ if($_SESSION["loggedin"]!=True){
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal" action="script/adduser_script.php" method="post">
+                            <form class="form-horizontal" action="script/addadmin_script.php" method="post">
                                 <div class="card-body">
-                                    <h4 class="card-title">ข้อมูลผู้ใช้งาน</h4>
+                                    <h4 class="card-title">ข้อมูลผู้ดูแลระบบ</h4>
 
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
@@ -75,26 +67,6 @@ if($_SESSION["loggedin"]!=True){
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="Position" class="col-sm-3 text-right control-label col-form-label">ระดับ</label>
-                                        <div class="col-sm-6">
-                                            <select class="select2 form-control custom-select" name="Position" style="width: 100%; height:36px;" required >
-                                                    <option value="">-เลือกระดับ-</option>
-                                                    <option value="นักเรียน">นักเรียน</option>
-                                                    <option value="ผู้ปกครอง">ผู้ปกครอง</option>
-                                                    <option value="ครู">ครู</option>
-                                                    <option value="อาจารย์">อาจารย์</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="education" id="education" placeholder="กรอกสถานศีกษา" required>
                                         </div>
                                     </div>
 

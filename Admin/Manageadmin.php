@@ -5,7 +5,10 @@ if($_SESSION["loggedin"]!=True){
     //if not login redirect to login.php 
     header("location:login.php");
 }
-$sql = "SELECT * FROM user_account ORDER BY create_date DESC";
+
+// $admin_id = $_SESSION['id'];
+// echo $admin_id;
+$sql = "SELECT * FROM admin_account ORDER BY create_date DESC";
 $query = mysqli_query($conn, $sql);
 
 ?>
@@ -37,12 +40,12 @@ $query = mysqli_query($conn, $sql);
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">จัดการข้อมูลผู้ใช้งาน</h4>
+                        <h4 class="page-title">จัดการข้อมูลผู้ดูแลระบบ</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลผู้ใช้งาน</li>
+                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูลผู้ดูแลระบบ</li>
                                 </ol>
                             </nav>
                         </div>
@@ -56,7 +59,7 @@ $query = mysqli_query($conn, $sql);
                 <div class="card">
                     <!-- ปุ่มเพิ่มข้อมุล -->
                     <div class="card-body">
-                        <a href="adduser.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                        <a href="addadmin.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
                     </div>
                     <!-- ปุ่มเพิ่มข้อมุล -->
                     <div class="card-body">
@@ -67,8 +70,6 @@ $query = mysqli_query($conn, $sql);
                                         <th>ลำดับ</th>
                                         <th>ชื่อผู้ใช้งาน</th>
                                         <th>ชื่อ-สกุล</th>
-                                        <th>ระดับ</th>
-                                        <th>สถานศึกษา</th>
                                         <th>E-mail</th>
                                         <th>ตัวเลือก</th>
                                     </tr>
@@ -81,17 +82,15 @@ $query = mysqli_query($conn, $sql);
                                         ?>
                                         <tr>
                                             <td><?= number_format($i); ?></td>
-                                            <td><?php echo $result["user_name"]; ?></td>
-                                            <td><?php echo $result["user_fullname"]; ?></td>
-                                            <td><?php echo $result["user_position"]; ?></td>
-                                            <td><?php echo $result["user_school"]; ?></td>
-                                            <td><?php echo $result["user_email"]; ?></td>
+                                            <td><?php echo $result["admin_username"]; ?></td>
+                                            <td><?php echo $result["admin_fullname"]; ?></td>
+                                            <td><?php echo $result["admin_email"]; ?></td>
                                             <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["user_id"]; ?>"><i class="fas fa-search"></i></a>
+                                                <!-- <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["user_id"]; ?>"><i class="fas fa-search"></i></a>
 
                                                 <a href="JavaScript:if(confirm('คุณต้องการแก้ไขข้อมูลใช่หรือไม่ ?')==true){window.location='edituser.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
 
-                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a> -->
                                             </td>
                                         </tr>
                                         <?php

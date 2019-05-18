@@ -1,10 +1,10 @@
 <?php 
 	session_start();
-	require '../class/user_class.php';
+	require '../class/admin_class.php';
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$user = new User();
+	$user = new Admin();
 	if($user->login($username,$password))
 	{
 		header('Location: ../index.php');

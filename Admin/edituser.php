@@ -1,12 +1,17 @@
 <?php
 //1. เชื่อมต่อ database: 
-include '../db_connection.php';  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+session_start();
+include '../db_connection.php';
+if($_SESSION["loggedin"]!=True){
+    //if not login redirect to login.php 
+    header("location:login.php");
+}  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
 $user_id = $_GET["user_id"];
 
 //2. query ข้อมูลจากตาราง: 
 $sql = "SELECT * FROM user_account WHERE user_id='$user_id' ";
-$result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error());
+$result = mysqli_query($conn, $sql) or die ("Error in query: $sql " . mysqli_error($conn));
 $row = mysqli_fetch_array($result);
 // extract($row);
 ?>
@@ -65,7 +70,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="form-group row">
                                         <label for="edit_username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="edit_username" id="edit_username" value="<?php echo $row["user_name"]; ?>" placeholder="กรอกชื่อผู้ใช้งาน">
+                                            <input type="text" class="form-control" name="edit_username" id="edit_username" value="<?php echo $row["user_name"]; ?>" placeholder="กรอกชื่อผู้ใช้งาน" disabled>
                                         </div>
                                     </div>
 

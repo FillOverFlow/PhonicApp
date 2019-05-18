@@ -1,5 +1,10 @@
 <?php
+session_start();
 include '../db_connection.php';
+if($_SESSION["loggedin"]!=True){
+    //if not login redirect to login.php 
+    header("location:login.php");
+}
 $sql = "SELECT * FROM lesson_detail ORDER BY `level` ASC";
 $query = mysqli_query($conn, $sql);
 ?>
