@@ -54,7 +54,6 @@
         function edit($user_id,$user_fullname,$user_position,$user_school,$user_email){
 
             $this->user_id = $user_id;
-            // $this->user_pwd = $user_pwd;
             $this->user_fullname = $user_fullname;
             $this->user_position = $user_position;
             $this->user_school = $user_school;
@@ -67,7 +66,6 @@
             user_email = ?   
             WHERE user_id = ?");
             $stmt->bind_param('sssss',
-            // $_POST["edit_password"],// ต้องทำการ decode กลับเพื่อแสดง
             $_POST['edit_fname'],
             $_POST['edit_position'], 
             $_POST['edit_education'],
@@ -120,9 +118,37 @@
 
             $stmt->close();
         }
-        function change_Password()
-        {
-            # code...
+        function changePassword($user_id,$user_pwd,$old_pass){
+            $this->user_id = $user_id;
+            $this->user_pwd = $user_pwd;
+            $this->old_pass = $old_pass;
+           
+            include '../../db_connection.php';
+
+            $stmt = $conn->prepare("UPDATE user_account SET user_pwd = ? 
+            WHERE user_id = ? and user_pwd = '$old_pass'");
+            $stmt->bind_param('ss',
+            $this->user_pwd,
+            $this->user_id);
+            
+            $stmt->execute(); 
+
+            // if($stmt) {
+            //     echo '<script language="javascript" type="text/javascript"> ';
+            //     echo 'if(!alert("อัพเดทข้อมูลเรียบร้อย")) {';//msg
+            //     echo ' location.href="../Manageuser.php"';
+            //     echo '}';
+            //     echo '</script>';
+            //     exit;  
+            // }else{
+            //     echo '<script language="javascript" type="text/javascript"> ';
+            //     echo 'if(!alert("อัพเดทข้อมูลไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
+            //     echo ' location.href="../Manageuser.php"';
+            //     echo '}';
+            //     echo '</script>';
+            // }
+
+            $stmt->close();
         }
     /*end class user*/ 
     }

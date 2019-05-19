@@ -115,7 +115,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="form-group row">
                                         <label for="edit_fname" class="col-sm-3 text-right control-label col-form-label"></label>
                                         <div class="col-sm-6">
-                                            <a href="#"  title="view" class="view_data" id="<?php echo $row["user_id"]; ?>">เปลี่ยนรหัสผ่าน</a>
+                                            <a href="#" data-toggle="modal" data-target="#dataModal1">เปลี่ยนรหัสผ่าน</a>
                                         </div>
                                     </div>
 
@@ -124,7 +124,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="card-body">
                                         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
 
-                                        <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>
                                 </div>
                             </form>
@@ -133,8 +133,6 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <!-- ฟอร์มเพิ่มข้อมูลผู้ใช้งาน -->
 
-
-
                 <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
                 <div class="modal fade" id="dataModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-notify modal-info" role="document">
@@ -142,7 +140,7 @@ $row = mysqli_fetch_array($result);
                         <div class="modal-content">
                             <!--Header-->
                             <div class="modal-header">
-                                <p class="heading lead" id="myModalLabel">แก้ไขรหัสผ่าน</p>
+                                <p class="heading lead" id="myModalLabel">แก้ไขรหัสผ่านผู้ใช้งาน</p>
 
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true" class="white-text">&times;</span>
@@ -153,7 +151,28 @@ $row = mysqli_fetch_array($result);
                             <div class="modal-body">
                                 <div class="text-center">
                                     <div class="row" id="employee_detail1">
-                                        <!-- แสดงข้อมูล -->
+                                        <div class="col-sm-12" align="left">
+                                            <!-- ฟอร์มแก้ไขรหัสผ่าน -->
+                                            <form action="script/changepassUser_script.php?user_id=<?php echo $_GET["user_id"]; ?>" onsubmit="return checkNewpass(this);" method="post">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">รหัสผ่านเดิม : </label>
+                                                    <input type="password" id="old_pass" name="old_pass" class="form-control input-lg" placeholder="รหัสผ่านเดิม" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">รหัสผ่านใหม่ : </label>
+                                                    <input type="password" id="new_pass" name="new_pass" class="form-control input-lg" placeholder="รหัสผ่านใหม่" onchange="checkPass();" required>
+                                                    <span id="txtCheck2"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">ยืนยันรหัสผ่านใหม่ : </label>
+                                                    <input type="password" id="new_pass2" name="new_pass2" class="form-control input-lg" placeholder="ยืนยันรหัสผ่านใหม่" required>
+                                                    <span id="txtCheck2"></span>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary btn-sm">อัพเดทข้อมูล</button>
+                                                <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
+                                                <!-- ฟอร์มแก้ไขรหัสผ่าน -->
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -179,25 +198,37 @@ $row = mysqli_fetch_array($result);
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
+    <script>
+        function gohome() {
+            document.location.href = 'Manageuser.php';
+        }
+    </script>
+    <script>
+        function checkPass() {
 
-    <!-- แสดงข้อมูล modal -->
-    <script type="text/javascript">
-        $(document).on('click', '.view_data', function() {
-            var user_id = $(this).attr("id");
-            if (user_id != '') {
-                $.ajax({
-                    url: "script/changepassword_script.php",
-                    method: "POST",
-                    data: {
-                        id: user_id
-                    },
-                    success: function(data) {
-                        $('#employee_detail1').html(data);
-                        $('#dataModal1').modal('show');
-                    }
-                });
+            str1 = document.getElementById("new_pass").value;
+
+            if (str1.length < 8) {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
+                document.getElementById("new_pass").focus();
+            } else {
+                document.getElementById("txtCheck2").innerHTML = "";
             }
-        });
+        }
+
+        function checkNewpass(form) {
+
+            str1 = document.getElementById("new_pass").value;
+            str2 = document.getElementById("new_pass2").value;
+
+            if (str1 == str2) {
+                return true;
+            } else {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านใหม่ไม่ตรงกัน !!!</span>";
+                document.getElementById("new_pass2").focus();
+                return false;
+            }
+        }
     </script>
 </body>
 

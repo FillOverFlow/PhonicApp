@@ -121,7 +121,7 @@ if ($_SESSION["loggedin"] != True) {
                                     <div class="card-body">
                                         <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check"> บันทึกข้อมูล</i></button>
 
-                                        <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>
                                 </div>
                             </form>
@@ -141,6 +141,11 @@ if ($_SESSION["loggedin"] != True) {
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
+    <script>
+        function gohome() {
+            document.location.href = 'Manageuser.php';
+        }
+    </script>
     <script>
         function checkOK(form) {
 
