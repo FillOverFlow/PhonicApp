@@ -86,11 +86,11 @@ $query = mysqli_query($conn, $sql);
                                             <td><?php echo $result["admin_fullname"]; ?></td>
                                             <td><?php echo $result["admin_email"]; ?></td>
                                             <td width="65px;" align="center">
-                                                <!-- <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["user_id"]; ?>"><i class="fas fa-search"></i></a>
+                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["admin_id"]; ?>"><i class="fas fa-search"></i></a>
 
-                                                <a href="JavaScript:if(confirm('คุณต้องการแก้ไขข้อมูลใช่หรือไม่ ?')==true){window.location='edituser.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
+                                                <a href="JavaScript:if(confirm('คุณต้องการแก้ไขข้อมูลใช่หรือไม่ ?')==true){window.location='editadmin.php?admin_id=<?php echo $result["admin_id"]; ?>';}" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
 
-                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deluser_script.php?user_id=<?php echo $result["user_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a> -->
+                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/deladmin_script.php?admin_id=<?php echo $result["admin_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -164,7 +164,7 @@ $query = mysqli_query($conn, $sql);
             var user_id = $(this).attr("id");
             if (user_id != '') {
                 $.ajax({
-                    url: "script/showprocess_script.php",
+                    url: "script/showprocessadmin_script.php",
                     method: "POST",
                     data: {
                         id: user_id

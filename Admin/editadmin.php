@@ -1,3 +1,19 @@
+<?php
+//1. เชื่อมต่อ database: 
+session_start();
+include '../db_connection.php';
+if ($_SESSION["loggedin"] != True) {
+    //if not login redirect to login.php 
+    header("location:login.php");
+}  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+
+$admin_id = $_GET["admin_id"];
+//2. query ข้อมูลจากตาราง: 
+$sql = "SELECT * FROM admin_account WHERE admin_id='$admin_id' ";
+$result = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error($conn));
+$row = mysqli_fetch_array($result);
+// extract($row);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -46,50 +62,44 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal" action="script/addadmin_script.php" method="post">
+                            <form class="form-horizontal" action="script/editadmin_script.php?admin_id=<?php echo $_GET["admin_id"]; ?>" method="post">
                                 <div class="card-body">
                                     <h4 class="card-title">ข้อมูลผู้ดูแลระบบ</h4>
 
                                     <div class="form-group row">
                                         <label for="username" class="col-sm-3 text-right control-label col-form-label">ชื่อผู้ใช้งาน</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="username" id="username" placeholder="กรอกชื่อผู้ใช้งาน" onchange="checkUser();"  required>
+                                            <input type="text" class="form-control" name="username" id="username" placeholder="กรอกชื่อผู้ใช้งาน" onchange="checkUser();" value="<?= $row["admin_username"]; ?>" disabled>
                                             <span id="txtCheck"></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="password" class="col-sm-3 text-right control-label col-form-label">รหัสผ่าน</label>
-                                        <div class="col-sm-6">
-                                            <input type="password" class="form-control" name="password" id="password" placeholder="กรอกรหัสผ่าน" onchange="checkPass();" required>
-                                            <span id="txtCheck2"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="con_password" class="col-sm-3 text-right control-label col-form-label">ยืนยันรหัสผ่าน</label>
-                                        <div class="col-sm-6">
-                                            <input type="password" class="form-control" name="con_password" id="con_password" placeholder="กรอกรหัสผ่าน" onchange="checkPass2();" required>
-                                            <span id='message'></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">ชื่อ - สกุล</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล" required>
+                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="กรอกชื่อ - สกุล"     value="<?= $row["admin_fullname"]; ?>" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
                                         <div class="col-sm-6">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="กรอกอีเมล์" required>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="กรอกอีเมล์" value="<?= $row["admin_email"]; ?>" required>
                                         </div>
                                     </div>
+                                     <!-- เปลี่ยนรหัสผ่าน -->
+                                     <div class="form-group row">
+                                        <label for="edit_fname" class="col-sm-3 text-right control-label col-form-label"></label>
+                                        <div class="col-sm-6">
+                                            <a href="#" data-toggle="modal" data-target="#dataModal1">เปลี่ยนรหัสผ่าน</a>
+                                        </div>
+                                    </div>
+
 
                                 </div>
                                 <div class="border-top">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+                                        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-check"> อัพเดทข้อมูล</i></button>
 
                                         <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
                                     </div>
