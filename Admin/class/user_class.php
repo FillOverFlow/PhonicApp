@@ -120,8 +120,8 @@
         }
         function changePassword($user_id,$user_pwd,$old_pass){
             $this->user_id = $user_id;
-            $this->user_pwd = $user_pwd;
-            $this->old_pass = $old_pass;
+            $this->user_pwd = crypt($user_pwd, 'rl');
+            $this->old_pass = crypt($old_pass, 'rl');
            
             include '../../db_connection.php';
 

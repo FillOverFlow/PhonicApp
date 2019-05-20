@@ -6,8 +6,6 @@ if($_SESSION["loggedin"]!=True){
     header("location:login.php");
 }
 
-// $admin_id = $_SESSION['id'];
-// echo $admin_id;
 $sql = "SELECT * FROM admin_account ORDER BY create_date DESC";
 $query = mysqli_query($conn, $sql);
 
