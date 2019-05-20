@@ -127,26 +127,27 @@
 
             $stmt = $conn->prepare("UPDATE user_account SET user_pwd = ? 
             WHERE user_id = ? and user_pwd = '$old_pass'");
-            $stmt->bind_param('ss',
+            $stmt->bind_param('sss',
             $this->user_pwd,
+            $this->old_pass,
             $this->user_id);
             
             $stmt->execute(); 
 
-            // if($stmt) {
-            //     echo '<script language="javascript" type="text/javascript"> ';
-            //     echo 'if(!alert("อัพเดทข้อมูลเรียบร้อย")) {';//msg
-            //     echo ' location.href="../Manageuser.php"';
-            //     echo '}';
-            //     echo '</script>';
-            //     exit;  
-            // }else{
-            //     echo '<script language="javascript" type="text/javascript"> ';
-            //     echo 'if(!alert("อัพเดทข้อมูลไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
-            //     echo ' location.href="../Manageuser.php"';
-            //     echo '}';
-            //     echo '</script>';
-            // }
+            if($stmt) {
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("อัพเดทข้อมูลเรียบร้อย")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+                exit;  
+            }else{
+                echo '<script language="javascript" type="text/javascript"> ';
+                echo 'if(!alert("อัพเดทข้อมูลไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
+                echo ' location.href="../Manageuser.php"';
+                echo '}';
+                echo '</script>';
+            }
 
             $stmt->close();
         }

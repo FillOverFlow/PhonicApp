@@ -15,7 +15,7 @@ $query = mysqli_query($conn, $sql);
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <title>Administrator Phonic App by Aj.Aum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+    <!-- <style>
         img {
             border: 0px solid #ddd;
             border-radius: 0px;
@@ -27,7 +27,7 @@ $query = mysqli_query($conn, $sql);
         img:hover {
             box-shadow: 0 0 1px 1px rgba(0, 140, 186, 0.5);
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -96,7 +96,7 @@ $query = mysqli_query($conn, $sql);
                                             <td><?php echo $result["level"]; ?></td>
                                             <td><?php echo $result["lesson_name"]; ?></td>
                                             <td><?php echo $result["lesson_desc"]; ?></td>
-                                            <td align="center"><a href="../<?php echo $result["small_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["small_image"]; ?>"></a></td>
+                                            <td align="center"><a href="../<?php echo $result["small_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["small_image"]; ?>" width="65px" height="25px"></a></td>
 
                                             <td width="65px;" align="center">
                                                 <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>

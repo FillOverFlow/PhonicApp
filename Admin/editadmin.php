@@ -206,6 +206,7 @@ $row = mysqli_fetch_array($result);
                 return false;
             }
         }
+        
     </script>
 </body>
 
