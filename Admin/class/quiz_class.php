@@ -23,6 +23,8 @@
 		function add($params){
 			include '../../db_connection.php';
 			//variable params 
+			print_r($params);
+			echo $params["question_no"];
 			$lesson_id = $params["lesson_id"];
 			$question_no = $params["question_no"];
 			$question_title = $params["question_title"];
