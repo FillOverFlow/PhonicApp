@@ -16,7 +16,6 @@ $query = mysqli_query($conn, $sql);
     <title>Administrator Phonic App by Aj.Aum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
@@ -67,7 +66,8 @@ $query = mysqli_query($conn, $sql);
                                         <tr>
                                             <th>ลำดับ</th>
                                             <th>หัวข้อ คำถาม</th>
-                                            <th>รูปภาพ</th>
+                                            <th>รูปแบบคำถาม</th>
+                                            <!-- <th>รูปภาพ</th> -->
                                             <th>ตัวเลือก</th>
                                         </tr>
                                     </thead>
@@ -79,7 +79,8 @@ $query = mysqli_query($conn, $sql);
                                         <tr>
                                             <td><?= number_format($i); ?></td>
                                             <td><?php echo $result["question_title"]; ?></td>
-                                            <td><?php  ?></td>
+                                            <td><?php echo $result["answer_style"]; ?></td>
+                                            <!-- <td align="center"><a href="../<?php echo $result["question_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["question_image"]; ?>" width="65px" height="25px"></a></td> -->
                                             <td width="65px;" align="center">
                                                 <i class="fas fa-search"></i>
                                                 <i class="far fa-edit"></i>
