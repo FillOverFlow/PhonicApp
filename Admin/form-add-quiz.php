@@ -167,37 +167,37 @@ if ($_SESSION["loggedin"] != True) {
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก  A.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_a" class="form-control" id="ans1_a" placeholder="">
+                                  <input type="file" name="ans_a" class="form-control" id="ans1_a" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">B.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_b" class="form-control" id="ans1_b" placeholder="">
+                                  <input type="file" name="ans_b" class="form-control" id="ans1_b" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">C.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_c" class="form-control" id="ans1_c" placeholder="">
+                                  <input type="file" name="ans_c" class="form-control" id="ans1_c" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">D.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_d" class="form-control" id="ans1_d" placeholder="">
+                                  <input type="file" name="ans_d" class="form-control" id="ans1_d" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">E.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_e" class="form-control" id="ans1_e" placeholder="">
+                                  <input type="file" name="ans_e" class="form-control" id="ans1_e" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                 <div class="col-sm-4">
-                                  <input type="text" name="ans1" class="form-control" id="ans1" placeholder="">
+                                  <input type="text" name="ANS" class="form-control" id="ans1" placeholder="">
                                 </div>
                               </div>
                             </div>
