@@ -63,12 +63,12 @@ if ($_SESSION["loggedin"] != True) {
                   <!-- <input id="butt" type="button" value="Test" /> -->
                 </div>
                 <div class="col-sm-8">
-                  
+
 
                   <div id="clonedInput1" class="clonedInput">
 
-                    
-                    <div class="accordion" id="accordionExample" >
+
+                    <div class="accordion" id="accordionExample">
                       <div class="card m-b-0">
                         <div class="card-header" id="headingOne">
                           <h5 class="mb-0">
@@ -78,7 +78,7 @@ if ($_SESSION["loggedin"] != True) {
                             </a>
                           </h5>
                         </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" >
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                           <div class="card-body">
 
                             <div class="form-group row">
@@ -152,7 +152,7 @@ if ($_SESSION["loggedin"] != True) {
 
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
                             <div id="formbox2">
-                            <div class="form-group row">
+                              <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
                                 <div class="col-sm-9">
                                   <input type="file" name="quiz_img" id="quiz_img" class="form-control">
@@ -165,7 +165,7 @@ if ($_SESSION["loggedin"] != True) {
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก  A.</label>
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-9">
                                   <input type="file" name="ans_a" class="form-control" id="ans1_a" placeholder="">
                                 </div>
@@ -203,8 +203,8 @@ if ($_SESSION["loggedin"] != True) {
                             </div>
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
 
-                           <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                           <div id="formbox3">
+                            <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
+                            <div id="formbox3">
                               <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
                                 <div class="col-sm-9">
@@ -247,7 +247,7 @@ if ($_SESSION["loggedin"] != True) {
                               </div>
                             </div>
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                            
+
 
                           </div>
                         </div>
@@ -294,7 +294,7 @@ if ($_SESSION["loggedin"] != True) {
   <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script type="text/javascript">
-   var $ = jQuery;
+    var $ = jQuery;
     $(document).ready(function() {
       $("#formbox1").hide();
       $("#formbox2").hide();
@@ -325,7 +325,14 @@ if ($_SESSION["loggedin"] != True) {
           $("#formbox3").hide();
           $("#txt_box").val("");
         }
-        
+
+        if (quiz_style == "") {
+          $("#formbox1").hide();
+          $("#formbox2").hide();
+          $("#formbox3").hide();
+          $("#quiz_img").val("").focus();
+        }
+
       });
     });
   </script>
@@ -333,6 +340,7 @@ if ($_SESSION["loggedin"] != True) {
     var regex = /^(.+?)(\d+)$/i;
     var cloneIndex = $(".clonedInput").length;
     var $ = jQuery;
+
     function clone() {
       $(this).parents(".clonedInput").clone()
         .appendTo("#add_show")
@@ -357,7 +365,9 @@ if ($_SESSION["loggedin"] != True) {
 
     $("button.remove").on("click", remove);
   </script>
-  
+
+
+
 
 </body>
 
