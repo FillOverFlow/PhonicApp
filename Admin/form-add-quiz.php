@@ -58,7 +58,7 @@ if ($_SESSION["loggedin"] != True) {
             <br>
             <div class="row">
               <div class="col-sm-4" align="center">
-                <div><a onclick=addpage() class="btn btn-success btn-lg" style="color:#fff;"><i class="fas fa-plus-circle"></i> เพิ่มแบบทดสอบ</a></div>
+                <div><a onclick=addpage() class="btn btn-outline-success btn-sm btn-block" style="color:black;"><i class="fas fa-plus-circle"></i> เพิ่มแบบทดสอบ</a></div>
               </div>
               <div class="col-sm-8">
                 <div>
@@ -66,63 +66,13 @@ if ($_SESSION["loggedin"] != True) {
                 </div>
               </div>
             </div>
-
-            <!-- <div class="form-group row">
-              <label for="" class="col-sm-3 text-right control-label col-form-label">บทเรียน</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="lesson_name" id="lesson_name" placeholder="ตัวอย่าง Lesson 4" required>
-              </div>
-            </div> -->
-            <!-- <div class="form-group row">
-              <label for="" class="col-sm-3 text-right control-label col-form-label">หัวข้อคำถาม</label>
-              <div class="col-sm-6">
-                <input type="text" class="form-control" name="lesson_name" id="lesson_name" placeholder="" required>
-              </div>
-            </div> -->
-            <!-- <div class="form-group row">
-              <label for="" class="col-sm-3 text-right control-label col-form-label">รูปแบบของแบบทดสอบ</label>
-              <div class="col-sm-6">
-                <select class="select2 form-control custom-select" name="position" id="position" style="width: 100%; height:36px;" onclick=addpage() required>
-                  <option value="">-เลือกรูปแบบ-</option>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                </select>
-              </div>
-            </div> -->
-            <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-            <!-- <div id="formbox1">
-              <div class="form-group row">
-                <label for="" class="col-sm-3 text-right control-label col-form-label"></label>
-                <div class="col-sm-6">
-                  <div class="accordion" name="quiz_img" id="quiz_img" style="border: 1px solid #ECEEED;">
-                    <div class="card m-b-0">
-                      <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                          <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="cursor:Pointer;">
-                            <i class="m-r-5 fa fa-archive" aria-hidden="true"></i>
-                            <span>แบบที่ 1</span>
-                          </a>
-                        </h5>
-                      </div>
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#quiz_img">
-                        <div class="card-body">
-                       
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-
           </div>
         </div>
         <!-- End form add lesson -->
 
       </div>
       <!-- End Container fluid  -->
-      <!-- modal addword -->
+      <!-- modal addquiz -->
       <div class="modal fade" id="modal_addword" role="dialog">
         <div class="modal-dialog">
 
@@ -133,9 +83,7 @@ if ($_SESSION["loggedin"] != True) {
               <!-- <h4 class="modal-title">Modal Header</h4> -->
             </div>
             <div class="modal-body">
-
-              <!-- <a href="#" ><span><i class="fa fa-plus-circle" aria-hidden="true"></i></span> เพิ่มคำศัพท์</a> -->
-              <!-- button add word -->
+              <!-- button add quiz -->
               <!-- คำศัพท์ คำแรก -->
               <div class="form-group row">
                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน</label>
@@ -323,7 +271,7 @@ if ($_SESSION["loggedin"] != True) {
       word_number = 1;
       //random page id and use to locat page and word
       var page_id = makeid(4);
-      var page_markup = "<div  class='accordion' id ='accordion' style='border: 1px solid #ECEEED;'><div class='card'><div class='card-header' id='headingOne'><h5 class='mb-0'><a class='card-link' data-toggle='collapse' href='#" + page_id + "' style='color:black;'><i class='m-r-5 fa fa-archive' aria-hidden='true'></i><span>ข้อที่ " + page_number + "</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#quiz_img'><div class='card-body'> <div class='row'><div class='col-sm-12'><a href='#' class='button' data-toggle='modal' data-target='#modal_addword'><span><i class='fa fa-plus-circle' aria-hidden='true'></i></span></a></div></div> </div></div></div></div><br>";
+      var page_markup = "<div  class='accordion' id ='accordion' style='border: 1px solid #ECEEED;'><div class='card'><div class='card-header' id='headingOne'><h5 class='mb-0'><a class='card-link' data-toggle='collapse' href='#" + page_id + "' style='color:black;'><i class='m-r-5 fa fa-archive' aria-hidden='true'></i><span>ข้อที่ " + page_number + "</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#quiz_img'><div class='card-body'> <div class='row'><div class='col-sm-12'><a href='#' class='btn btn-warning btn-sm' data-toggle='modal' data-target='#modal_addword'><span><i class='fa fa-plus-circle' aria-hidden='true'></i></span> เพิ่มข้อมูล </a><i id='"+page_id+"'></i></div></div> </div></div></div></div><br>";
       $("#page").append(page_markup);
 
       window.value = page_id;
