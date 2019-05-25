@@ -68,7 +68,7 @@ if ($_SESSION["loggedin"] != True) {
                   <div id="clonedInput1" class="clonedInput">
 
                     
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordionExample" >
                       <div class="card m-b-0">
                         <div class="card-header" id="headingOne">
                           <h5 class="mb-0">
@@ -78,7 +78,7 @@ if ($_SESSION["loggedin"] != True) {
                             </a>
                           </h5>
                         </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" >
                           <div class="card-body">
 
                             <div class="form-group row">
@@ -96,10 +96,11 @@ if ($_SESSION["loggedin"] != True) {
                             <div class="form-group row">
                               <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปแบบของแบบทดสอบ</label>
                               <div class="col-sm-9">
-                                <select class="select2 form-control custom-select" name="position" id="position" style="width: 100%; height:36px;" required>
+                                <select class="select2 form-control custom-select" name="quiz_style" id="quiz_style" style="width: 100%; height:36px;" required>
                                   <option value="">-เลือกรูปแบบ-</option>
                                   <option value="0">0</option>
                                   <option value="1">1</option>
+                                  <option value="2">2</option>
                                 </select>
                               </div>
                             </div>
@@ -151,9 +152,20 @@ if ($_SESSION["loggedin"] != True) {
 
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
                             <div id="formbox2">
-                              <label for="" class="col-sm-12 text-right control-label col-form-label"> ตัวเลือก</label>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
+                                <div class="col-sm-9">
+                                  <input type="file" name="quiz_img" id="quiz_img" class="form-control">
+                                </div>
+                              </div>
                               <div class="form-group row">
-                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">A.</label>
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="quiz_sound" id="quiz_sound" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก  A.</label>
                                 <div class="col-sm-9">
                                   <input type="file" name="ans1_a" class="form-control" id="ans1_a" placeholder="">
                                 </div>
@@ -190,6 +202,52 @@ if ($_SESSION["loggedin"] != True) {
                               </div>
                             </div>
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
+
+                           <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
+                           <div id="formbox3">
+                              <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
+                                <div class="col-sm-9">
+                                  <input type="file" name="quiz_img" id="quiz_img" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="quiz_sound" id="quiz_sound" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="ans_a" id="ans_a" class="form-control">
+                                </div>
+                                <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="ans_b" id="ans_b" class="form-control">
+                                </div>
+                                <label for="" class="col-sm-1 text-right control-label col-form-label">C.</label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="ans_c" id="ans_c" class="form-control">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="ans_d" id="ans_d" class="form-control">
+                                </div>
+                                <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="ans_e" id="ans_e" class="form-control">
+                                </div>
+                                <label for="" class="col-sm-1 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
+                                <div class="col-sm-2">
+                                  <input type="text" name="Ans" id="Ans" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                            <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
+                            
 
                           </div>
                         </div>
@@ -240,10 +298,11 @@ if ($_SESSION["loggedin"] != True) {
     $(document).ready(function() {
       $("#formbox1").hide();
       $("#formbox2").hide();
+      $("#formbox3").hide();
 
-      $("#position").change(function() {
-        var position = $("#position").val();
-        if (position == 0) {
+      $("#quiz_style").change(function() {
+        var quiz_style = $("#quiz_style").val();
+        if (quiz_style == 0) {
           $("#formbox1").show();
           $("#quiz_img").val("").focus();
         } else {
@@ -251,13 +310,22 @@ if ($_SESSION["loggedin"] != True) {
           $("#txt_box").val("");
         }
 
-        if (position == 1) {
+        if (quiz_style == 1) {
           $("#formbox2").show();
           $("#quiz_img").val("").focus();
         } else {
           $("#formbox2").hide();
           $("#txt_box").val("");
         }
+
+        if (quiz_style == 2) {
+          $("#formbox3").show();
+          $("#quiz_img").val("").focus();
+        } else {
+          $("#formbox3").hide();
+          $("#txt_box").val("");
+        }
+        
       });
     });
   </script>
@@ -289,6 +357,7 @@ if ($_SESSION["loggedin"] != True) {
 
     $("button.remove").on("click", remove);
   </script>
+  
 
 </body>
 

@@ -5,8 +5,8 @@ if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
 }
-// $sql = "SELECT * FROM quiz_detail ORDER BY `lesson_id` ASC";
-// $query = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM quiz_detail ";
+$query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -63,30 +63,39 @@ if ($_SESSION["loggedin"] != True) {
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-bordered table-sm table-hover">
                                 <thead class="table-secondary">
-                                    <tr>
-                                        <th>ลำดับ</th>
-                                        <th>หัวข้อ คำถาม</th>
-                                        <th>รูปภาพ</th>
-                                        <th>เสียง</th>
-                                        <th>ตัวเลือก</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td width="65px;" align="center">
-                                            <i class="fas fa-search"></i>
-                                            <i class="far fa-edit"></i>
-                                            <i class="fas fa-times-circle"></i>
-                                        </td>
-                                    </tr>
+                                   
+                                        <tr>
+                                            <th>ลำดับ</th>
+                                            <th>หัวข้อ คำถาม</th>
+                                            <th>รูปภาพ</th>
+                                            <th>ตัวเลือก</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $i = 1;
+                                    while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                                        ?>
+                                        <tr>
+                                            <td><?= number_format($i); ?></td>
+                                            <td><?php echo $result["question_title"]; ?></td>
+                                            <td><?php  ?></td>
+                                            <td width="65px;" align="center">
+                                                <i class="fas fa-search"></i>
+                                                <i class="far fa-edit"></i>
+                                                <i class="fas fa-times-circle"></i>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        $i++;
+                                    }
+                                    ?>
                                 </tbody>
 
                             </table>
+                            <?php
+                            mysqli_close($conn);
+                            ?>
                         </div>
 
                     </div>
