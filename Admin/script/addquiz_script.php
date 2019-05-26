@@ -7,7 +7,7 @@
 	for ($i =0; $i < count($_POST["quiz_style"]); $i++) {
 		//# ส่วนของคำถาม
 		$quiz_no = '1';
-		$lesson_id = '1'; 
+		$lesson_id = $_POST["lesson_id"][$i]; 
 		$quiz_style = $_POST["quiz_style"][$i];  //0,1,2
 		$quiz_title = $_POST["quiz_title"][$i];
 		$quiz_img =   $_FILES["quiz_img"]["name"][$i];
@@ -47,7 +47,7 @@
 		}
 		//ส่วนของการเพิ่มลง DB
 		$param_quiz = array(
-			'lesson_id '		=> $lesson_id, 
+			'lesson_id'			=> $lesson_id, 
 	 		'question_no' 		=> $quiz_no, 
 	 		'question_title' 	=> $quiz_title, 
 	 		'question_image' 	=> $quiz_img,
@@ -62,8 +62,8 @@
 			);
 		echo '<br>round'.$i.print_r($param_quiz);
 		move_uploaded_file($_FILES['quiz_img']['tmp_name'][$i],$location.$_FILES['quiz_img']['name'][$i]);
-		$quiz = new Quiz();
-		$quiz -> add($param_quiz);
+		// $quiz = new Quiz();
+		// $quiz -> add($param_quiz);
 
 	}
 

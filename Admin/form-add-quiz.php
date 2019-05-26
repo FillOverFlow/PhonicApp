@@ -64,7 +64,37 @@ if ($_SESSION["loggedin"] != True) {
                 </div>
                 <div class="col-sm-8">
 
-
+                  <div class="card m-b-0">
+                     <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="m-r-5 fa fa-magnet" aria-hidden="true"></i>
+                            <span>เลือกบทเรียนที่ต้องการเพิ่ม Quiz</span>
+                          </a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group row">
+                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ระดับ Level</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="level[]" id="level" style="width: 100%; height:36px;" required>
+                              <option value="">-เลือก level-</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group row"><label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน lesson</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="lesson_id[]" id="lesson_id" style="width: 100%; height:36px;" required>
+                              <option value="">-เลือก บทเรียน-</option>
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                  </div>  
                   <div id="clonedInput1" class="clonedInput">
 
 
@@ -80,13 +110,6 @@ if ($_SESSION["loggedin"] != True) {
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                           <div class="card-body">
-
-                            <div class="form-group row">
-                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="lesson_id" name="lesson_id[]" class="form-control">
-                              </div>
-                            </div>
                             <div class="form-group row">
                               <label for="cono1" class="col-sm-3 text-right control-label col-form-label">หัวข้อคำถาม</label>
                               <div class="col-sm-9">
@@ -106,13 +129,13 @@ if ($_SESSION["loggedin"] != True) {
                                 </div>
                             </div>
                             <div class="form-group row">
-                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปแบบของแบบทดสอบ</label>
+                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปแบบของคำตอบ</label>
                               <div class="col-sm-9">
                                 <select class="select2 form-control custom-select" name="quiz_style[]" id="quiz_style" style="width: 100%; height:36px;" required>
                                   <option value="">-เลือกรูปแบบ-</option>
-                                  <option value="0">0</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
+                                  <option value="0">คำตอบเป็นข้อความ</option>
+                                  <option value="1">คำตอบเป็นภาพ</option>
+                                  <option value="2">คำตอบเป็นเสียง</option>
                                 </select>
                               </div>
                             </div>
@@ -338,8 +361,28 @@ if ($_SESSION["loggedin"] != True) {
       $(this).parents(".clonedInput").remove();
     }
     $("button.clone").on("click", clone);
-
     $("button.remove").on("click", remove);
+
+    /*code for search level and lesson*/
+    $("#level").change(function(){  //
+        console.log('work');
+        $.ajax({
+          url: "ajax/lesson_by_level_ajax.php", //ทำงานกับไฟล์นี้
+          data: "level_id=" + $("#level").val(),  //ส่งตัวแปร
+          type: "POST",
+          async:false,
+          success: function(data, status) {
+            console.log('success'+data);
+          $("#lesson_id").html(data);
+           
+        },
+        
+          error: function(xhr, status, exception) { alert(status); }
+        
+          });
+        //return flag;
+          });
+
   </script>
 
 

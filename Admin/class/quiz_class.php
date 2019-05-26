@@ -23,8 +23,6 @@
 		function add($params){
 			include '../../db_connection.php';
 			//variable params 
-			print_r($params);
-			echo $params["question_no"];
 			$lesson_id = $params["lesson_id"];
 			$question_no = $params["question_no"];
 			$question_title = $params["question_title"];
@@ -39,15 +37,18 @@
 	 		$answer_key = $params["answer_key"];
 	 		$create_date= date('Y-m-d h:i:s');
 	 		// add quiz sql 
-	 		$sql = "insert quiz_detail(lesson_id, question_no, question_title, question_image,quiestion_sound,answer_style,answer_a,answer_b,answer_c,answer_d,answer_e,answer_key,create_date)values
+	 		$sql = "insert into quiz_detail(lesson_id, question_no, question_title, question_image,question_sound,answer_style,answer_a,answer_b,answer_c,answer_d,answer_e,answer_key,create_date)values
 	 			('$lesson_id', '$question_no', '$question_title', '$question_image','$quiestion_sound','$answer_style','$answer_a','$answer_b',
 	 			'$answer_c','$answer_d','$answer_e','$answer_key','$create_date')";
-	 		$conn->query($sql);
-	 		if($conn){
-            	// return true if success 
+	 		$insert = $conn->query($sql);
+	 		if($insert){
+            	// return true if success
+            	echo '<br>insert success'; 
             	return true;
+
 	        }else{
 	            // return false if failk
+	            echo '<br> '.$sql;
 	            return false;
 	        }
 
