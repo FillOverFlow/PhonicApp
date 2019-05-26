@@ -57,14 +57,44 @@ if ($_SESSION["loggedin"] != True) {
             <h4 class="card-title">เพิ่มข้อมูลแบบทดสอบ</h4>
             <br>
             <!-- form first -->
-            <form>
+            <form method="post" action="script/addquiz_script.php" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-sm-2">
                   <!-- <input id="butt" type="button" value="Test" /> -->
                 </div>
                 <div class="col-sm-8">
 
-
+                  <div class="card m-b-0">
+                     <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                          <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="m-r-5 fa fa-magnet" aria-hidden="true"></i>
+                            <span>เลือกบทเรียนที่ต้องการเพิ่ม Quiz</span>
+                          </a>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group row">
+                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ระดับ Level</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="level[]" id="level" style="width: 100%; height:36px;" required>
+                              <option value="">-เลือก level-</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group row"><label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน lesson</label>
+                          <div class="col-sm-9">
+                            <select class="form-control" name="lesson_id[]" id="lesson_id" style="width: 100%; height:36px;" required>
+                              <option value="">-เลือก บทเรียน-</option>
+                            </select>
+                          </div>
+                      </div>
+                    </div>
+                  </div>  
                   <div id="clonedInput1" class="clonedInput">
 
 
@@ -80,27 +110,32 @@ if ($_SESSION["loggedin"] != True) {
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                           <div class="card-body">
-
-                            <div class="form-group row">
-                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน</label>
-                              <div class="col-sm-9">
-                                <input type="text" id="lesson_id" name="lesson_id" class="form-control">
-                              </div>
-                            </div>
                             <div class="form-group row">
                               <label for="cono1" class="col-sm-3 text-right control-label col-form-label">หัวข้อคำถาม</label>
                               <div class="col-sm-9">
-                                <input type="text" name="quiz_title" class="form-control" id="quiz_title" placeholder="">
+                                <input type="text" name="quiz_title[]" class="form-control" id="quiz_title" placeholder="">
                               </div>
                             </div>
                             <div class="form-group row">
-                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปแบบของแบบทดสอบ</label>
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
+                                <div class="col-sm-9">
+                                  <input type="file" name="quiz_img[]" id="quiz_img" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
+                                <div class="col-sm-9">
+                                  <input type="text" name="quiz_sound[]" id="quiz_sound" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="cono1" class="col-sm-3 text-right control-label col-form-label">รูปแบบของคำตอบ</label>
                               <div class="col-sm-9">
-                                <select class="select2 form-control custom-select" name="quiz_style" id="quiz_style" style="width: 100%; height:36px;" required>
+                                <select class="select2 form-control custom-select" name="quiz_style[]" id="quiz_style" style="width: 100%; height:36px;" required>
                                   <option value="">-เลือกรูปแบบ-</option>
-                                  <option value="0">0</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
+                                  <option value="0">คำตอบเป็นข้อความ</option>
+                                  <option value="1">คำตอบเป็นภาพ</option>
+                                  <option value="2">คำตอบเป็นเสียง</option>
                                 </select>
                               </div>
                             </div>
@@ -108,43 +143,31 @@ if ($_SESSION["loggedin"] != True) {
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
                             <div id="formbox1">
                               <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
-                                <div class="col-sm-9">
-                                  <input type="file" name="quiz_img" id="quiz_img" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="quiz_sound" id="quiz_sound" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_a" id="ans_a" class="form-control">
+                                  <input type="text" name="ans_a[]" id="ans_a" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_b" id="ans_b" class="form-control">
+                                  <input type="text" name="ans_b[]" id="ans_b" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">C.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_c" id="ans_c" class="form-control">
+                                  <input type="text" name="ans_c[]" id="ans_c" class="form-control">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_d" id="ans_d" class="form-control">
+                                  <input type="text" name="ans_d[]" id="ans_d" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_e" id="ans_e" class="form-control">
+                                  <input type="text" name="ans_e[]" id="ans_e" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="Ans" id="Ans" class="form-control">
+                                  <input type="text" name="Ans[]" id="Ans" class="form-control">
                                 </div>
                               </div>
                             </div>
@@ -153,51 +176,39 @@ if ($_SESSION["loggedin"] != True) {
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
                             <div id="formbox2">
                               <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
-                                <div class="col-sm-9">
-                                  <input type="file" name="quiz_img" id="quiz_img" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="quiz_sound" id="quiz_sound" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_a" class="form-control" id="ans1_a" placeholder="">
+                                  <input type="file" name="ans_a[]" class="form-control" id="ans1_a" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">B.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_b" class="form-control" id="ans1_b" placeholder="">
+                                  <input type="file" name="ans_b[]" class="form-control" id="ans1_b" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">C.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_c" class="form-control" id="ans1_c" placeholder="">
+                                  <input type="file" name="ans_c[]" class="form-control" id="ans1_c" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">D.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_d" class="form-control" id="ans1_d" placeholder="">
+                                  <input type="file" name="ans_d[]" class="form-control" id="ans1_d" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">E.</label>
                                 <div class="col-sm-9">
-                                  <input type="file" name="ans1_e" class="form-control" id="ans1_e" placeholder="">
+                                  <input type="file" name="ans_e[]" class="form-control" id="ans1_e" placeholder="">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                 <div class="col-sm-4">
-                                  <input type="text" name="ans1" class="form-control" id="ans1" placeholder="">
+                                  <input type="text" name="Ans1[]" class="form-control" id="ans" placeholder="">
                                 </div>
                               </div>
                             </div>
@@ -206,43 +217,31 @@ if ($_SESSION["loggedin"] != True) {
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
                             <div id="formbox3">
                               <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">รูปภาพ</label>
-                                <div class="col-sm-9">
-                                  <input type="file" name="quiz_img" id="quiz_img" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                <label for="" class="col-sm-3 text-right control-label col-form-label">เสียง</label>
-                                <div class="col-sm-9">
-                                  <input type="text" name="quiz_sound" id="quiz_sound" class="form-control">
-                                </div>
-                              </div>
-                              <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_a" id="ans_a" class="form-control">
+                                  <input type="text" name="ans_a2[]" id="ans_a" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_b" id="ans_b" class="form-control">
+                                  <input type="text" name="ans_b2[]" id="ans_b" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">C.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_c" id="ans_c" class="form-control">
+                                  <input type="text" name="ans_c2[]" id="ans_c" class="form-control">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_d" id="ans_d" class="form-control">
+                                  <input type="text" name="ans_d2[]" id="ans_d" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="ans_e" id="ans_e" class="form-control">
+                                  <input type="text" name="ans_e2[]" id="ans_e" class="form-control">
                                 </div>
                                 <label for="" class="col-sm-1 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                 <div class="col-sm-2">
-                                  <input type="text" name="Ans" id="Ans" class="form-control">
+                                  <input type="text" name="Ans2[]" id="Ans" class="form-control">
                                 </div>
                               </div>
                             </div>
@@ -310,7 +309,7 @@ if ($_SESSION["loggedin"] != True) {
         var quiz_style = $("#quiz_style").val();
         if (quiz_style == 0) {
           $("#formbox1").show();
-          $("#quiz_img").val("").focus();
+          //$("#quiz_img").val("").focus();
         } else {
           $("#formbox1").hide();
           $("#txt_box").val("");
@@ -318,7 +317,7 @@ if ($_SESSION["loggedin"] != True) {
 
         if (quiz_style == 1) {
           $("#formbox2").show();
-          $("#quiz_img").val("").focus();
+          //$("#quiz_img").val("").focus();
         } else {
           $("#formbox2").hide();
           $("#txt_box").val("");
@@ -326,7 +325,7 @@ if ($_SESSION["loggedin"] != True) {
 
         if (quiz_style == 2) {
           $("#formbox3").show();
-          $("#quiz_img").val("").focus();
+          //$("#quiz_img").val("").focus();
         } else {
           $("#formbox3").hide();
           $("#txt_box").val("");
@@ -336,7 +335,7 @@ if ($_SESSION["loggedin"] != True) {
           $("#formbox1").hide();
           $("#formbox2").hide();
           $("#formbox3").hide();
-          $("#quiz_img").val("").focus();
+          //$("#quiz_img").val("").focus();
         }
 
       });
@@ -368,8 +367,28 @@ if ($_SESSION["loggedin"] != True) {
       $(this).parents(".clonedInput").remove();
     }
     $("button.clone").on("click", clone);
-
     $("button.remove").on("click", remove);
+
+    /*code for search level and lesson*/
+    $("#level").change(function(){  //
+        console.log('work');
+        $.ajax({
+          url: "ajax/lesson_by_level_ajax.php", //ทำงานกับไฟล์นี้
+          data: "level_id=" + $("#level").val(),  //ส่งตัวแปร
+          type: "POST",
+          async:false,
+          success: function(data, status) {
+            console.log('success'+data);
+          $("#lesson_id").html(data);
+           
+        },
+        
+          error: function(xhr, status, exception) { alert(status); }
+        
+          });
+        //return flag;
+          });
+
   </script>
 
 
