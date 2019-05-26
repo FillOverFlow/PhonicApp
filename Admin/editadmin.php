@@ -184,10 +184,15 @@ $row = mysqli_fetch_array($result);
         function checkPass() {
 
             str1 = document.getElementById("new_pass").value;
+            str2 = document.getElementById("old_pass").value;
 
             if (str1.length < 8) {
                 document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
                 document.getElementById("new_pass").focus();
+            }if (str1 == str2) {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านเดิมและรหัสผ่านใหม่ตรงกัน !!!</span>";
+                document.getElementById("new_pass").focus();
+                return false;
             } else {
                 document.getElementById("txtCheck2").innerHTML = "";
             }

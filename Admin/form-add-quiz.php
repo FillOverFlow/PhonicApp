@@ -271,7 +271,7 @@ if ($_SESSION["loggedin"] != True) {
               <div class="border-top">
                 <div class="card-body">
                   <button type="submit" id="btn_lesson" class="btn btn-primary btn-sm"><i class="fas fa-check"> บันทึกข้อมูล</i></button>
-                  <button type="button" class="btn btn-danger btn-sm" onclick='window.history.back()'><i class="far fa-times-circle"> ยกเลิก</i></button>
+                  <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
                 </div>
               </div>
             </form>
@@ -293,6 +293,12 @@ if ($_SESSION["loggedin"] != True) {
   <!-- All Jquery -->
   <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <script>
+    function gohome() {
+      document.location.href = 'ManageQuiz.php';
+    }
+  </script>
   <script type="text/javascript">
     var $ = jQuery;
     $(document).ready(function() {
