@@ -108,12 +108,10 @@ class Admin
 
     include '../../db_connection.php';
 
-    
-
     $stmt = $conn->prepare("UPDATE admin_account SET admin_password = ?
     WHERE admin_id = ?");
     $stmt->bind_param(
-      'ss',
+      'si',
       $this->admin_password,
       $this->admin_id
     );
@@ -133,10 +131,6 @@ class Admin
       echo '}';
       echo '</script>';
     }
-
-
-
-
     $stmt->close();
   }
   /* authentication */

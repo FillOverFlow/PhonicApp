@@ -123,7 +123,7 @@ $row = mysqli_fetch_array($result);
                                     <span aria-hidden="true" class="white-text">&times;</span>
                                 </button>
                             </div>
-
+                           
                             <!--Body-->
                             <div class="modal-body">
                                 <div class="text-center">
@@ -189,7 +189,8 @@ $row = mysqli_fetch_array($result);
             if (str1.length < 8) {
                 document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
                 document.getElementById("new_pass").focus();
-            }if (str1 == str2) {
+            }
+            if (str1 == str2) {
                 document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านเดิมและรหัสผ่านใหม่ตรงกัน !!!</span>";
                 document.getElementById("new_pass").focus();
                 return false;
@@ -211,7 +212,6 @@ $row = mysqli_fetch_array($result);
                 return false;
             }
         }
-        
     </script>
 </body>
 
