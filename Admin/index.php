@@ -1,9 +1,13 @@
 <?php
 session_start();
+include '../db_connection.php';
 if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
 }
+$sql = "SELECT * FROM admin_account WHERE admin_id = '".$_SESSION["id"]."'";
+$query = mysqli_query($conn, $sql);
+$objResult = mysqli_fetch_array($query);
 
 ?>
 <!DOCTYPE html>
@@ -11,6 +15,11 @@ if ($_SESSION["loggedin"] != True) {
 
 <head>
     <title>Administrator Phonic App by Aj.Aum</title>
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,7 +42,7 @@ if ($_SESSION["loggedin"] != True) {
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Dashboard </h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -52,7 +61,7 @@ if ($_SESSION["loggedin"] != True) {
                 <div class="row">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
-                        <div class="card card-hover" onclick="myFunction()">
+                        <div class="card card-hover pointer " onclick="myFunction()">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
                                 <h6 class="text-white">Dashboard</h6>
@@ -96,7 +105,6 @@ if ($_SESSION["loggedin"] != True) {
                         </div>
                     </div>
                     <!-- Column -->
-                    <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
@@ -106,62 +114,7 @@ if ($_SESSION["loggedin"] != True) {
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
-                                <h6 class="text-white">Buttons</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
-                                <h6 class="text-white">Elements</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
-                                <h6 class="text-white">Calnedar</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                     <!-- Column -->
-                     <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
-                                <h6 class="text-white">Calnedar</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                     <!-- Column -->
-                     <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
-                                <h6 class="text-white">Calnedar</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                        <div class="card card-hover">
-                            <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-alert"></i></h1>
-                                <h6 class="text-white">Errors</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
+
                 </div>
                 <!-- Sales chart -->
                 <div class="row">
@@ -170,8 +123,8 @@ if ($_SESSION["loggedin"] != True) {
                             <div class="card-body">
                                 <div class="d-md-flex align-items-center">
                                     <div>
-                                        <h4 class="card-title">Site Analysis</h4>
-                                        <h5 class="card-subtitle">Overview of Latest Month</h5>
+                                        <h4 class="card-title">กราฟแสดง คะแนน</h4>
+                                        <h5 class="card-subtitle">ของผู้ใช้งาน</h5>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -252,6 +205,7 @@ if ($_SESSION["loggedin"] != True) {
             document.getElementById("myP").style.cursor = "pointer";
         }
     </script>
+
 </body>
 
 </html>
