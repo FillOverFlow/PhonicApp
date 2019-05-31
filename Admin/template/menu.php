@@ -28,6 +28,11 @@ $myResult = mysqli_fetch_array($myquery);
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <style>
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -181,12 +186,14 @@ $myResult = mysqli_fetch_array($myquery);
                         <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a> -->
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Profile"><span class="btn btn-info btn-circle"><i class="ti-user"></i></span></a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                            <a class="dropdown-item view_dataProfile" href="#" title="View Profile" id="<?php echo $_SESSION["id"]; ?>"><i class="ti-user m-r-5 m-l-5"></i><?php echo $myResult['admin_fullname']; ?></a>
+                            <a class="dropdown-item view_dataProfile pointer" title="View Profile" id="<?php echo $_SESSION["id"]; ?>"><i class="ti-user m-r-5 m-l-5"></i><?php echo $myResult['admin_fullname']; ?></a>
 
-                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#dataModalProfileEdit"><i class="ti-settings m-r-5 m-l-5"></i>Edit Profile</a>
+                            <a class="dropdown-item pointer" data-toggle="modal" data-target="#dataModalProfileEdit"><i class="ti-settings m-r-5 m-l-5"></i>แก้ไขข้อมูลส่วนตัว</a>
+
+                            <a class="dropdown-item pointer"  data-toggle="modal" data-target="#dataModalRepass"><i class="ti-key m-r-5 m-l-5"></i>เปลี่ยนรหัสผ่าน</a>
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../Admin/script/user_logout_script.php"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                            <a class="dropdown-item pointer" href="../Admin/script/user_logout_script.php"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
 
                         </div>
                     </li>
@@ -269,30 +276,28 @@ $myResult = mysqli_fetch_array($myquery);
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-
                 <!--Body-->
                 <div class="modal-body">
-                    <div class="text-center">
-                        <div class="row" id="employee_detailProfileEdit">
-                            <form action="script/EditProfileAdmin_script.php?admin_id=<?php echo $_GET["admin_id"]; ?>" onsubmit="return checkNewpass(this);" method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">รหัสผ่านเดิม : </label>
-                                    <input type="password" id="old_pass" name="old_pass" class="form-control input-lg" placeholder="รหัสผ่านเดิม" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">รหัสผ่านใหม่ : </label>
-                                    <input type="password" id="new_pass" name="new_pass" class="form-control input-lg" placeholder="รหัสผ่านใหม่" onchange="checkPass();" required>
-                                    <span id="txtCheck2"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">ยืนยันรหัสผ่านใหม่ : </label>
-                                    <input type="password" id="new_pass2" name="new_pass2" class="form-control input-lg" placeholder="ยืนยันรหัสผ่านใหม่" required>
-                                    <span id="txtCheck2"></span>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-sm">อัพเดทข้อมูล</button>
-                                <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
-                                <!-- ฟอร์มแก้ไขรหัสผ่าน -->
-                            </form>
+                    <div class="text">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form action="script/EditProfileadmin_script.php?admin_id=<?php echo $_SESSION["id"]; ?>" method="post">
+                                    <div class="form-group">
+                                        <label for="">ชื่อผู้ใช้งาน : </label>
+                                        <input type="text" id="admin_username" name="admin_username" class="form-control input-lg" placeholder="ชื่อผู้ใช้งาน" value="<?php echo $myResult['admin_username']; ?>" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">ชื่อ - สกุล : </label>
+                                        <input type="text" id="fname" name="fname" class="form-control input-lg" placeholder="ชื่อ - สกุล" value="<?php echo $myResult['admin_fullname']; ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">อีเมล์ : </label>
+                                        <input type="text" id="email" name="email" class="form-control input-lg" placeholder="อีเมล์" value="<?php echo $myResult['admin_email']; ?>" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm">อัพเดทข้อมูล</button>
+                                    <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -306,6 +311,63 @@ $myResult = mysqli_fetch_array($myquery);
     </div>
 
     <!-- Modal แสดง editprofile admin  -->
+
+    <!-- Modal เปลี่ยน password admin  -->
+    <div class="modal fade" id="dataModalRepass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead" id="myModalLabel">เปลี่ยนรหัสผ่าน ผู้ดูแลระบบ</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text">
+                        <div class="row" id="Repassadmin">
+                            <div class="col-sm-12">
+                                <form action="script/changepassAdminProfile_script.php?admin_id=<?php echo $_SESSION["id"]; ?>" onsubmit="return checkNewpass(this);" method="post">
+
+                                    <div class="form-group">
+                                        <label for="">ชื่อผู้ใช้งาน : </label>
+                                        <input type="text" id="admin_username" name="admin_username" class="form-control input-lg" placeholder="ชื่อผู้ใช้งาน" value="<?php echo $myResult['admin_username']; ?>" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">รหัสผ่านเดิม : </label>
+                                        <input type="password" id="old_pass" name="old_pass" class="form-control input-lg" placeholder="รหัสผ่านเดิม"  required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">รหัสผ่านใหม่ : </label>
+                                        <input type="password" id="new_pass" name="new_pass" class="form-control input-lg" placeholder="รหัสผ่านใหม่" onchange="checkPass();" required>
+                                        <span id="txtCheck2"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">ยืนยันรหัสผ่าน : </label>
+                                        <input type="password" id="new_pass2" name="new_pass2" class="form-control input-lg" placeholder="ยืนยันรหัสผ่าน"  required>
+                                        <span id="txtCheck2"></span>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-sm">เปลี่ยนรหัสผ่าน</button>
+                                    <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal เปลี่ยน password admin    -->
 
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -355,6 +417,39 @@ $myResult = mysqli_fetch_array($myquery);
                 });
             }
         });
+    </script>
+     <script>
+        function checkPass() {
+
+            str1 = document.getElementById("new_pass").value;
+            str2 = document.getElementById("old_pass").value;
+
+            if (str1.length < 8) {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
+                document.getElementById("new_pass").focus();
+            }
+            if (str1 == str2) {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านเดิมและรหัสผ่านใหม่ตรงกัน !!!</span>";
+                document.getElementById("new_pass").focus();
+                return false;
+            } else {
+                document.getElementById("txtCheck2").innerHTML = "";
+            }
+        }
+
+        function checkNewpass(form) {
+
+            str1 = document.getElementById("new_pass").value;
+            str2 = document.getElementById("new_pass2").value;
+
+            if (str1 == str2) {
+                return true;
+            } else {
+                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านใหม่ไม่ตรงกัน !!!</span>";
+                document.getElementById("new_pass2").focus();
+                return false;
+            }
+        }
     </script>
 
 </body>

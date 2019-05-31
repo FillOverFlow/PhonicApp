@@ -145,7 +145,7 @@ $row = mysqli_fetch_array($result);
                                                     <input type="password" id="new_pass2" name="new_pass2" class="form-control input-lg" placeholder="ยืนยันรหัสผ่านใหม่" required>
                                                     <span id="txtCheck2"></span>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary btn-sm">อัพเดทข้อมูล</button>
+                                                <button type="submit" class="btn btn-primary btn-sm">เปลี่ยนรหัสผ่าน</button>
                                                 <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
                                                 <!-- ฟอร์มแก้ไขรหัสผ่าน -->
                                             </form>
