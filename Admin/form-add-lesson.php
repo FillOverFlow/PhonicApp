@@ -1,3 +1,7 @@
+<?php 
+session_start();
+include '../db_connection.php';
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

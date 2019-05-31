@@ -1,5 +1,4 @@
 <?php
-
 $mysql = "SELECT * FROM admin_account WHERE admin_id = '" . $_SESSION["id"] . "'";
 $myquery = mysqli_query($conn, $mysql);
 $myResult = mysqli_fetch_array($myquery);
