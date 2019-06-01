@@ -1,6 +1,7 @@
 <?php
+  session_start();
     require '../class/admin_class.php';
-    $admin_id = $_GET["admin_id"];
+    $admin_id = $_SESSION["id"];
     $admin_fullname = $_POST["fname"]; 
     $admin_email = $_POST["email"];
     

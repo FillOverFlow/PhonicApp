@@ -126,24 +126,23 @@
             include '../../db_connection.php';
 
             $stmt = $conn->prepare("UPDATE user_account SET user_pwd = ? 
-            WHERE user_id = ? and user_pwd = '$old_pass'");
-            $stmt->bind_param('sss',
+            WHERE user_id = ?");
+            $stmt->bind_param('ss',
             $this->user_pwd,
-            $this->old_pass,
             $this->user_id);
             
             $stmt->execute(); 
 
             if($stmt) {
                 echo '<script language="javascript" type="text/javascript"> ';
-                echo 'if(!alert("อัพเดทข้อมูลเรียบร้อย")) {';//msg
+                echo 'if(!alert("เปลี่ยนรหัสผ่านเรียบร้อย")) {';//msg
                 echo ' location.href="../Manageuser.php"';
                 echo '}';
                 echo '</script>';
                 exit;  
             }else{
                 echo '<script language="javascript" type="text/javascript"> ';
-                echo 'if(!alert("อัพเดทข้อมูลไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
+                echo 'if(!alert("เปลี่ยนรหัสผ่านไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
                 echo ' location.href="../Manageuser.php"';
                 echo '}';
                 echo '</script>';
@@ -153,6 +152,3 @@
         }
     /*end class user*/ 
     }
-
-
-?>

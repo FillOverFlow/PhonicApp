@@ -100,37 +100,37 @@ class Admin
 
     $stmt->close();
   }
-  function changePassword_admin($admin_id,$admin_password,$old_pass)
+  function changePassword_admin($admin_id, $admin_password, $old_pass)
   {
     $this->admin_id = $admin_id;
     $this->admin_password = crypt($admin_password, 'rl');
     $this->old_pass = crypt($old_pass, 'rl');
-   
+
     include '../../db_connection.php';
 
-    $stmt = $conn->prepare("UPDATE admin_account SET admin_password = ? 
-    WHERE admin_id = ? and admin_password = '$old_pass'");
-    $stmt->bind_param('ss',
-    $this->admin_password,
-    $this->admin_id);
-    
-    $stmt->execute(); 
+    $stmt = $conn->prepare("UPDATE admin_account SET admin_password = ?
+    WHERE admin_id = ?");
+    $stmt->bind_param(
+      'si',
+      $this->admin_password,
+      $this->admin_id
+    );
+    $stmt->execute();
 
-    if($stmt) {
-        echo '<script language="javascript" type="text/javascript"> ';
-        echo 'if(!alert("เปลี่ยนรหัสผ่านเรียบร้อย")) {';//msg
-        echo ' location.href="../Manageadmin.php"';
-        echo '}';
-        echo '</script>';
-        exit;  
-    }else{
-        echo '<script language="javascript" type="text/javascript"> ';
-        echo 'if(!alert("เปลี่ยนรหัสผ่านไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {';//msg
-        echo ' location.href="../Manageadmin.php"';
-        echo '}';
-        echo '</script>';
+    if ($stmt) {
+      echo '<script language="javascript" type="text/javascript"> ';
+      echo 'if(!alert("เปลี่ยนรหัสผ่านเรียบร้อย")) {'; //msg
+      echo ' location.href="../Manageadmin.php"';
+      echo '}';
+      echo '</script>';
+      exit;
+    } else {
+      echo '<script language="javascript" type="text/javascript"> ';
+      echo 'if(!alert("เปลี่ยนรหัสผ่านไม่สำเร็จ!!!! กรุณาลองใหม่อีกครั้ง")) {'; //msg
+      echo ' location.href="../Manageadmin.php"';
+      echo '}';
+      echo '</script>';
     }
-
     $stmt->close();
   }
   /* authentication */
