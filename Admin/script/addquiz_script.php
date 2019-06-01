@@ -6,7 +6,7 @@
 	require '../class/quiz_class.php';
 	for ($i =0; $i < count($_POST["quiz_style"]); $i++) {
 		//# ส่วนของคำถาม
-		$quiz_no = '1';
+		$quiz_no = $i+1;
 		$lesson_id = $_POST["lesson_id"][$i]; 
 		$quiz_style = $_POST["quiz_style"][$i];  //0,1,2
 		$quiz_title = $_POST["quiz_title"][$i];
@@ -22,6 +22,7 @@
 			$ans_d = $_POST["ans_d"][$i];
 			$ans_e = $_POST["ans_e"][$i];
 			$ANS   = $_POST["Ans"][$i];
+			echo 'ANS'+$ANS;
 		}else if ($quiz_style == 1) {
 			
 			$ans_a = $_FILES["ans_a"]["name"][$i];
@@ -35,6 +36,7 @@
 			move_uploaded_file($_FILES['ans_d']['tmp_name'][$i],$location.$_FILES['ans_d']['name'][$i]);
 			move_uploaded_file($_FILES['ans_e']['tmp_name'][$i],$location.$_FILES['ans_e']['name'][$i]);
 			$ANS   = $_POST["Ans1"][$i];
+			echo 'ANS'+$ANS;
 			
 		}else if ($quiz_style == 2) {
 			$ans_a = $_POST["ans_a2"][$i];
@@ -43,6 +45,7 @@
 			$ans_d = $_POST["ans_d2"][$i];
 			$ans_e = $_POST["ans_e2"][$i];
 			$ANS   = $_POST["Ans2"][$i];
+			echo 'ANS'+$ANS;
 			
 		}
 		//ส่วนของการเพิ่มลง DB
@@ -63,8 +66,8 @@
 		echo '<br>round'.$i.print_r($param_quiz);
 		move_uploaded_file($_FILES['quiz_img']['tmp_name'][$i],$location.$_FILES['quiz_img']['name'][$i]);
 		// delete comment for add quiz complete
-		// $quiz = new Quiz();
-		// $quiz -> add($param_quiz);
+		$quiz = new Quiz();
+		$quiz -> add($param_quiz);
 
 	}
 
