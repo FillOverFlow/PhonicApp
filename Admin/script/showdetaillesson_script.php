@@ -41,7 +41,7 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
             <td><?= $result['lesson_id']; ?></td>
             <td><?= $result['word_show']; ?></td>
             <td><?= $result['word_speak']; ?></td>
-            <td align="center"><img src="../<?= $result['word_image']; ?>" alt="รูปคำศัพท์"></td>
+            <td align="center"><img src="../<?= $result['word_image']; ?>" alt="รูปคำศัพท์" height="30" width="70"></td>
           </tr>
           <?php
           $i++;
