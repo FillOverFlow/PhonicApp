@@ -54,8 +54,6 @@ $row = mysqli_fetch_array($result);
 				<td width="80%">
 					<p style="font-size: 11px;color: gray;">วันที่อัพเดทข้อมูลล่าสุด <?php echo date("d/m/Y", strtotime($row['syear'])); ?></p>
 				</td>
-				<td width="20%" align="right"><a href="editadmin.php?admin_id=<?php echo $row["admin_id"]; ?>" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a>
-				</td>
 			</tbody>
 		</table>
 	</div>
