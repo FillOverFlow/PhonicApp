@@ -5,7 +5,7 @@ if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
 }
-$sql = "SELECT * FROM quiz_detail ";
+$sql = "SELECT * FROM quiz_detail ORDER BY create_date DESC ";
 $query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
