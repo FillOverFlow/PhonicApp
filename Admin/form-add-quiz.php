@@ -89,7 +89,7 @@ if ($_SESSION["loggedin"] != True) {
                       </div>
                       <div class="form-group row"><label for="cono1" class="col-sm-3 text-right control-label col-form-label">บทเรียน lesson</label>
                           <div class="col-sm-9">
-                            <select class="form-control" name="lesson_id[]" id="lesson_id" style="width: 100%; height:36px;" required>
+                            <select class="form-control" name="lesson_id" id="lesson_id" style="width: 100%; height:36px;" required>
                               <option value="">-เลือก บทเรียน-</option>
                             </select>
                           </div>
@@ -104,7 +104,7 @@ if ($_SESSION["loggedin"] != True) {
                      <div id="form_quiz"></div>
 
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                            <div id="formbox1">
+                            <!-- <div id="formbox1">
                               <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-2">
@@ -133,11 +133,11 @@ if ($_SESSION["loggedin"] != True) {
                                   <input type="text" name="Ans[]" id="Ans" class="form-control">
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
 
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
-                            <div id="formbox2">
+                            <!-- <div id="formbox2">
                               <div class="form-group row">
                                 <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-9">
@@ -174,11 +174,11 @@ if ($_SESSION["loggedin"] != True) {
                                   <input type="text" name="Ans1[]" class="form-control" id="ans" placeholder="">
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
 
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                            <div id="formbox3">
+                            <!-- <div id="formbox3">
                               <div class="form-group row">
                                 <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                 <div class="col-sm-2">
@@ -207,7 +207,7 @@ if ($_SESSION["loggedin"] != True) {
                                   <input type="text" name="Ans2[]" id="Ans" class="form-control">
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
 
 
@@ -326,20 +326,20 @@ if ($_SESSION["loggedin"] != True) {
       var id = makeid(4);
       window.value = id;
       console.log(window.value);
-      var formquiz = "<div class='card m-b-0'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
+      var formquiz = "<div class='card m-b-0'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style"+window.value+"'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
         $("#form_quiz").append(formquiz);
         number_quiz++;
     }
     function add_formbox1(){
-      var formbox1 = "<div id='formbox1' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><input type='text' name='Ans[]' id='Ans' class='form-control'></div></div></div>";
+      var formbox1 = "<div id='formbox1' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><select class='form-control' name='Ans'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select>";
         $("#form_answer"+window.value).append(formbox1);
     }
     function add_formbox2(){
-      var formbox2 = "<div id='formbox2' class='formbox"+window.value+"'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-9'><input type='file' name='ans_a[]' class='form-control' id='ans1_a' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>B.</label><div class='col-sm-9'><input type='file' name='ans_b[]' class='form-control' id='ans1_b' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>C.</label><div class='col-sm-9'><input type='file' name='ans_c[]' class='form-control' id='ans1_c' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>D.</label><div class='col-sm-9'><input type='file' name='ans_d[]' class='form-control' id='ans1_d' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>E.</label><div class='col-sm-9'><input type='file' name='ans_e[]' class='form-control' id='ans1_e' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-4'><input type='text' name='Ans1[]' class='form-control' id='ans' placeholder=''></div></div></div>"
+      var formbox2 = "<div id='formbox2' class='formbox"+window.value+"'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-9'><input type='file' name='ans_a[]' class='form-control' id='ans1_a' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>B.</label><div class='col-sm-9'><input type='file' name='ans_b[]' class='form-control' id='ans1_b' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>C.</label><div class='col-sm-9'><input type='file' name='ans_c[]' class='form-control' id='ans1_c' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>D.</label><div class='col-sm-9'><input type='file' name='ans_d[]' class='form-control' id='ans1_d' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>E.</label><div class='col-sm-9'><input type='file' name='ans_e[]' class='form-control' id='ans1_e' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-4'><select class='form-control' name='Ans1'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select></div></div></div>"
         $("#form_answer"+window.value).append(formbox2);
     }
     function add_formbox3(){
-      var formbox3 = "<div id='formbox3' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a2[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b2[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c2[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d2[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e2[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><input type='text' name='Ans2[]' id='Ans' class='form-control'></div></div></div>"
+      var formbox3 = "<div id='formbox3' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><select class='form-control' name='Ans2'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select></div></div></div>"
         $("#form_answer"+window.value).append(formbox3);
     }
 
@@ -396,21 +396,24 @@ if ($_SESSION["loggedin"] != True) {
         //return flag;
     });
     /* code change answer style */
-    $(document).on('change','.quiz_style',function(){
-      var quiz_style = $("#quiz_style").val();
+    $(document).off('change',"#quiz_style");
+    $(document).on('change',"#quiz_style",function(){
+    	var quiz_style = $('.quiz_style'+window.value).val();
       if(quiz_style == 0){
+      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox1();
       }
       if(quiz_style == 1){
+      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox2();
       }
       if(quiz_style == 2){
+      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox3();
       }
-     
     });
    
 
