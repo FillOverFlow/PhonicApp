@@ -79,7 +79,7 @@
       'level'     => $level, 
       'question_no'     => $quiz_no, 
       'question_title'  => $quiz_title, 
-      'question_image'  => $quiz_img,
+      'question_image'  => 'img/exam/'.$quiz_img,
       'quiestion_sound'   => $quiz_sound,
       'answer_style'    => $quiz_style,
       'answer_a'      => $ans_a,
