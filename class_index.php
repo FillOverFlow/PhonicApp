@@ -9,11 +9,12 @@ if(isset($_POST["user"]))
 	$user =  $_POST["user"];
 	$pwd = crypt($_POST["pwd"], 'rl');
 
-	$sql = "SELECT user_name, user_fullname FROM user_account WHERE user_name = '$user' and user_pwd = '$pwd'";
+	$sql = "SELECT user_id, user_name, user_fullname FROM user_account WHERE user_name = '$user' and user_pwd = '$pwd'";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
+			$_SESSION["user_id"] = $row["user_id"];
 			$_SESSION["user_name"] = $row["user_name"];
 			$_SESSION["user_fullname"] = $row["user_fullname"];
 		}
@@ -48,7 +49,7 @@ $conn->close();
 <meta charset="utf-8">
 <title>Phonic App by Aj.Aum</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Bootstrap 3 template for corporate business" />
+<meta name="description" content="Phonic App by Aj.Aum" />
 <meta name="author" content="http://iweb-studio.com" />
 <!-- css -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -84,28 +85,28 @@ $conn->close();
 					<div class="col-sm-3 col-md-3 col-lg-3">
 						<div class="box">
 							<div class="aligncenter">
-								<a href="level1.php" class="btn btn-warning btn-lg" style='font-size:25px'> Level 1 </a>
+								<a href="level.php?c=1" class="btn btn-warning btn-lg" style='font-size:25px'> Level 1 </a>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-md-3 col-lg-3">
 						<div class="box">
 							<div class="aligncenter">
-								<a href="level2.php" class="btn btn-info btn-lg" style='font-size:25px'> Level 2 </a>
+								<a href="level.php?c=2" class="btn btn-info btn-lg" style='font-size:25px'> Level 2 </a>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-md-3 col-lg-3">
 						<div class="box">
 							<div class="aligncenter">
-								<a href="level3.php" class="btn btn-danger btn-lg" style='font-size:25px'> Level 3 </a>
+								<a href="level.php?c=3" class="btn btn-danger btn-lg" style='font-size:25px'> Level 3 </a>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3 col-md-3 col-lg-3">
 						<div class="box">
 							<div class="aligncenter">
-								<a href="level4.php" class="btn btn-success btn-lg" style='font-size:25px' > Level 4 </a>
+								<a href="level.php?c=4" class="btn btn-success btn-lg" style='font-size:25px' > Level 4 </a>
 							</div>
 						</div>
 					</div>

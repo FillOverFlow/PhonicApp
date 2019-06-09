@@ -42,7 +42,7 @@ if ($ans_style == 2) {
                         <?Php if ($row['question_image'] != '') { ?>
                             <tr>
                                 <td width="150px"><b>รูปภาพคำถาม</b></td>
-                                <td align="center"><img src="../../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
+                                <td align="left"><img src="../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
                             </tr>
                         <?Php } ?>
                         <?Php if ($row['question_sound'] != '') { ?>
@@ -87,7 +87,7 @@ if ($ans_style == 2) {
                         <?Php if ($row['question_image'] != '') { ?>
                             <tr>
                                 <td width="150px"><b>รูปภาพคำถาม</b></td>
-                                <td align="center"><img src="../../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
+                                <td align="center"><img src="../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
                             </tr>
                         <?Php } ?>
                         <?Php if ($row['question_sound'] != '') { ?>
@@ -103,11 +103,11 @@ if ($ans_style == 2) {
                         <tr>
                             <td width="150px"><b>ตัวเลือกคำตอบ</b></td>
                             <td>
-                                <p><b>ข้อ a.</b> <img src="../../<?= $row['answer_a']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ b.</b> <img src="../../<?= $row['answer_b']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ c.</b> <img src="../../<?= $row['answer_c']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ d.</b> <img src="../../<?= $row['answer_d']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ e.</b> <img src="../../<?= $row['answer_e']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ a.</b> <img src="../<?= $row['answer_a']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ b.</b> <img src="../<?= $row['answer_b']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ c.</b> <img src="../<?= $row['answer_c']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ d.</b> <img src="../<?= $row['answer_d']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ e.</b> <img src="../<?= $row['answer_e']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
                             </td>
                         </tr>
                         <tr>
@@ -132,7 +132,7 @@ if ($ans_style == 2) {
                         <?Php if ($row['question_image'] != '') { ?>
                             <tr>
                                 <td width="150px"><b>รูปภาพคำถาม</b></td>
-                                <td align="center"><img src="../../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
+                                <td align="center"><img src="../<?= $row['question_image']; ?>" alt="รูปคำถาม" height="100" width="150"></td>
                             </tr>
                         <?Php } ?>
                         <?Php if ($row['question_sound'] != '') { ?>
@@ -148,11 +148,11 @@ if ($ans_style == 2) {
                         <tr>
                             <td width="150px"><b>ตัวเลือกคำตอบ</b></td>
                             <td>
-                                <p><b>ข้อ a.</b> <img src="../../<?= $row['answer_a']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ b.</b> <img src="../../<?= $row['answer_b']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ c.</b> <img src="../../<?= $row['answer_c']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ d.</b> <img src="../../<?= $row['answer_d']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
-                                <p><b>ข้อ e.</b> <img src="../../<?= $row['answer_e']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ a.</b> <img src="../<?= $row['answer_a']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ b.</b> <img src="../<?= $row['answer_b']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ c.</b> <img src="../<?= $row['answer_c']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ d.</b> <img src="../<?= $row['answer_d']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
+                                <p><b>ข้อ e.</b> <img src="../<?= $row['answer_e']; ?>" alt="รูปคำถาม" height="70" width="70"></p>
                             </td>
                         </tr>
                         <tr>

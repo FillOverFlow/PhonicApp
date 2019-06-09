@@ -107,7 +107,7 @@ session_start();
 			$thispage = 1;
 		}
 
-		$sql = "SELECT * FROM lesson_detail where lesson_id = '$lesson_id'";
+		$sql = "SELECT * FROM lesson_detail where lesson_id = '$lesson_id' ";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -135,7 +135,7 @@ session_start();
 					</div>
 					<div class="col-sm-8 col-md-8 col-lg-8">
 
-							<div id="info" style="text-align:center;">
+							<!--div id="info" style="text-align:center;">
 							  <p id="info_start">
 								Click on the microphone icon and begin speaking or Click on the speaker icon and listening to a word.
 							  </p>
@@ -166,7 +166,7 @@ session_start();
 								Web Speech API is not supported by this browser. Upgrade to <a href=
 								"//www.google.com/chrome">Chrome</a> version 25 or later.
 							  </p>
-							</div>
+							</div-->
 
 						<div class="box">
 							<div class="aligncenter">
@@ -247,7 +247,7 @@ session_start();
 							<?php
 								if ($thispage == 1) {
 							?>
-								<a href="level<?php echo $level;?>.php" class="btn btn-info btn-lg" style='font-size:15px'>  &lt; Prev </a>
+								<a href="lesson_video.php?lesson_id=<?php echo $lesson_id;?>" class="btn btn-info btn-lg" style='font-size:15px'>  &lt; Prev </a>
 							<?php
 								} else {
 							?>
@@ -259,6 +259,10 @@ session_start();
 								if ($thispage < $maxpage) {
 							?>
 								<a href="lesson_show.php?lesson_id=<?php echo $lesson_id;?>&thispage=<?php echo $thispage + 1;?>" class="btn btn-danger btn-lg" style='font-size:15px'>  Next &gt;  </a>
+							<?php
+								} else {
+							?>
+								<a href="quiz_show.php?lesson_id=<?php echo $lesson_id;?>" class="btn btn-danger btn-lg" style='font-size:15px'>  แบบทดสอบ  </a>
 							<?php
 								}
 							?>

@@ -18,10 +18,10 @@
                           <li class="dropdown">
                           <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">เนื้อหา <i class="fa fa-angle-down"></i></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="level1.php">Level 1</a></li>
-                                  <li><a href="level2.php">Level 2</a></li>
-                                  <li><a href="level3.php">Level 3</a></li>
-                                  <li><a href="level4.php">Level 4</a></li>
+                                  <li><a href="level.php?c=1">Level 1</a></li>
+                                  <li><a href="level.php?c=2">Level 2</a></li>
+                                  <li><a href="level.php?c=3">Level 3</a></li>
+                                  <li><a href="level.php?c=4">Level 4</a></li>
 							 </ul>
                           </li>
                           <li class="dropdown ">
@@ -29,7 +29,7 @@
                               <ul class="dropdown-menu">
                                   <li><a href="class_selfedit.php">แก้ไขข้อมูลส่วนตัว</a></li>
 								  <li><a href="class_passedit.php">แก้ไขรหัสผ่าน</a></li>
-                                  <li><a href="">ดูคะแนนย้อนหลัง</a></li>
+                                  <li><a href="user_score.php">ดูคะแนนย้อนหลัง</a></li>
 								  <li><a href="index.php">ออกจากระบบ</a></li>
 							 </ul>
                           </li>

@@ -16,7 +16,7 @@ if(isset($_SESSION["user_status"])) {
 <meta charset="utf-8">
 <title>Phonic App by Aj.Aum</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Bootstrap 3 template for corporate business" />
+<meta name="description" content="Phonic App by Aj.Aum" />
 <meta name="author" content="http://iweb-studio.com" />
 <!-- css -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
