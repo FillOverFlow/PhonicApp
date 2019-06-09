@@ -85,7 +85,7 @@ $query = mysqli_query($conn, $sql);
                                     while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                                         $ans_style = $result["answer_style"];
                                         if ($ans_style == 0) {
-                                            $ans = 'คำตอบเป็นข้อมความ';
+                                            $ans = 'คำตอบเป็นข้อความ';
                                             $color = '#F4F2FE';
                                         }
                                         if ($ans_style == 1) {
