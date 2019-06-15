@@ -76,6 +76,8 @@ $query = mysqli_query($conn, $sql);
                                         <th width="20px" align="center">ลำดับ</th>
                                         <th>หัวข้อ คำถาม</th>
                                         <th width="150px">รูปแบบคำตอบ</th>
+                                        <th>lesson</th>
+                                        <th>level</th>
                                         <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
@@ -101,7 +103,8 @@ $query = mysqli_query($conn, $sql);
                                             <td align="center"><?= number_format($i); ?></td>
                                             <td><?php echo $result["question_title"]; ?></td>
                                             <td><?= $ans; ?></td>
-
+                                            <td></td>
+                                            <td></td>
                                             <td width="65px;" align="center">
                                                 <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["quiz_id"]; ?>"><i class="fas fa-search"></i></a>
                                                 <i class="far fa-edit"></i>
