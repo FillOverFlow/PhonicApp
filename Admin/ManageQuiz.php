@@ -5,7 +5,7 @@ if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
 }
-$sql = "SELECT * FROM quiz_detail ORDER BY create_date DESC ";
+$sql = "SELECT * FROM lesson_detail ORDER BY create_date";
 $query = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
@@ -58,12 +58,12 @@ $query = mysqli_query($conn, $sql);
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-                            <a href="form-add-quiz.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
+                                <a href="form-add-quiz.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
                             </div>
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <p style="text-align:right"><span style="color:red;" class="m-0 p-3">*หมายเหตุ</span> <i class="fas fa-square-full border border-secondary" style="color:#F4F2FE;border"></i> คำตอบเป็นข้อความ <i class="fas fa-square-full border border-secondary" style="color:#FEFAF2"></i> คำตอบเป็นภาพ <i class="fas fa-square-full border border-secondary" style="color:#F2FEF2"></i> คำตอบเป็นเสียง</p>
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- ปุ่มเพิ่มข้อมุล -->
@@ -74,10 +74,9 @@ $query = mysqli_query($conn, $sql);
 
                                     <tr>
                                         <th width="20px" align="center">ลำดับ</th>
-                                        <th>หัวข้อ คำถาม</th>
-                                        <th width="150px">รูปแบบคำตอบ</th>
-                                        <th>lesson</th>
                                         <th>level</th>
+                                        <th>lesson</th>
+                                        <th>คำอธิบายบทเรียน</th>
                                         <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
@@ -85,29 +84,16 @@ $query = mysqli_query($conn, $sql);
                                     <?php
                                     $i = 1;
                                     while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-                                        $ans_style = $result["answer_style"];
-                                        if ($ans_style == 0) {
-                                            $ans = 'คำตอบเป็นข้อความ';
-                                            $color = '#F4F2FE';
-                                        }
-                                        if ($ans_style == 1) {
-                                            $ans = 'คำตอบเป็นภาพ';
-                                            $color = '#FEFAF2';
-                                        }
-                                        if ($ans_style == 2) {
-                                            $ans = 'คำตอบเป็นเสียง';
-                                            $color = '#F2FEF2';
-                                        }
                                         ?>
                                         <tr style="background-color:<?= $color ?>">
                                             <td align="center"><?= number_format($i); ?></td>
-                                            <td><?php echo $result["question_title"]; ?></td>
-                                            <td><?= $ans; ?></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?= $result["level"] ?></td>
+                                            <td><?= $result["lesson_name"] ?></td>
+                                            <td><?= $result["lesson_desc"] ?></td>
+
                                             <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["quiz_id"]; ?>"><i class="fas fa-search"></i></a>
-                                                <i class="far fa-edit"></i>
+                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
+                                                <!-- <i class="far fa-edit"></i> -->
                                                 <i class="fas fa-times-circle"></i>
                                             </td>
                                         </tr>
@@ -130,7 +116,7 @@ $query = mysqli_query($conn, $sql);
             <!-- End Container fluid  -->
 
             <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
-            <div class="modal fade" id="dataModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="dataModalquizall" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <!--Content-->
                     <div class="modal-content">
@@ -146,7 +132,7 @@ $query = mysqli_query($conn, $sql);
                         <!--Body-->
                         <div class="modal-body">
                             <div class="text-left">
-                                <div class="row" id="employee_detail1">
+                                <div class="row" id="showprocessQuizall_script">
                                     <!-- แสดงข้อมูล -->
                                 </div>
                             </div>
@@ -180,17 +166,17 @@ $query = mysqli_query($conn, $sql);
     <!-- แสดงข้อมูล modal -->
     <script type="text/javascript">
         $(document).on('click', '.view_data', function() {
-            var quiz_id = $(this).attr("id");
-            if (quiz_id != '') {
+            var lesson_id = $(this).attr("id");
+            if (lesson_id != '') {
                 $.ajax({
-                    url: "script/showprocessQuiz_script.php",
+                    url: "script/showprocessQuizall_script.php",
                     method: "POST",
                     data: {
-                        id: quiz_id
+                        id: lesson_id
                     },
                     success: function(data) {
-                        $('#employee_detail1').html(data);
-                        $('#dataModal1').modal('show');
+                        $('#showprocessQuizall_script').html(data);
+                        $('#dataModalquizall').modal('show');
                     }
                 });
             }
