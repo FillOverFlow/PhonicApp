@@ -64,7 +64,6 @@ if ($_SESSION["loggedin"] != True) {
                   <!-- <input id="butt" type="button" value="Test" /> -->
                 </div>
                 <div class="col-sm-8">
-
                   <div class="card m-b-0">
                      <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -210,39 +209,42 @@ if ($_SESSION["loggedin"] != True) {
                             </div> -->
                             <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
 
-
+                            
                           </div>
+                          
                         </div>
                       </div>
+                      <!-- ปุุุ่ม action ใหม่ -->
+                      <div class="col-sm-2">
+                        <div class="row button_action" style="margin-top:410px;">
+                          <button style="margin:5px" class="create_quiz btn btn-primary">+</button>
+                          <button style="margin:5px" class="remove btn btn-danger">-</button>
+                      </div>
                     </div>
-
-
                     <!-- ปุ่ม clone -->
                     <div class="actions">
                       <!-- <button type="button" class="add_formbox1 btn btn-success btn-sm">Add</button>  -->
-                      <button class="create_quiz btn btn-success btn-sm">เพิ่มข้อต่อไป</button>
+                      <!-- <button class="create_quiz btn btn-success btn-sm">เพิ่มข้อต่อไป</button> -->
                       <!-- <button class="remove btn btn-danger btn-sm">ลบออก</button> -->
                     </div>
                     <!-- ปุ่ม clone -->
-
                     <br>
                   </div>
                   <div id="locate"></div>
                   <div id="add_show"></div>
                 </div>
-              </div>
-              <div class="border-top">
-                <div class="card-body">
-                  <button type="submit" id="btn_lesson" class="btn btn-primary btn-sm"><i class="fas fa-check"> บันทึกข้อมูล</i></button>
-                  <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
+                <div class="border-top">
+                  <div class="card-body">
+                    <button type="submit" id="btn_lesson" class="btn btn-primary btn-sm"><i class="fas fa-check"> บันทึกข้อมูล</i></button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="gohome()"><i class="far fa-times-circle"> ยกเลิก</i></button>
+                  </div>
                 </div>
               </div>
             </form>
             <!-- end form first -->
-          </div>
+          </div> 
         </div>
         <!-- End form add lesson -->
-
       </div>
       <!-- End Container fluid  -->
 
@@ -258,59 +260,16 @@ if ($_SESSION["loggedin"] != True) {
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
 
   <script>
-    function gohome() {
-      document.location.href = 'ManageQuiz.php';
-    }
-  </script>
-  <script type="text/javascript">
-    var $ = jQuery;
-    $(document).ready(function() {
-      $("#formbox1").hide();
-      $("#formbox2").hide();
-      $("#formbox3").hide();
 
-      //$("#quiz_style1").change(function() {
-        
-        // var quiz_style = $("#quiz_style").val();
-        // if (quiz_style == 0) {
-        //   $("#formbox1").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox1").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == 1) {
-        //   $("#formbox2").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox2").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == 2) {
-        //   $("#formbox3").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox3").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == "") {
-        //   $("#formbox1").hide();
-        //   $("#formbox2").hide();
-        //   $("#formbox3").hide();
-        //   //$("#quiz_img").val("").focus();
-        // }
-
-      //});
-    });
-  </script>
-  <script>
     var regex = /^(.+?)(\d+)$/i;
     var cloneIndex = $(".clonedInput").length;
     var $ = jQuery;
     var number_quiz = 1;
+    var btn_action_position = 410;
+
+    function gohome() {
+      document.location.href = 'ManageQuiz.php';
+    }
 
     function makeid(length) {
             //for make page id 
@@ -322,22 +281,29 @@ if ($_SESSION["loggedin"] != True) {
             }
             return result;
     }
+
     function create_quiz(){
       var id = makeid(4);
       window.value = id;
-      console.log(window.value);
-      var formquiz = "<div class='card m-b-0'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style"+window.value+"'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
+      var formquiz = "<div class='card m-b-0' id='quiz_"+window.value+"'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style"+window.value+"'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
         $("#form_quiz").append(formquiz);
         number_quiz++;
+        $(".button_action").css("margin-top",btn_action_position+"px");
+        //set btn_action_posotion
+        btn_action_position += 295;
+
     }
+
     function add_formbox1(){
       var formbox1 = "<div id='formbox1' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><select class='form-control' name='Ans'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select>";
         $("#form_answer"+window.value).append(formbox1);
     }
+
     function add_formbox2(){
       var formbox2 = "<div id='formbox2' class='formbox"+window.value+"'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-9'><input type='file' name='ans_a[]' class='form-control' id='ans1_a' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>B.</label><div class='col-sm-9'><input type='file' name='ans_b[]' class='form-control' id='ans1_b' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>C.</label><div class='col-sm-9'><input type='file' name='ans_c[]' class='form-control' id='ans1_c' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>D.</label><div class='col-sm-9'><input type='file' name='ans_d[]' class='form-control' id='ans1_d' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>E.</label><div class='col-sm-9'><input type='file' name='ans_e[]' class='form-control' id='ans1_e' placeholder=''></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-4'><select class='form-control' name='Ans1'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select></div></div></div>"
         $("#form_answer"+window.value).append(formbox2);
     }
+
     function add_formbox3(){
       var formbox3 = "<div id='formbox3' class='formbox"+window.value+"'><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label><div class='col-sm-2'><input type='text' name='ans_a[]' id='ans_a' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label><div class='col-sm-2'><input type='text' name='ans_b[]' id='ans_b' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label><div class='col-sm-2'><input type='text' name='ans_c[]' id='ans_c' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label><div class='col-sm-2'><input type='text' name='ans_d[]' id='ans_d' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label><div class='col-sm-2'><input type='text' name='ans_e[]' id='ans_e' class='form-control'></div><label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label><div class='col-sm-2'><select class='form-control' name='Ans2'  style='width: 100%; height:36px;' required><option value='a'>a</option><option value='b'>b</option><option value='c'>c</option><option value='d'>d</option><option value='e'>e</option></select></div></div></div>"
         $("#form_answer"+window.value).append(formbox3);
@@ -347,7 +313,7 @@ if ($_SESSION["loggedin"] != True) {
       var id = makeid(4);
       window.value = id;
       var form_answer = "<div id=form_answer"+window.value+"></div>";
-      console.log("have form_answer:"+form_answer);
+
       $(this).parents(".clonedInput").clone()
         .appendTo("#add_show")
         .attr("id", "clonedInput" + cloneIndex)
@@ -359,7 +325,6 @@ if ($_SESSION["loggedin"] != True) {
             this.id = match[1] + (cloneIndex);
           }
           if(id == "quiz_style"){
-            console.log("found quiz_style");
             $("locate").append(form_answer);
           }
          
@@ -371,8 +336,7 @@ if ($_SESSION["loggedin"] != True) {
     }
 
     function remove() {
-      console.log('remove');
-      $("#form_answer"+window.value).remove('.formbox1');
+      $("#quiz_"+window.value).remove();
     }
     $("button.add_formbox1").on("click",add_formbox1);
     $("button.create_quiz").on("click", create_quiz);
@@ -400,17 +364,14 @@ if ($_SESSION["loggedin"] != True) {
     $(document).on('change',"#quiz_style",function(){
     	var quiz_style = $('.quiz_style'+window.value).val();
       if(quiz_style == 0){
-      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox1();
       }
       if(quiz_style == 1){
-      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox2();
       }
       if(quiz_style == 2){
-      	console.log("choose:"+quiz_style)
         $('.formbox'+window.value).remove();
         add_formbox3();
       }
