@@ -38,11 +38,11 @@ $query = mysqli_query($conn, $sql);
                     $i = 1;
                     while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                         $style_ans = $result['answer_style'];
-                        if ($style_ans == 0) {
+                        if($style_ans == 0){
                             $ans = 'คำตอบเป็นข้อความ';
-                        } elseif ($style_ans == 1) {
+                        }elseif($style_ans == 1){
                             $ans = 'คำตอบเป็นภาพ';
-                        } elseif ($style_ans == 2) {
+                        }elseif($style_ans == 2){
                             $ans = 'คำตอบเป็นเสียง';
                         }
                         ?>
@@ -51,7 +51,7 @@ $query = mysqli_query($conn, $sql);
                             <td><?= $result['question_title']; ?></td>
                             <td><?= $ans ?></td>
                             <td width="65px;" align="center">
-                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
+                            <a href="#" style="color: gray;" title="view" class="view_dataquiz" id="<?php echo $result["quiz_id"]; ?>"><i class="fas fa-search"></i></a>
                                 <i class="far fa-edit"></i>
                                 <i class="fas fa-times-circle"></i>
                             </td>
@@ -67,58 +67,54 @@ $query = mysqli_query($conn, $sql);
             mysqli_close($conn);
             ?>
         </div>
-
         <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
         <div class="modal fade" id="dataModalquiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <!--Content-->
-                <div class="modal-content">
-                    <!--Header-->
-                    <div class="modal-header">
-                        <p class="heading lead" id="myModalLabel">รายละเอียดข้อมูล</p>
+                <div class="modal-dialog modal-dialog-centered " role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead" id="myModalLabel">รายละเอียดข้อมูล</p>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="white-text">&times;</span>
-                        </button>
-                    </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
 
-                    <!--Body-->
-                    <div class="modal-body">
-                        <div class="text-left">
-                            <div class="row" id="showprocessQuiz_script">
-                                <!-- แสดงข้อมูล -->
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-left">
+                                <div class="row" id="showprocessQuiz_script">
+                                    <!-- แสดงข้อมูล -->
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!--Footer-->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">close</button>
+                        <!--Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
-
+            <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
 
     </div>
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
     <script>
         /* Basic Table */
-        $('#zero_config').DataTable();
+        $('#zero1_config').DataTable();
     </script>
-
-    <!-- แสดงข้อมูล modal -->
     <script type="text/javascript">
-        $(document).on('click', '.view_data', function() {
-            var lesson_id = $(this).attr("id");
-            if (lesson_id != '') {
+        $(document).on('click', '.view_dataquiz', function() {
+            var quiz_id = $(this).attr("id");
+            if (quiz_id != '') {
                 $.ajax({
                     url: "script/showprocessQuiz_script.php",
                     method: "POST",
                     data: {
-                        id: lesson_id
+                        id: quiz_id
                     },
                     success: function(data) {
                         $('#showprocessQuiz_script').html(data);

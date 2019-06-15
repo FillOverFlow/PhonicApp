@@ -147,6 +147,8 @@ $query = mysqli_query($conn, $sql);
             </div>
 
             <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
+            
+
 
             <!-- footer -->
             <?php include 'template/footer.php'; ?>
@@ -182,6 +184,7 @@ $query = mysqli_query($conn, $sql);
             }
         });
     </script>
+    
 </body>
 
 </html>
