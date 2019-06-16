@@ -79,7 +79,7 @@
 			'lesson_id'			=> $lesson_id, 
 	 		'question_no' 		=> $quiz_no, 
 	 		'question_title' 	=> $quiz_title, 
-	 		'question_image' 	=> 'img/quiz/'.$quiz_img,
+	 		'question_image' 	=> 'img/quiz/'.'re'.$quiz_img,
 	 		'quiestion_sound' 	=> $quiz_sound,
 	 		'answer_style' 		=> $quiz_style,
 	 		'answer_a' 			=> $ans_a,
@@ -90,7 +90,24 @@
 	 		'answer_key' 		=> $ANS,
 			);
 		echo '<br>'.print_r($param_quiz);
-		move_uploaded_file($_FILES['quiz_img']['tmp_name'][$i],$location.$_FILES['quiz_img']['name'][$i]);
+
+		//upload and  resize image 148x120
+		$or_image = $_FILES["quiz_img"]["tmp_name"][$i];
+		$re_image = "re".$_FILES["quiz_img"]["name"][$i];
+		copy($_FILES["quiz_img"]["tmp_name"][$i],$location.$_FILES['quiz_img']['name'][$i]);
+		$width=148;
+		$size=GetimageSize($or_image);
+		$height=round($width*$size[1]/$size[0]);
+		$images_orig = ImageCreateFromJPEG($or_image);
+		$photoX = ImagesX($images_orig);
+		$photoY = ImagesY($images_orig);
+		$images_fin = ImageCreateTrueColor($width, $height);
+		ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+		ImageJPEG($images_fin,$location.$re_image);
+		ImageDestroy($images_orig);
+		ImageDestroy($images_fin);
+
+		// move_uploaded_file($_FILES['quiz_img']['tmp_name'][$i],$location.$_FILES['quiz_img']['name'][$i]);
 		//delete comment for add quiz complete
 		$quiz = new Quiz();
 		if($quiz->add($param_quiz) == true){
