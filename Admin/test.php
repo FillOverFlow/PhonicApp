@@ -1,30 +1,40 @@
-<div id='formbox3'>
-                              <div class='form-group row'>
-                                <label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก A.</label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='ans_a2[]' id='ans_a' class='form-control'>
-                                </div>
-                                <label for='' class='col-sm-1 text-right control-label col-form-label'>B.</label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='ans_b2[]' id='ans_b' class='form-control'>
-                                </div>
-                                <label for='' class='col-sm-1 text-right control-label col-form-label'>C.</label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='ans_c2[]' id='ans_c' class='form-control'>
-                                </div>
-                              </div>
-                              <div class='form-group row'>
-                                <label for='' class='col-sm-3 text-right control-label col-form-label'>ตัวเลือก D.</label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='ans_d2[]' id='ans_d' class='form-control'>
-                                </div>
-                                <label for='' class='col-sm-1 text-right control-label col-form-label'>E.</label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='ans_e2[]' id='ans_e' class='form-control'>
-                                </div>
-                                <label for='' class='col-sm-1 text-right control-label col-form-label' style='color:red;'><b>Ans</b></label>
-                                <div class='col-sm-2'>
-                                  <input type='text' name='Ans2[]' id='Ans' class='form-control'>
-                                </div>
-                              </div>
-                            </div>
+<?php
+	$images = "assets/images/ant.jpg";
+	$new_images = "assets/images/new_ant.jpg";
+	$width=150; //*** Fix Width & Heigh (Autu caculate) ***//
+	$size=GetimageSize($images);
+	$height=round($width*$size[1]/$size[0]);
+	$images_orig = ImageCreateFromJPEG($images);
+	$photoX = ImagesX($images_orig);
+	$photoY = ImagesY($images_orig);
+	$images_fin = ImageCreateTrueColor($width, $height);
+	ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	ImageJPEG($images_fin,$new_images);
+	ImageDestroy($images_orig);
+  ImageDestroy($images_fin);
+
+  //same code 
+
+  $images = $_FILES["fileUpload"]["tmp_name"];
+  $new_images = "Thumbnails_".$_FILES["fileUpload"]["name"];
+  copy($_FILES["fileUpload"]["tmp_name"],"MyResize/".$_FILES["fileUpload"]["name"]);
+  $width=100; //*** Fix Width & Heigh (Autu caculate) ***//
+  $size=GetimageSize($images);
+  $height=round($width*$size[1]/$size[0]);
+  $images_orig = ImageCreateFromJPEG($images);
+  $photoX = ImagesX($images_orig);
+  $photoY = ImagesY($images_orig);
+  $images_fin = ImageCreateTrueColor($width, $height);
+  ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+  ImageJPEG($images_fin,"MyResize/".$new_images);
+  ImageDestroy($images_orig);
+  ImageDestroy($images_fin);
+?> 
+	<b>Original Size</b><br>
+	<img src="<?php echo $images;?>">
+	<hr>
+	<b>New Resize</b><br>
+	<img src="<?php echo $new_images;?>">
+
+
+  
