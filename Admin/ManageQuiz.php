@@ -60,10 +60,6 @@ $query = mysqli_query($conn, $sql);
                             <div class="col-6">
                                 <a href="form-add-quiz.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
                             </div>
-                            <!-- <div class="col-6">
-                                <p style="text-align:right"><span style="color:red;" class="m-0 p-3">*หมายเหตุ</span> <i class="fas fa-square-full border border-secondary" style="color:#F4F2FE;border"></i> คำตอบเป็นข้อความ <i class="fas fa-square-full border border-secondary" style="color:#FEFAF2"></i> คำตอบเป็นภาพ <i class="fas fa-square-full border border-secondary" style="color:#F2FEF2"></i> คำตอบเป็นเสียง</p>
-
-                            </div> -->
                         </div>
                     </div>
                     <!-- ปุ่มเพิ่มข้อมุล -->
@@ -92,9 +88,9 @@ $query = mysqli_query($conn, $sql);
                                             <td><?= $result["lesson_desc"] ?></td>
 
                                             <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
-                                                <!-- <i class="far fa-edit"></i> -->
-                                                <i class="fas fa-times-circle"></i>
+                                            <a href="JavaScript:if(confirm('คุณต้องการดูข้อมูลของ Quiz ใช่หรือไม่ ?')==true){window.location='viewquiz.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}"  title="view" style="color: gray;"><i class="fas fa-search"></i></a>
+                                              
+                                                <i class="fas fa-times-circle" style="color: red;"></i>
                                             </td>
                                         </tr>
                                         <?php
@@ -115,41 +111,6 @@ $query = mysqli_query($conn, $sql);
             </div>
             <!-- End Container fluid  -->
 
-            <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
-            <div class="modal fade" id="dataModalquizall" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Header-->
-                        <div class="modal-header">
-                            <p class="heading lead" id="myModalLabel">รายละเอียดข้อมูล</p>
-
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text">&times;</span>
-                            </button>
-                        </div>
-
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="text-left">
-                                <div class="row" id="showprocessQuizall_script">
-                                    <!-- แสดงข้อมูล -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
-            
-
-
             <!-- footer -->
             <?php include 'template/footer.php'; ?>
             <!-- End footer -->
@@ -164,27 +125,6 @@ $query = mysqli_query($conn, $sql);
         /* Basic Table */
         $('#zero_config').DataTable();
     </script>
-
-    <!-- แสดงข้อมูล modal -->
-    <script type="text/javascript">
-        $(document).on('click', '.view_data', function() {
-            var lesson_id = $(this).attr("id");
-            if (lesson_id != '') {
-                $.ajax({
-                    url: "script/showprocessQuizall_script.php",
-                    method: "POST",
-                    data: {
-                        id: lesson_id
-                    },
-                    success: function(data) {
-                        $('#showprocessQuizall_script').html(data);
-                        $('#dataModalquizall').modal('show');
-                    }
-                });
-            }
-        });
-    </script>
-    
 </body>
 
 </html>
