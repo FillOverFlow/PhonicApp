@@ -337,6 +337,9 @@ if ($_SESSION["loggedin"] != True) {
 
     function remove() {
       $("#quiz_"+window.value).remove();
+      if(number_quiz > 1){
+        number_quiz--;
+      }
     }
     $("button.add_formbox1").on("click",add_formbox1);
     $("button.create_quiz").on("click", create_quiz);

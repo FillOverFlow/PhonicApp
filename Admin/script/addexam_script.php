@@ -13,7 +13,7 @@
     $quiz_title = $_POST["quiz_title"][$i];
     $quiz_img =   $_FILES["quiz_img"]["name"][$i];
     $quiz_sound = $_POST["quiz_sound"][$i];
-    $location = "../../img/quiz/";
+    $location = "../../img/exam/";
 
 
     //check params 

@@ -214,7 +214,7 @@ if ($_SESSION["loggedin"] != True) {
                     <div class="actions">
                       <!-- <button type="button" class="add_formbox1 btn btn-success btn-sm">Add</button>  -->
                       <button class="create_quiz btn btn-success btn-sm">เพิ่มข้อต่อไป</button>
-                      <!-- <button class="remove btn btn-danger btn-sm">ลบออก</button> -->
+                      <button class="remove btn btn-danger btn-sm">ลบออก</button>
                     </div>
                     <!-- ปุ่ม clone -->
 
@@ -251,60 +251,15 @@ if ($_SESSION["loggedin"] != True) {
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
 
   <script>
-    function gohome() {
-      document.location.href = 'ManageQuiz.php';
-    }
-  </script>
-  <script type="text/javascript">
-    var $ = jQuery;
-    $(document).ready(function() {
-      $("#formbox1").hide();
-      $("#formbox2").hide();
-      $("#formbox3").hide();
 
-      //$("#quiz_style1").change(function() {
-        
-        // var quiz_style = $("#quiz_style").val();
-        // if (quiz_style == 0) {
-        //   $("#formbox1").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox1").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == 1) {
-        //   $("#formbox2").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox2").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == 2) {
-        //   $("#formbox3").show();
-        //   //$("#quiz_img").val("").focus();
-        // } else {
-        //   $("#formbox3").hide();
-        //   $("#txt_box").val("");
-        // }
-
-        // if (quiz_style == "") {
-        //   $("#formbox1").hide();
-        //   $("#formbox2").hide();
-        //   $("#formbox3").hide();
-        //   //$("#quiz_img").val("").focus();
-        // }
-
-      //});
-    });
-  </script>
-  <script>
     var regex = /^(.+?)(\d+)$/i;
     var cloneIndex = $(".clonedInput").length;
     var $ = jQuery;
     var number_quiz = 1;
 
+    function gohome() {
+      document.location.href = 'ManageQuiz.php';
+    }
     function makeid(length) {
             //for make page id 
             var result           = '';
@@ -319,7 +274,7 @@ if ($_SESSION["loggedin"] != True) {
       var id = makeid(4);
       window.value = id;
       console.log(window.value);
-      var formquiz = "<div class='card m-b-0'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style"+window.value+"'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
+      var formquiz = "<div class='card m-b-0' id='quiz_"+window.value+"'><div class='card-header' id='headingOne'><h5 class='mb-0'><a data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'><i class='m-r-5 fa fa-magnet' aria-hidden='true'></i><span>ข้อที่ "+number_quiz+"</span></a></h5></div><div id='collapseOne' class='collapse show' aria-labelledby='headingOne' data-parent='#accordionExample'><div class='card-body'><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>หัวข้อคำถาม</label><div class='col-sm-9'><input type='text' name='quiz_title[]' class='form-control' id='quiz_title' placeholder=''></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>รูปภาพ</label><div class='col-sm-9'><input type='file' name='quiz_img[]' id='quiz_img' class='form-control'></div></div><div class='form-group row'><label for='' class='col-sm-3 text-right control-label col-form-label'>เสียง</label><div class='col-sm-9'><input type='text' name='quiz_sound[]' id='quiz_sound' class='form-control'></div></div><div class='form-group row'><label for='cono1' class='col-sm-3 text-right control-label col-form-label'>รูปแบบของคำตอบ</label><div class='col-sm-9'><select class='select2 form-control custom-select quiz_style"+window.value+"'  name='quiz_style[]' id='quiz_style' style='width: 100%; height:36px;' required><option value=''>-เลือกรูปแบบ-</option><option value='0'>คำตอบเป็นข้อความ</option><option value='1'>คำตอบเป็นภาพ</option><option value='2'>คำตอบเป็นเสียง</option></select></div></div><div id=form_answer"+window.value+"></div>";
         $("#form_quiz").append(formquiz);
         number_quiz++;
     }
@@ -364,9 +319,12 @@ if ($_SESSION["loggedin"] != True) {
     }
 
     function remove() {
-      console.log('remove');
-      $("#form_answer"+window.value).remove('.formbox1');
+      $("#quiz_"+window.value).remove();
+      if(number_quiz > 1){
+        number_quiz--;
+      }
     }
+    
     $("button.add_formbox1").on("click",add_formbox1);
     $("button.create_quiz").on("click", create_quiz);
     $("button.remove").on("click", remove);
