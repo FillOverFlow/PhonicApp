@@ -53,6 +53,11 @@
 	        }
 
 		}
+		function edit($params){
+			include '../../db_connection.php';
+			//variable params
+			
+		}
 	}
 
 

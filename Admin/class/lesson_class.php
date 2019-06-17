@@ -52,14 +52,47 @@ Class Lesson{
         }
 
     }
-    function delete_lesson($params){
+    function delete_lesson($lesson_id){
         include '../../db_connection.php';
-        $lesson_id   = $params['lesson_id'];
+        
+        // delete lesson
+        $sql = "delete from lesson_detail where lesson_id = '$lesson_id'";
+        echo $sql;
+        #$conn->query($sql);
+        
+        // delete word
+        $sql_word = "delete from word_detail where lesson_id = '$lesson_id'";
+        echo $sql_word;
+        #$conn->query($sql_word);
 
-        $stmt = $conn->prepare("DELETE FROM movies WHERE filmID = ?");
-        $stmt->bind_param('i', $_POST['filmID']);
-        $stmt->execute(); 
-        $stmt->close();
+        //check result 
+        if($conn->query($sql) and $conn->query($sql_word)){
+            echo 'delete';
+            return true;
+        }else{
+            echo $sql;
+            echo "<br>";
+            echo $sql_word;
+            return false;
+        }
+    }
+    function delete_word($word_id){
+        include '../../db_connection.php';
+        
+        // delete word
+        $sql_word = "delete from word_detail where word_id = '$word_id'";
+        echo $sql_word;
 
+
+        //check result 
+        if($conn->query($sql_word)){
+            echo 'delete';
+            return true;
+        }else{
+            echo $sql;
+            echo "<br>";
+            echo $sql_word;
+            return false;
+        }
     }
 }

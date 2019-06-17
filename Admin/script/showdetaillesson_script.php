@@ -28,6 +28,7 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
           <th><b>คำศัพท์</b></th>
           <th><b>ออกเสียง</b></th>
           <th align="center"><b>รูปคำศัพท์</b></th>
+          <th><b>ลบคำศัพท์</b></th>
         </tr>
       </thead>
 
@@ -42,6 +43,7 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
             <td><?= $result['word_show']; ?></td>
             <td><?= $result['word_speak']; ?></td>
             <td align="center"><img src="../<?= $result['word_image']; ?>" alt="รูปคำศัพท์" height="30" width="70"></td>
+            <td><a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delword_script.php?word_id=<?php echo $result["word_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a></td>
           </tr>
           <?php
           $i++;
