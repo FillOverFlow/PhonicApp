@@ -89,8 +89,7 @@ $query = mysqli_query($conn, $sql);
 
                                             <td width="65px;" align="center">
                                             <a href="JavaScript:if(confirm('คุณต้องการดูข้อมูลของ Quiz ใช่หรือไม่ ?')==true){window.location='viewquiz.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}"  title="view" style="color: gray;"><i class="fas fa-search"></i></a>
-                                              
-                                                <i class="fas fa-times-circle" style="color: red;"></i>
+                                            <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delquiz_script.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                             </td>
                                         </tr>
                                         <?php

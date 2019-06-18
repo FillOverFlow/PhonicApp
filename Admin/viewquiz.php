@@ -108,7 +108,7 @@ $query = mysqli_query($conn, $sql);
                           <td align="center">
                             <a href="#" style="color: gray;" title="view" class="view_dataquiz" id="<?php echo $result["quiz_id"]; ?>"><i class="fas fa-search"></i></a>
                             <!-- <a href="#"title="view" class="edit_quiz" id="<?php echo $result["quiz_id"]; ?>" style="color: green;" title="แก้ไขข้อมูล"><i class="far fa-edit"></i></a> -->
-                            <a href="#" style="color: green;" data-toggle="modal" data-target="#dataModalEditQuiz"><i class="far fa-edit" title="แก้ไข Quiz"></i></a>
+                            <a href="#" style="color: green;" class="edit_dataquiz" id="<?php echo $result["quiz_id"]; ?>"><i class="far fa-edit" title="แก้ไข Quiz"></i></a>
                             <i class="fas fa-times-circle" style="color: red;"></i>
                           </td>
                         </tr>
@@ -359,6 +359,22 @@ $query = mysqli_query($conn, $sql);
       if (quiz_id != '') {
         $.ajax({
           url: "script/showprocessQuiz_script.php",
+          method: "POST",
+          data: {
+            id: quiz_id
+          },
+          success: function(data) {
+            $('#showprocessQuiz_script').html(data);
+            $('#dataModalquiz').modal('show');
+          }
+        });
+      }
+    });
+    $(document).on('click', '.edit_dataquiz', function() {
+      var quiz_id = $(this).attr("id");
+      if (quiz_id != '') {
+        $.ajax({
+          url: "script/editprocessQuiz_script.php",
           method: "POST",
           data: {
             id: quiz_id
