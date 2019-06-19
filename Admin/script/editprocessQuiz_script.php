@@ -22,34 +22,35 @@ if ($ans_style == 2) {
 }
 ?>
     <!-- Modal แสดง editQuiz  -->
+                  
                       <div class="text">
                         <div class="row">
                           <div class="col-sm-12">
-                            <form action="" method="post">
+                            <form action="script/editquiz_script.php?quiz_id=<?php echo $quiz_id; ?>" method="post" enctype="multipart/form-data">
                               <div class="form-group">
                                 <label for="">ระดับ level : </label>
                                 <input type="text" id="level" name="level" class="form-control input-lg" placeholder="ระดับ level" value="">
                               </div>
                               <div class="form-group">
                                 <label for="">บทเรียน lesson : </label>
-                                <input type="text" id="lesson" name="lesson" class="form-control input-lg" placeholder="บทเรียน lesson" value="<?php echo $row['lesson_id'];?>" required>
+                                <input type="text" id="lesson" name="lesson_id" class="form-control input-lg" placeholder="บทเรียน lesson" value="<?php echo $row['lesson_id'];?>" required>
                               </div>
                               <hr>
                               <div class="form-group">
                                 <label for="">หัวข้อคำถาม : </label>
-                                <input type="text" id="quiztitle" name="quiztitle" class="form-control input-lg" placeholder="quiztitle" value="<?php echo $row['question_title'];?>" required>
+                                <input type="text" id="quiztitle" name="quiz_title" class="form-control input-lg" placeholder="quiztitle" value="<?php echo $row['question_title'];?>" required>
                               </div>
                               <div class="form-group">
                                 <label for="">รูปภาพคำถาม : </label>
-                                <input type="file" id="quizimg" name="quizimg" class="form-control input-lg" placeholder="quizimg" value="" required>
+                                <input type="file" name="quiz_img" class="form-control input-lg" placeholder="quizimg" value="" >
                               </div>
                               <div class="form-group">
                                 <label for="">เสียง : </label>
-                                <input type="text" id="quizsound" name="quizsound" class="form-control input-lg" placeholder="quizsound" value="<?php echo $row['question_sound'];?>" required>
+                                <input type="text" id="quizsound" name="quiz_sound" class="form-control input-lg" placeholder="quizsound" value="<?php echo $row['question_sound'];?>" required>
                               </div>
                               <div class="form-group">
                                 <label for="">รูปแบบคำตอบ : </label>
-                                <select class="form-control" id="type_style" style="width: 100%; height:36px;" value='<?php echo $row['answer_style'];?>' required>
+                                <select class="form-control" name="quiz_style" id="type_style" style="width: 100%; height:36px;" value='<?php echo $row['answer_style'];?>' required>
                                   <option value="">-เลือก รูปแบบคำตอบ-</option>
                                   <option value="0">คำตอบเป็นข้อความ</option>
                                   <option value="1">คำตอบเป็นภาพ</option>
@@ -62,29 +63,29 @@ if ($ans_style == 2) {
                                 <div class="form-group row">
                                   <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_a[]" id="ans_a" class="form-control" value="<?php echo $row['answer_a'];?>">
+                                    <input type="text" name="ans1_a"  class="form-control" value="<?php echo $row['answer_a'];?>">
                                   </div>
                                   <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_b[]" id="ans_b" class="form-control"  value="<?php echo $row['answer_b'];?>">
+                                    <input type="text" name="ans1_b" class="form-control"  value="<?php echo $row['answer_b'];?>">
                                   </div>
                                   <label for="" class="col-sm-2 text-right control-label col-form-label">C.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_c[]" id="ans_c" class="form-control"  value="<?php echo $row['answer_c'];?>">
+                                    <input type="text" name="ans1_c" class="form-control"  value="<?php echo $row['answer_c'];?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_d[]" id="ans_d" class="form-control"  value="<?php echo $row['answer_d'];?>">
+                                    <input type="text" name="ans1_d" id="ans_d" class="form-control"  value="<?php echo $row['answer_d'];?>">
                                   </div>
                                   <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_e[]" id="ans_e" class="form-control"  value="<?php echo $row['answer_e'];?>">
+                                    <input type="text" name="ans1_e" class="form-control"  value="<?php echo $row['answer_e'];?>">
                                   </div>
                                   <label for="" class="col-sm-2 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="Ans[]" id="Ans" class="form-control"  value="<?php echo $row['answer_key'];?>">
+                                    <input type="text" name="Ans1" id="Ans" class="form-control"  value="<?php echo $row['answer_key'];?>">
                                   </div>
                                 </div>
                               </div>
@@ -95,37 +96,37 @@ if ($ans_style == 2) {
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                   <div class="col-sm-9">
-                                    <input type="file" name="ans_a[]" class="form-control" id="ans1_a" placeholder="">
+                                    <input type="file" name="ans_a" class="form-control" placeholder="">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label">B.</label>
                                   <div class="col-sm-9">
-                                    <input type="file" name="ans_b[]" class="form-control" id="ans1_b" placeholder="">
+                                    <input type="file" name="ans_b[]" class="form-control"  placeholder="">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label">C.</label>
                                   <div class="col-sm-9">
-                                    <input type="file" name="ans_c[]" class="form-control" id="ans1_c" placeholder="">
+                                    <input type="file" name="ans_c" class="form-control"  placeholder="">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label">D.</label>
                                   <div class="col-sm-9">
-                                    <input type="file" name="ans_d[]" class="form-control" id="ans1_d" placeholder="">
+                                    <input type="file" name="ans_d" class="form-control" placeholder="">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label">E.</label>
                                   <div class="col-sm-9">
-                                    <input type="file" name="ans_e[]" class="form-control" id="ans1_e" placeholder="">
+                                    <input type="file" name="ans_e" class="form-control"  placeholder="">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="cono1" class="col-sm-3 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                   <div class="col-sm-4">
-                                    <input type="text" name="Ans1[]" class="form-control" id="ans" placeholder="">
+                                    <input type="text" name="Ans2" class="form-control" id="ans" placeholder="">
                                   </div>
                                 </div>
                               </div>
@@ -136,29 +137,29 @@ if ($ans_style == 2) {
                                 <div class="form-group row">
                                   <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_a2[]" id="ans_a" class="form-control"  value="<?php echo $row['answer_a'];?>">
+                                    <input type="text" name="ans_a2" id="ans_a[]" class="form-control"  value="<?php echo $row['answer_a'];?>">
                                   </div>
                                   <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_b2[]" id="ans_b" class="form-control"  value="<?php echo $row['answer_b'];?>">
+                                    <input type="text" name="ans_b2" id="ans_b[]" class="form-control"  value="<?php echo $row['answer_b'];?>">
                                   </div>
                                   <label for="" class="col-sm-2 text-right control-label col-form-label">C.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_c2[]" id="ans_c" class="form-control"  value="<?php echo $row['answer_c'];?>">
+                                    <input type="text" name="ans_c2" id="ans_c" class="form-control"  value="<?php echo $row['answer_c'];?>">
                                   </div>
                                 </div>
                                 <div class="form-group row">
                                   <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_d2[]" id="ans_d" class="form-control"  value="<?php echo $row['answer_d'];?>"> 
+                                    <input type="text" name="ans_d2" id="ans_d" class="form-control"  value="<?php echo $row['answer_d'];?>"> 
                                   </div>
                                   <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="ans_e2[]" id="ans_e" class="form-control"  value="<?php echo $row['answer_e'];?>">
+                                    <input type="text" name="ans_e2" id="ans_e" class="form-control"  value="<?php echo $row['answer_e'];?>">
                                   </div>
                                   <label for="" class="col-sm-2 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
                                   <div class="col-sm-2">
-                                    <input type="text" name="Ans2[]" id="Ans" class="form-control"  value="<?php echo $row['answer_key'];?>">
+                                    <input type="text" name="Ans2" id="Ans" class="form-control"  value="<?php echo $row['answer_key'];?>">
                                   </div>
                                 </div>
                               </div>
