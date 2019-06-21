@@ -96,7 +96,7 @@
     if($exam ->add($param_quiz) == true){
         echo '<script language="javascript" type="text/javascript"> ';
         echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
-        echo ' location.href="../ManageQuiz.php"';
+        echo ' location.href="../ManageExam.php"';
         echo '}';
         echo '</script>';
         exit;

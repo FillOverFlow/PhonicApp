@@ -37,12 +37,12 @@ $query = mysqli_query($conn, $sql);
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">จัดการข้อมูล Quiz</h4>
+                        <h4 class="page-title">จัดการข้อมูล Exam</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูล Quiz</li>
+                                    <li class="breadcrumb-item active" aria-current="page">จัดการข้อมูล Exam</li>
                                 </ol>
                             </nav>
                         </div>
@@ -96,8 +96,12 @@ $query = mysqli_query($conn, $sql);
                                             <td width="65px;" align="center">
                                                 <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["exam_id"]; ?>"><i class="fas fa-search"></i></a>
 
-                                                <a href="#" style="color: green;" data-toggle="modal" data-target="#dataModalEditExam"><i class="far fa-edit" title="แก้ไข Exam"></i></a>
-                                                <i class="fas fa-times-circle" style="color: red;"></i>
+                                            
+                                                <a href="#" style="color: green;" class="edit_exam" id="<?php echo $result["exam_id"]; ?>"><i class="far fa-edit" title="แก้ไข Exam"></i></a>
+
+                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delexam_script.php?exam_id=<?php echo $result["exam_id"]; ?>';}">
+                                                <i class="fas fa-times-circle" style="color: red;"></i></a>
+                                                
                                             </td>
                                         </tr>
                                         <?php
@@ -158,7 +162,7 @@ $query = mysqli_query($conn, $sql);
                     <div class="modal-content">
                         <!--Header-->
                         <div class="modal-header">
-                            <p class="heading lead" id="myModalLabel">แก้ไข Quiz</p>
+                            <p class="heading lead" id="myModalLabel">แก้ไข Exam</p>
 
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="white-text">&times;</span>
@@ -353,6 +357,24 @@ $query = mysqli_query($conn, $sql);
                     }
                 });
             }
+        });
+        $(document).on('click', '.edit_exam', function() {
+            console.log('click edit');
+        var quiz_id = $(this).attr("id");
+        if (quiz_id != '') {
+            $.ajax({
+            url: "script/editprocessExam_script.php",
+            method: "POST",
+            data: {
+                id: quiz_id
+            },
+            success: function(data) {
+                console.log(data)
+                $('#employee_detail1').html(data);
+                $('#dataModal1').modal('show');
+            }
+            });
+        }
         });
     </script>
     <script>
