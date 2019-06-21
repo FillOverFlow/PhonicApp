@@ -99,7 +99,8 @@ $query = mysqli_query($conn, $sql);
                                             <td align="center"><a href="../<?php echo $result["small_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["small_image"]; ?>" width="65px" height="25px"></a></td>
 
                                             <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a>
+                                               <!--  <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["lesson_id"]; ?>"><i class="fas fa-search"></i></a> -->
+                                                <a href="JavaScript:if(confirm('คุณต้องการดูของ lesson ข้อมูลใช่หรือไม่ ?')==true){window.location='viewlesson.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}" style="color: gray;" title="แก้ไขข้อมูล"><i class="fas fa-search"></i></a>
 
                                                 <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/dellesson_script.php?lesson_id=<?php echo $result["lesson_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                             </td>

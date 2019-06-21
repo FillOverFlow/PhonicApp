@@ -23,7 +23,6 @@ if ($ans_style == 2) {
 ?>
     <!-- Modal แสดง editQuiz  -->
                   
-                      <div class="text">
                         <div class="row">
                           <div class="col-sm-12">
                             <form action="script/editquiz_script.php?quiz_id=<?php echo $quiz_id; ?>" method="post" enctype="multipart/form-data">
@@ -169,11 +168,7 @@ if ($ans_style == 2) {
                             </form>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  
               <script>
               $(function() {
                 $('#formbox1').hide();

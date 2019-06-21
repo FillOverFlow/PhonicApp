@@ -143,7 +143,7 @@ $query = mysqli_query($conn, $sql);
                     <!--Body-->
                     <div class="modal-body">
                       <div class="text-left">
-                        <div class="row" id="showprocessQuiz_script">
+                        <div id="showprocessQuiz_script">
                           <!-- แสดงข้อมูล -->
                         </div>
                       </div>
