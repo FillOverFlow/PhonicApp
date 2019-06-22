@@ -4,9 +4,9 @@
     $params  = $_GET["lesson_id"];
     
     //use lesson class 
-    $quiz = new Quiz();
+    $lesson = new Lesson();
 
-    if($quiz->delete($params) == true){
+    if($lesson->delete_lesson($params) == true){
         echo '<script language="javascript" type="text/javascript"> ';
         echo 'if(!alert("ลบข้อมูลสำเรีจ")) {';//msg
         echo ' location.href="../Manage-lesson.php"';

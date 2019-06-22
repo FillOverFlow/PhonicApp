@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../db_connection.php';
+include 'script/count_badge.php';
 if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
@@ -65,6 +66,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
                                 <h6 class="text-white">Dashboard</h6>
+                                <span class="badge badge-pill badge-light">0</span>
                             </div>
                         </div>
                     </div>
@@ -74,6 +76,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-star"></i></h1>
                                 <h6 class="text-white">ผู้ดูแลระบบ</h6>
+                                <span class="badge badge-pill badge-light"><?php echo $num_admins; ?></span>
                             </div>
                         </div>
                     </div>
@@ -83,6 +86,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">ผู้ใช้งาน</h6>
+                                <span class="badge badge-pill badge-light"><?php echo $num_accounts; ?></span>
                             </div>
                         </div>
                     </div>
@@ -92,6 +96,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-note-plus"></i></h1>
                                 <h6 class="text-white">บทเรียนและคำศัพท์</h6>
+                                <span class="badge badge-pill badge-light"><?php echo $num_words; ?></span>
                             </div>
                         </div>
                     </div>
@@ -101,6 +106,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-tooltip-edit"></i></h1>
                                 <h6 class="text-white">Quiz</h6>
+                                <span class="badge badge-pill badge-light"><?php echo $num_quizs; ?></span>
                             </div>
                         </div>
                     </div>
@@ -110,6 +116,7 @@ $objResult = mysqli_fetch_array($query);
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-tooltip-text"></i></h1>
                                 <h6 class="text-white">Exam</h6>
+                                <span class="badge badge-pill badge-light"><?php echo $num_exams; ?></span>
                             </div>
                         </div>
                     </div>

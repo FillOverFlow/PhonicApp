@@ -85,12 +85,12 @@ Class Lesson{
         // delete lesson
         $sql = "delete from lesson_detail where lesson_id = '$lesson_id'";
         echo $sql;
-        #$conn->query($sql);
+        $conn->query($sql);
         
         // delete word
         $sql_word = "delete from word_detail where lesson_id = '$lesson_id'";
         echo $sql_word;
-        #$conn->query($sql_word);
+        $conn->query($sql_word);
 
         //check result 
         if($conn->query($sql) and $conn->query($sql_word)){

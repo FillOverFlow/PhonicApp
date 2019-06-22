@@ -28,7 +28,7 @@ if ($ans_style == 2) {
                             <form action="script/editexam_script.php?exam_id=<?php echo $exam_id; ?>" method="post" enctype="multipart/form-data">
                               <div class="form-group">
                                 <label for="">ระดับ level : </label>
-                                <input type="text" id="level" name="level" class="form-control input-lg" placeholder="ระดับ level" value="<?php echo $row['level'];?>">
+                                <input type="text" id="level" name="level" class="form-control input-lg" placeholder="ระดับ level" value="<?php echo $row['level'];?>" readonly>
                               </div>
                               <hr>
                               <div class="form-group">

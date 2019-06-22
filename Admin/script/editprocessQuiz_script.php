@@ -27,12 +27,8 @@ if ($ans_style == 2) {
                           <div class="col-sm-12">
                             <form action="script/editquiz_script.php?quiz_id=<?php echo $quiz_id; ?>" method="post" enctype="multipart/form-data">
                               <div class="form-group">
-                                <label for="">ระดับ level : </label>
-                                <input type="text" id="level" name="level" class="form-control input-lg" placeholder="ระดับ level" value="">
-                              </div>
-                              <div class="form-group">
                                 <label for="">บทเรียน lesson : </label>
-                                <input type="text" id="lesson" name="lesson_id" class="form-control input-lg" placeholder="บทเรียน lesson" value="<?php echo $row['lesson_id'];?>" required>
+                                <input type="text" id="lesson" name="lesson_id" class="form-control input-lg" placeholder="บทเรียน lesson" value="<?php echo $row['lesson_id'];?>" readonly>
                               </div>
                               <hr>
                               <div class="form-group">
