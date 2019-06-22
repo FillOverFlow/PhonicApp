@@ -123,6 +123,14 @@ $objResult = mysqli_fetch_array($query);
                     <!-- Column -->
 
                 </div>
+                <!-- Bar chart -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    </div>  
+                </div>
+                <br>
+                <!-- Bar chart -->
                 <!-- Sales chart -->
                 <div class="row">
                     <div class="col-md-12">
@@ -194,6 +202,7 @@ $objResult = mysqli_fetch_array($query);
                     </div>
                 </div>
                 <!-- Sales chart -->
+               
 
             </div>
             <!-- End Container fluid  -->
@@ -205,13 +214,14 @@ $objResult = mysqli_fetch_array($query);
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
-
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
         function myFunction() {
             location.href = "index.php";
             document.getElementById("myP").style.cursor = "pointer";
         }
     </script>
+    <?php include 'script/bargraph_script.php'; ?>
 
 </body>
 
