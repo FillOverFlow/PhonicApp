@@ -22,11 +22,11 @@
   if($_FILES["quiz_img"]["name"]){
     $quiz_img = 'img/exam/'.$_FILES["quiz_img"]["name"];
     echo 'question_image'.$quiz_img;
-    // if(move_uploaded_file($_FILES['quiz_img']['tmp_name'],$location.$_FILES['quiz_img']['name'])){
-    //   echo 'upload success';
-    // }else{
-    //   echo 'error';
-    // }
+    if(move_uploaded_file($_FILES['quiz_img']['tmp_name'],$location.$_FILES['quiz_img']['name'])){
+      echo 'upload success';
+    }else{
+      echo 'error';
+    }
     
   }else{
     echo 'ไม่ได้ ใส่รูปภาพเพิ่ม ใช้ภาพเก่า';

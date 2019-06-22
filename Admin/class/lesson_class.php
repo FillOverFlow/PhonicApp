@@ -52,6 +52,33 @@ Class Lesson{
         }
 
     }
+    function edit_word($params){
+        include '../../db_connection.php';
+        //variable params 
+        // $lesson_id = $params['lesson_id'];
+        // $word_no   = $params['word_no'];
+        // $page_no   = $params['page_no'];
+        $word_id   = $params['word_id'];
+        $word_show = $params['word_show'];
+        $word_speak= $params['word_speak'];
+        $word_image= $params['word_image'];
+        $create_date= date('Y-m-d h:i:s');
+
+        //sql 
+        $sql = "update word_detail set word_show = '$word_show',word_speak='
+        $word_speak',word_image='$word_image',create_date='$create_date' 
+        where word_id = '$word_id'";
+        //echo 'SQL'.$sql;
+        if($conn->query($sql)){
+            echo 'update';
+            return true;
+        }else{
+            //echo 'error case '.mysqli_error($conn);
+            echo $sql;
+            echo "<br>";
+            return false;
+        }
+    }
     function delete_lesson($lesson_id){
         include '../../db_connection.php';
         
