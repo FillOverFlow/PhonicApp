@@ -150,6 +150,12 @@ include '../db_connection.php';
                                     <input type="text" class="form-control" name="lesson_desc" id="lesson_desc" placeholder="ตัวอย่าง Word with Short Vowel ' a '" required>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Youtube</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="youtube" id="youtube" placeholder="ตัวอย่าง biiLK2VKo-w" required>
+                                </div>
+                            </div>
                             <br>
                             <hr>
                             <h4 class="card-title">เพิ่มหน้าที่แสดงและคำศัพท์</h4>
@@ -256,6 +262,12 @@ include '../db_connection.php';
                                         <input type="text" name="wordsound" class="form-control" id="wordsound" placeholder="ตัวอย่าง ant">
                                     </div>
                                 </div>
+                             <!--    <div class="form-group row">
+                                    <label for="cono1" class="col-sm-3 text-right control-label col-form-label"><b>Youtube</b></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="Youtube" class="form-control" id="Youtube" placeholder="ตัวอย่าง biiLK2VKo-w">
+                                    </div>
+                                </div> -->
                                 <hr>
                             </div>
                             <div class="modal-footer">
@@ -364,6 +376,7 @@ include '../db_connection.php';
                 var level = $('#level').val();
                 var small_image = $('#small_image')[0].files[0];
                 var maxpage = page_number;
+                var youtube = $('#youtube').val();
 
                 var fd = new FormData();
                 fd.append('lesson_no', lesson_no);
@@ -373,6 +386,7 @@ include '../db_connection.php';
                 fd.append('level', level);
                 fd.append('small_image', small_image);
                 fd.append('maxpage', maxpage);
+                fd.append('youtube', youtube);
 
                 $.ajax({
                     url: 'script/addlesson_script.php',

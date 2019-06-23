@@ -36,10 +36,11 @@ Class Lesson{
         $small_image = $params['small_image'];
         $big_image   = $params['big_image'];
         $maxpage     = $params['maxpage'];
+        $youtube     = $params['youtube'];
         $create_date= date('Y-m-d h:i:s');
         //sql 
-        $sql = "insert lesson_detail(lesson_id,level,lesson_no,lesson_name,lesson_desc,small_image,big_image,maxpage,create_date)
-                values('$lesson_id','$level','$lesson_no','$lesson_name','$lesson_desc','$small_image','$big_image','$maxpage','$create_date')";
+        $sql = "insert lesson_detail(lesson_id,level,lesson_no,lesson_name,lesson_desc,small_image,big_image,maxpage,youtube,create_date)
+                values('$lesson_id','$level','$lesson_no','$lesson_name','$lesson_desc','$small_image','$big_image','$maxpage','$youtube','$create_date')";
         $conn->query($sql);
         if($conn){
             // return true if success

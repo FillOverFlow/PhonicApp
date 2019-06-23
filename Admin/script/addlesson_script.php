@@ -17,6 +17,7 @@
         $lesson_name = $_POST['lesson_name'];
         $lesson_desc = $_POST['lesson_desc'];
         $maxpage     = $_POST['maxpage'];
+        $youtube     = $_POST['youtube'];
         $small_image = $_FILES['small_image']['name'];  //file small image
         $location = "../../img/level".$level."/";
         
@@ -31,6 +32,7 @@
             'lesson_name' => $lesson_name,
             'lesson_desc' => $lesson_desc,
             'maxpage'     => $maxpage,
+            'youtube'     => $youtube,
         );
         print_r($params);
         //use class to upload lesson
