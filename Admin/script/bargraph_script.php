@@ -1,7 +1,7 @@
 <?php 
     //calculate user_exam_score
     // การผ่านต้องได้มากกว่า ครึ่งของ  คะแนนเต็มออกมา
-    include '../../db_connection.php';
+    //include '../../db_connection.php';
     $pass_score = 15/2;
     //level 1 
     $sql_user_pass_le1 = "select user_id from user_exam_score where level = 1 and user_score > '$pass_score'";
