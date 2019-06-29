@@ -103,11 +103,10 @@
   echo '<br>'.print_r($param_quiz);
   $quiz = new Quiz();
   if($quiz ->edit($param_quiz) == true){
-    echo '<script language="javascript" type="text/javascript"> ';
-    echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
-    echo ' location.href="../ManageQuiz.php"';
-    echo '}';
-    echo '</script>';
+    echo "<script language='javascript' type='text/javascript'> ";
+    echo "!alert('บันทึกข้อมูลสำเร็จ')";//msg
+    echo "</script>";
+    header("location:../viewquiz.php?lesson_id=$lesson_id");
     exit;
 }
 

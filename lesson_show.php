@@ -120,6 +120,15 @@ session_start();
 			}
 		}
 
+		//check have quiz in lesson
+		$have_quiz = false; 
+		$sql_check = "SELECT quiz_id from quiz_detail  where lesson_id = '$lesson_id'";
+		$check = $conn->query($sql_check);
+		$num = mysqli_num_rows($check);
+		if($num > 0){
+			$have_quiz = true;
+		}
+
 	?>
 
 		<div class="row">
@@ -261,9 +270,11 @@ session_start();
 								<a href="lesson_show.php?lesson_id=<?php echo $lesson_id;?>&thispage=<?php echo $thispage + 1;?>" class="btn btn-danger btn-lg" style='font-size:15px'>  Next &gt;  </a>
 							<?php
 								} else {
+									if($have_quiz == true){
 							?>
 								<a href="quiz_show.php?lesson_id=<?php echo $lesson_id;?>" class="btn btn-danger btn-lg" style='font-size:15px'>  แบบทดสอบ  </a>
 							<?php
+									}
 								}
 							?>
 							</div>

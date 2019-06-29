@@ -395,8 +395,9 @@ include '../db_connection.php';
                     contentType: false,
                     processData: false,
                     success: function(response) {
-                        console.log(response);
                         alert('ทำรายการเรียบร้อยแล้ว');
+                        location.href="../Manage-lesson.php
+                        
 
                     },
                 });

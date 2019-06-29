@@ -99,7 +99,7 @@
         echo ' location.href="../ManageExam.php"';
         echo '}';
         echo '</script>';
-        exit;
+        
     }
 
    }

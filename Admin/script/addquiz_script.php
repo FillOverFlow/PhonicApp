@@ -4,11 +4,17 @@
 	//#ถ้ารูปแบบ ที่ 1 คำตอบจะเป็น ภาพต้องมีการ upload image to folder '../../img/quiz/'
 	
 	require '../class/quiz_class.php';
+	include '../../db_connection.php';
+	#ตรวจสอบ ลำดับ ของ question_number ล่าสุดที่มี
+	$lesson_id = $_POST["lesson_id"]; 
+	$sql = "select MAX(question_no) from quiz_detail where lesson_id = '$lesson_id'";
+	$result = $conn->query($sql);
+	echo $sql;
+	$row = mysqli_fetch_array($result);
 
 	for ($i =0; $i < sizeof($_POST["quiz_style"]); $i++) {
 		//# ส่วนของคำถาม
-		$quiz_no = $i+1;
-		$lesson_id = $_POST["lesson_id"]; 
+		$quiz_no = $row['MAX(question_no)']+1;
 		$quiz_style = $_POST["quiz_style"][$i];  //0,1,2
 		$quiz_title = $_POST["quiz_title"][$i];
 		$quiz_img =   $_FILES["quiz_img"]["name"][$i];
@@ -116,7 +122,6 @@
         echo ' location.href="../ManageQuiz.php"';
         echo '}';
         echo '</script>';
-        exit;
     }
 
 	}

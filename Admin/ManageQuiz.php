@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../db_connection.php';
+include 'script/checkhave_quizlesson_script.php'; //check for have quiz in lesson or not 
 if ($_SESSION["loggedin"] != True) {
     //if not login redirect to login.php 
     header("location:login.php");
@@ -65,9 +66,27 @@ $query = mysqli_query($conn, $sql);
                     <!-- ปุ่มเพิ่มข้อมุล -->
                     <div class="card-body ">
                         <div class="table-responsive">
+                       
                             <table id="zero_config" class="table table-bordered table-sm table-hover">
                                 <thead class="table-secondary">
-
+                                    
+                                        <?php
+                                            if(count($lesson_not_have_quiz) > 0){ ?>
+                                                <h5 style="color:red">
+                                                มี lesson ที่ยังไม่ได้เพิ่ม quiz ทั้งหมด <?php echo count($lesson_not_have_quiz)?> lesson 
+                                                คือ 
+                                                <?php 
+                                                    for($i =0;$i<count($lesson_not_have_quiz);$i++){?>
+                                                        <p style="color:red">-<?php echo $lesson_not_have_quiz[$i]?></p>
+                                                <?php }?>
+                                            
+                                                </h5>
+                                        <?php }else { ?>
+                                            <h5 style="color:green">ทุก lesson ได้รับการเพิ่ม quiz เรียบร้อยแล้ว</h5>
+                                        <?php } ?>
+                                            
+                                    
+                                    
                                     <tr>
                                         <th width="20px" align="center">ลำดับ</th>
                                         <th>level</th>
