@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f93af068-43dd-4708-abdb-6c7d27f4b2df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/adduser.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/adduser.php" afterDir="false" />
-    </list>
+    <list default="true" id="f93af068-43dd-4708-abdb-6c7d27f4b2df" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -153,7 +150,7 @@
       <workItem from="1561129569550" duration="104000" />
       <workItem from="1561129698631" duration="8000" />
       <workItem from="1561260407332" duration="2899000" />
-      <workItem from="1561910214762" duration="1285000" />
+      <workItem from="1561910214762" duration="1580000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1561129371621</created>
@@ -176,11 +173,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561264333107</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update bug error text">
+      <created>1561911834783</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1561911834784</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6085000" />
+    <option name="totallyTimeSpent" value="6380000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,7 +281,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
     <MESSAGE value="update  youtube" />
-    <option name="LAST_COMMIT_MESSAGE" value="update  youtube" />
+    <MESSAGE value="update bug error text" />
+    <option name="LAST_COMMIT_MESSAGE" value="update bug error text" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Admin/ManageQuiz.php">

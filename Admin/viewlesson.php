@@ -57,6 +57,11 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
             <div class="container-fluid">
                 <!-- แสดงตารางข้อมูลผู้ใช้งาน -->
                 <div class="card">
+                      <!-- ปุ่มเพิ่มข้อมุล -->
+                    <div class="card-body">
+                      <button type="button" class="btn btn-danger btn-sm" onclick="gohome()" title="ย้อนกลับไปที่หน้าหลักของบทเรียนและคำศัพท์"><i class="fa fa-arrow-circle-left"> ย้อนกลับ</i></button>
+                    </div>
+                    <!-- ปุ่มเพิ่มข้อมุล -->
                     <div class="card-body">
                         <div class="table-responsive">
                            <table id="zero1_config" class="table table-bordered table-sm table-hover">
@@ -81,7 +86,8 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
                                     <td align="center"><?= $result['lesson_id']; ?></td>
                                     <td><?= $result['word_show']; ?></td>
                                     <td><?= $result['word_speak']; ?></td>
-                                    <td align="center" width="100"><img src="../<?= $result['word_image']; ?>" alt="รูปคำศัพท์" height="30" width="70"></td>
+                                    <!-- <td align="center" width="100"><img src="../<?= $result['word_image']; ?>" alt="รูปคำศัพท์" height="30" width="70"></td> -->
+                                     <td align="center" width="100"><a href="../<?php echo $result["word_image"]; ?>" target="_blank" title="รูปคำศัพท์"><img src="../<?php echo $result["word_image"]; ?>" height="30" width="70"></a></td>
                                     <td width="70" align="center">
                                        <a href="#" style="color: green;" class="edit_word" id="<?php echo $result["word_id"]; ?>"><i class="far fa-edit" title="แก้ไข Word"></i></a>
                                       <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delword_script.php?word_id=<?php echo $result["word_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
@@ -150,6 +156,11 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
     /* Basic Table */
     $('#zero1_config').DataTable();
   </script>
+   <script>
+        function gohome() {
+            document.location.href = 'Manage-lesson.php';
+        }
+    </script>
   <script type="text/javascript">
     $(document).on('click', '.edit_word', function() {
       var quiz_id = $(this).attr("id");
