@@ -71,6 +71,7 @@ if ($_SESSION["loggedin"] != True) {
                                         <div class="col-sm-6">
                                             <input type="password" class="form-control" name="password" id="password" placeholder="กรอกรหัสผ่าน" onchange="checkPass();" required>
                                             <span id="txtCheck2"></span>
+                                            <span id="txtChecklength"></span>
                                         </div>
                                     </div>
 
@@ -181,10 +182,10 @@ if ($_SESSION["loggedin"] != True) {
             str1 = document.getElementById("password").value;
 
             if (str1.length < 8) {
-                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
+                document.getElementById("txtChecklength").innerHTML = "<span style='color:red'>รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร</span>";
                 document.getElementById("password").focus();
             } else {
-                document.getElementById("txtCheck2").innerHTML = "";
+                document.getElementById("txtChecklength").innerHTML = "";
             }
         }
 
@@ -194,9 +195,9 @@ if ($_SESSION["loggedin"] != True) {
             str2 = document.getElementById("con_password").value;
 
             if (str1 == str2) {
-                document.getElementById("txtCheck2").innerHTML = "";
+                document.getElementById("message").innerHTML = "";
             } else {
-                document.getElementById("txtCheck2").innerHTML = "<span style='color:red'>รหัสผ่านไม่ตรงกัน</span>";
+                document.getElementById("message").innerHTML = "<span style='color:red'>รหัสผ่านไม่ตรงกัน</span>";
                 document.getElementById("con_password").focus();
             }
         }
