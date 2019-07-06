@@ -7,6 +7,10 @@ if($_SESSION["loggedin"]!=True){
 }
 $sql = "SELECT * FROM lesson_detail ORDER BY `level` ASC";
 $query = mysqli_query($conn, $sql);
+
+$date = date("Y-m-d H:i:s");
+$datenow = substr($date,0,10);
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -15,19 +19,9 @@ $query = mysqli_query($conn, $sql);
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <title>Administrator Phonic App by Aj.Aum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <style>
-        img {
-            border: 0px solid #ddd;
-            border-radius: 0px;
-            padding: 0px;
-            width: 55px;
-            height: 25px;
-        }
-
-        img:hover {
-            box-shadow: 0 0 1px 1px rgba(0, 140, 186, 0.5);
-        }
-    </style> -->
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -90,12 +84,22 @@ $query = mysqli_query($conn, $sql);
                                     <?php
                                     $i = 1;
                                     while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                                        $datedb = $result['create_date'];
+                                        $subdate = substr($datedb, 0,10);
+                                        // echo "$subdate";
+                                        if ($subdate == $datenow) {
+                                          $new = '<span class="badge badge-danger badge-pill animated bounce tada infinite"> ล่าสุด </span>';
+                                          // $colors = '#f5eded';
+                                        }elseif ($subdate != $datenow) {
+                                            $new = '';
+                                            // $colors = '';
+                                        }
                                         ?>
-                                        <tr>
-                                            <td><?= number_format($i); ?></td>
+                                        <tr style="background-color:<?= $colors ?>" >
+                                            <td ><?= number_format($i); ?></td>
                                             <td><?php echo $result["level"]; ?></td>
                                             <td><?php echo $result["lesson_name"]; ?></td>
-                                            <td><?php echo $result["lesson_desc"]; ?></td>
+                                            <td><?php echo $result["lesson_desc"]; ?> <?= $new ?></td>
                                             <td align="center"><a href="../<?php echo $result["small_image"]; ?>" target="_blank" title="แสดงรูปบทเรียน"><img src="../<?php echo $result["small_image"]; ?>" width="65px" height="25px"></a></td>
 
                                             <td width="65px;" align="center">

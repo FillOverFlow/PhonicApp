@@ -89,7 +89,7 @@
       'answer_e'      => $ans_e,
       'answer_key'    => $ANS,
       );
-    echo '<br>'.print_r($param_quiz);
+    // echo '<br>'.print_r($param_quiz);
     move_uploaded_file($_FILES['quiz_img']['tmp_name'][$i],$location.$_FILES['quiz_img']['name'][$i]);
     //delete comment for add quiz complete
     $exam = new Exam();
