@@ -346,6 +346,8 @@ include '../db_connection.php';
                 alert("กรุณากรอกชื่อ คำศัพท์");
             } else if ($('#wordsound').val() == "") {
                 alert("กรุณากรอกเสียง คำศัพท์");
+            }else if($('#file').val() == ""){
+                alert("กรุณาเพิ่มรูปภาพ คำศัพท์");
             } else {
                 $.ajax({
                     url: 'script/addword_script.php',
@@ -363,6 +365,9 @@ include '../db_connection.php';
                         word_number++;
                     },
                 });
+                //reset value modal 
+                $("#wordname").val("");
+                $("#wordsound").val("");
             }
 
         });
@@ -396,7 +401,7 @@ include '../db_connection.php';
                     processData: false,
                     success: function(response) {
                         alert('ทำรายการเรียบร้อยแล้ว');
-                        location.href="../Manage-lesson.php
+                        location.href="../Manage-lesson.php"
                         
 
                     },
