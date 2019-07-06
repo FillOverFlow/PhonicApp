@@ -9,7 +9,7 @@
     if($lesson->delete_word($params) == true){
         echo '<script language="javascript" type="text/javascript"> ';
         echo 'if(!alert("ลบข้อมูลสำเรีจ")) {';//msg
-        echo ' location.href="../Manage-lesson.php"';
+        echo ' location.href="../viewlesson.php"';
         echo '}';
         echo '</script>';
         exit;

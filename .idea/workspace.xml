@@ -45,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/Admin/script/addlesson_script.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -104,8 +104,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -151,6 +151,7 @@
       <workItem from="1561129698631" duration="8000" />
       <workItem from="1561260407332" duration="2899000" />
       <workItem from="1561910214762" duration="1580000" />
+      <workItem from="1561913485254" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1561129371621</created>
@@ -180,11 +181,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561911834784</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update bug buton back">
+      <created>1561913520700</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561913520700</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6380000" />
+    <option name="totallyTimeSpent" value="6464000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -197,9 +205,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18254818" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1846895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -282,7 +289,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="update  youtube" />
     <MESSAGE value="update bug error text" />
-    <option name="LAST_COMMIT_MESSAGE" value="update bug error text" />
+    <MESSAGE value="update bug buton back" />
+    <option name="LAST_COMMIT_MESSAGE" value="update bug buton back" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Admin/ManageQuiz.php">
@@ -312,7 +320,7 @@
     <entry file="file://$PROJECT_DIR$/Admin/script/addlesson_script.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
         </state>
       </provider>
     </entry>

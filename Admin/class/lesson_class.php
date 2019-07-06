@@ -109,7 +109,7 @@ Class Lesson{
         
         // delete word
         $sql_word = "delete from word_detail where word_id = '$word_id'";
-        echo $sql_word;
+        // echo $sql_word;
 
 
         //check result 
