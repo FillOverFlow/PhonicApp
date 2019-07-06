@@ -396,7 +396,7 @@ include '../db_connection.php';
                     processData: false,
                     success: function(response) {
                         alert('ทำรายการเรียบร้อยแล้ว');
-                        location.href="../Manage-lesson.php
+                        location.href="../Manage-lesson.php"
                         
 
                     },
