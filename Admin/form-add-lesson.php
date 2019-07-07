@@ -1,6 +1,9 @@
 <?php 
 session_start();
 include '../db_connection.php';
+if ($_SESSION["loggedin"] != True) {
+  header("location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
