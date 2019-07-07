@@ -90,7 +90,7 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
                                      <td align="center" width="100"><a href="../<?php echo $result["word_image"]; ?>" target="_blank" title="รูปคำศัพท์"><img src="../<?php echo $result["word_image"]; ?>" height="30" width="70"></a></td>
                                     <td width="70" align="center">
                                        <a href="#" style="color: green;" class="edit_word" id="<?php echo $result["word_id"]; ?>"><i class="far fa-edit" title="แก้ไข Word"></i></a>
-                                      <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delword_script.php?word_id=<?php echo $result["word_id"]; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
+                                      <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delword_script.php?word_id=<?php echo $result["word_id"]; ?>&&lesson_id=<?php echo $result['lesson_id']; ?>';}" style="color: red;" title="ลบข้อมูล"><i class="fas fa-times-circle"></i></a>
                                     </td>
                                   </tr>
                                   <?php
