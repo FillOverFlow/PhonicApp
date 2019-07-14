@@ -19,7 +19,7 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,17 +42,18 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,7 +127,8 @@
       <workItem from="1562397733550" duration="312000" />
       <workItem from="1562406726641" duration="1543000" />
       <workItem from="1562427686752" duration="599000" />
-      <workItem from="1562475245261" duration="933000" />
+      <workItem from="1562475245261" duration="1720000" />
+      <workItem from="1562511241634" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1561129371621</created>
@@ -177,11 +179,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562407747747</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update bug แสดงล่าสุด">
+      <created>1562476398106</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562476398106</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10104000" />
+    <option name="totallyTimeSpent" value="10900000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -195,7 +204,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19860813" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2012848" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -209,9 +218,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49785867" visible="true" weight="0.26718405" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49732333" visible="true" weight="0.26718405" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3292683" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50214136" side_tool="true" visible="true" weight="0.26718405" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50267667" side_tool="true" visible="true" weight="0.26718405" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />

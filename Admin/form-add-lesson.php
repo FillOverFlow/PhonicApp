@@ -50,6 +50,19 @@ if ($_SESSION["loggedin"] != True) {
         .button:hover {
             box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
         }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+        }
+        .center2 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+            height: 30%;
+        }
     </style>
 </head>
 
@@ -93,8 +106,14 @@ if ($_SESSION["loggedin"] != True) {
                     <div class="card-body">
                         <h4 class="card-title">คำอธิบาย</h4>
                         <div class="row">
-                            <img src="assets/images/example_picture.jpg" alt="">
+                            <img src="assets/images/sample/Capture1.png" alt="รูปภาพอธิบายตัวอย่าง" class="center2">
                         </div>
+                        <br>
+                        <h5 class="card-title">จากภาพข้างต้นสามารถอธิบายส่วนประกอบได้ดังนี้</h5>
+                        <div class="row">
+                            <img src="assets/images/sample/Capture2.png" alt="รูปภาพอธิบายตัวอย่าง" class="center">
+                        </div>
+
                     </div>
                 </div>
                 <!-- End Example image -->
