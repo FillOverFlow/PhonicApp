@@ -388,6 +388,7 @@ if ($_SESSION["loggedin"] != True) {
                     },
                 });
                 //reset value modal 
+                $("#file").val("");
                 $("#wordname").val("");
                 $("#wordsound").val("");
             }
