@@ -53,7 +53,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -76,6 +75,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -129,6 +129,8 @@
       <workItem from="1562427686752" duration="599000" />
       <workItem from="1562475245261" duration="1720000" />
       <workItem from="1562511241634" duration="9000" />
+      <workItem from="1563082512811" duration="207000" />
+      <workItem from="1563109177629" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1561129371621</created>
@@ -190,7 +192,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10900000" />
+    <option name="totallyTimeSpent" value="11129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -202,9 +204,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2012848" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20726173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -218,9 +220,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49732333" visible="true" weight="0.26718405" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49546143" visible="true" weight="0.31078905" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3292683" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50267667" side_tool="true" visible="true" weight="0.26718405" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5045386" side_tool="true" visible="true" weight="0.31078905" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
