@@ -97,7 +97,7 @@ session_start();
 	<section id="content">
 	<div class="container">
 
-	<?php 
+	<?php
 
 		include 'db_connection.php';
 		$lesson_id = $_GET["lesson_id"];
@@ -121,7 +121,7 @@ session_start();
 		}
 
 		//check have quiz in lesson
-		$have_quiz = false; 
+		$have_quiz = false;
 		$sql_check = "SELECT quiz_id from quiz_detail  where lesson_id = '$lesson_id'";
 		$check = $conn->query($sql_check);
 		$num = mysqli_num_rows($check);
@@ -213,7 +213,9 @@ session_start();
 											while($row = $result->fetch_assoc()) {
 								?>
 											<div id="w<?php echo $row["word_no"];?>" class="tabcontent">
-												<p><img src="<?php echo $row["word_image"];?>" height="275"></p>
+                                                <br>
+                                                <br>
+												<p><img src="<?php echo $row["word_image"];?>" height="250" width="250"></p>
 												 <p>
 														<input type="image" onclick="startButton(img<?php echo $row["word_no"];?>, span<?php echo $row["word_no"];?>)" src="img/mic.png" id="img<?php echo $row["word_no"];?>" width="36">
 														<input type="image" onclick="responsiveVoice.speak('<?php echo $row["word_speak"];?>','UK English Female');" src="img/speaker.png" width="36">
@@ -338,7 +340,7 @@ function reset() {
 }
 
 function startButton(img_id, span_id) {
-  
+
   first_mic = img_id;
   first_span = span_id;
 
