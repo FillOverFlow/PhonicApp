@@ -106,12 +106,12 @@ if ($_SESSION["loggedin"] != True) {
                     <div class="card-body">
                         <h4 class="card-title">คำอธิบาย</h4>
                         <div class="row">
-                            <img src="assets/images/sample/Capture1.png" alt="รูปภาพอธิบายตัวอย่าง" class="center2">
+                            <img src="assets/images/sample/Capture1.PNG" alt="รูปภาพอธิบายตัวอย่าง" class="center2">
                         </div>
                         <br>
                         <h5 class="card-title">จากภาพข้างต้นสามารถอธิบายส่วนประกอบได้ดังนี้</h5>
                         <div class="row">
-                            <img src="assets/images/sample/Capture2.png" alt="รูปภาพอธิบายตัวอย่าง" class="center">
+                            <img src="assets/images/sample/Capture2.PNG" alt="รูปภาพอธิบายตัวอย่าง" class="center">
                         </div>
 
                     </div>
@@ -388,6 +388,7 @@ if ($_SESSION["loggedin"] != True) {
                     },
                 });
                 //reset value modal 
+                $("#file").val("");
                 $("#wordname").val("");
                 $("#wordsound").val("");
             }
