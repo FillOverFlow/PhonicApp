@@ -8,7 +8,7 @@ if ($_SESSION["loggedin"] != True) {
 }  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
 $lesson_id = $_GET["lesson_id"];
-$sql = "SELECT * FROM quiz_detail WHERE lesson_id = '$lesson_id' ORDER BY create_date";
+$sql = "SELECT * FROM quiz_detail WHERE lesson_id = '$lesson_id' ORDER BY create_date DESC";
 $query = mysqli_query($conn, $sql);
 
 ?>
@@ -196,7 +196,7 @@ $query = mysqli_query($conn, $sql);
                               </div>
                               <div class="form-group">
                                 <label for="">เสียง : </label>
-                                <input type="text" id="quizsound" name="quizsound" class="form-control input-lg" placeholder="quizsound" value="" required>
+                                <input type="text" id="quizsound" name="quizsound" class="form-control input-lg" placeholder="quizsound" value="">
                               </div>
                               <div class="form-group">
                                 <label for="">รูปแบบคำตอบ : </label>

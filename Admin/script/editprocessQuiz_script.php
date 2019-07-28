@@ -41,7 +41,7 @@ if ($ans_style == 2) {
                               </div>
                               <div class="form-group">
                                 <label for="">เสียง : </label>
-                                <input type="text" id="quizsound" name="quiz_sound" class="form-control input-lg" placeholder="quizsound" value="<?php echo $row['question_sound'];?>" required>
+                                <input type="text" id="quizsound" name="quiz_sound" class="form-control input-lg" placeholder="quizsound" value="<?php echo $row['question_sound'];?>">
                               </div>
                               <div class="form-group">
                                 <label for="">รูปแบบคำตอบ : </label>
