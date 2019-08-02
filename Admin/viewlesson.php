@@ -63,6 +63,12 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
                     </div>
                     <!-- ปุ่มเพิ่มข้อมุล -->
                     <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button class="btn btn-success btn-sm" onclick="add_word_in_lesson()">เพิ่มคำศัพท์ในบทเรียนนี้</button>
+                          </div>
+                        </div>
+                        <br>
                         <div class="table-responsive">
                            <table id="zero1_config" class="table table-bordered table-sm table-hover">
                               <thead>
@@ -159,6 +165,9 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
    <script>
         function gohome() {
             document.location.href = 'Manage-lesson.php';
+        }
+        function add_word_in_lesson(){
+          document.location.href = "form-add-word.php?lesson_id=<?php echo $lesson_id ;?>";
         }
     </script>
   <script type="text/javascript">

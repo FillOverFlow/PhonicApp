@@ -81,6 +81,13 @@ session_start();
 					if ($result->num_rows > 0) {
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
+							$check_have_quiz = 0;
+							$sql_quiz = "SELECT quiz_id from quiz_detail where lesson_id = ".$row['lesson_id'];
+							$result_quiz = $conn->query($sql_quiz);
+							$count_quiz = mysqli_num_rows($result_quiz);
+							if($count_quiz > 0){
+								$check_have_quiz = 1;
+							}
 					?>
 
 						<li class="cbp-item graphic">
@@ -94,7 +101,11 @@ session_start();
 										<div class="cbp-l-caption-body">
 											<!--a href="<?php echo $row["big_image"];?>" class="cbp-lightbox cbp-l-caption-buttonRight" data-title="<?php echo $row["lesson_name"];?>">ดูรูปตัวอย่าง</a-->
 											<a href="lesson_video.php?lesson_id=<?php echo $row["lesson_id"];?>" class="cbp-l-caption-buttonRight">เข้าเรียน</a>
-											<a href="quiz_show.php?lesson_id=<?php echo $row["lesson_id"];?>" class="cbp-l-caption-buttonRight">แบบทดสอบ</a>
+											<?php 
+												if($check_have_quiz == 1){
+											?>
+													<a href="quiz_show.php?lesson_id=<?php echo $row["lesson_id"];?>" class="cbp-l-caption-buttonRight">แบบทดสอบ</a>
+											<?php }?>
 										</div>
 									</div>
 								</div>

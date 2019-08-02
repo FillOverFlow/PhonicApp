@@ -74,6 +74,12 @@ $query = mysqli_query($conn, $sql);
               </div>
               <!-- ปุ่มเพิ่มข้อมุล -->
               <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-12">
+                    <button class="btn btn-success btn-sm" onclick="add_quiz_to_lesson()">เพิ่ม quiz ในบทเรียนนี้</button>
+                  </div>
+                </div>
+                <br>
                 <div class="table-responsive">
                   <table id="zero_config" class="table table-bordered table-sm table-hover">
                     <thead class="table-secondary">
@@ -352,6 +358,9 @@ $query = mysqli_query($conn, $sql);
   <script>
     /* Basic Table */
     $('#zero_config').DataTable();
+    function add_quiz_to_lesson(){
+      document.location.href = "form-add-quiz.php?lesson_id=<?php echo $lesson_id ;?>";
+    }
   </script>
   <script type="text/javascript">
     $(document).on('click', '.view_dataquiz', function() {
