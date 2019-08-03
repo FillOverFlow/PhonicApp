@@ -103,12 +103,12 @@
      'answer_e' 			=> $ans_e,
      'answer_key' 		=> $ANS,
     );
-  echo '<br>'.print_r($param_quiz);
+//  echo '<br>'.print_r($param_quiz);
   $exam = new Exam();
   if($exam ->edit($param_quiz) == true){
     echo '<script language="javascript" type="text/javascript"> ';
     echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
-    echo ' location.href="../ManageExam.php"';
+      header("location:../viewExam.php?level=$level");
     echo '}';
     echo '</script>';
     exit;
