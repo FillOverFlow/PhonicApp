@@ -59,61 +59,49 @@ $query = mysqli_query($conn, $sql);
                         <a href="form-add-exam.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>
                     </div>
                     <!-- ปุ่มเพิ่มข้อมุล -->
-                    <div class="card-body ">
-                        <div class="table-responsive">
-                            <table id="zero_config" class="table table-bordered table-sm table-hover">
-                                <thead class="table-secondary">
+                    <div class="card-body">
+                        <div class="row">
 
-                                    <tr>
-                                        <th>ลำดับ</th>
-                                        <th>ระดับ level</th>
-                                        <th>หัวข้อคำถาม</th>
-                                        <th>รูปแบบคำตอบ</th>
-                                        <th>ตัวเลือก</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $i = 1;
-                                    while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
-                                        $style_ans = $result['answer_style'];
-                                        if ($style_ans == 0) {
-                                            $ans = 'คำตอบเป็นข้อความ';
-                                            $color = '#c1d9ff';
-                                        } elseif ($style_ans == 1) {
-                                            $ans = 'คำตอบเป็นภาพ';
-                                            $color = '#c6ffc1';
-                                        } elseif ($style_ans == 2) {
-                                            $ans = 'คำตอบเป็นเสียง';
-                                            $color = '#ffc1c1';
-                                        }
-                                        ?>
-                                        <tr>
-                                            <td><?= number_format($i); ?></td>
-                                            <td><?php echo $result["level"]; ?></td>
-                                            <td><?php echo $result["question_title"]; ?></td>
-                                            <td><?= $ans; ?></td>
-                                            <td width="65px;" align="center">
-                                                <a href="#" style="color: gray;" title="view" class="view_data" id="<?php echo $result["exam_id"]; ?>"><i class="fas fa-search"></i></a>
+                            <div class="col-md-6 col-lg-3 col-xlg-2">
+                                <div class="card card-hover pointer ">
+                                    <div class="box bg-cyan text-center">
+                                        <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                        <h6 class="text-white">Dashboard</h6>
+                                        <span class="badge badge-pill badge-light">0</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                                            
-                                                <a href="#" style="color: green;" class="edit_exam" id="<?php echo $result["exam_id"]; ?>"><i class="far fa-edit" title="แก้ไข Exam"></i></a>
+                            <div class="col-md-6 col-lg-3 col-xlg-2">
+                                <div class="card card-hover pointer ">
+                                    <div class="box bg-success text-center">
+                                        <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                        <h6 class="text-white">Dashboard</h6>
+                                        <span class="badge badge-pill badge-light">0</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                                                <a href="JavaScript:if(confirm('คุณต้องการลบข้อมูลใช่หรือไม่ ?')==true){window.location='script/delexam_script.php?exam_id=<?php echo $result["exam_id"]; ?>';}">
-                                                <i class="fas fa-times-circle" style="color: red;"></i></a>
-                                                
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $i++;
-                                    }
-                                    ?>
-                                </tbody>
+                            <div class="col-md-6 col-lg-3 col-xlg-2">
+                                <div class="card card-hover pointer ">
+                                    <div class="box bg-warning text-center">
+                                        <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                        <h6 class="text-white">Dashboard</h6>
+                                        <span class="badge badge-pill badge-light">0</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                            </table>
-                            <?php
-                            mysqli_close($conn);
-                            ?>
+                            <div class="col-md-6 col-lg-3 col-xlg-2">
+                                <div class="card card-hover pointer ">
+                                    <div class="box bg-info text-center">
+                                        <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                        <h6 class="text-white">Dashboard</h6>
+                                        <span class="badge badge-pill badge-light">0</span>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
