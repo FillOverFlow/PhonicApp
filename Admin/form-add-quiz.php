@@ -4,6 +4,9 @@ include '../db_connection.php';
 if ($_SESSION["loggedin"] != True) {
   header("location:login.php");
 }
+if(isset($_GET['lesson_id'])){
+  $lesson_id = $_GET['lesson_id'];
+}
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -58,12 +61,17 @@ if ($_SESSION["loggedin"] != True) {
             <br>
            
             <!-- form first -->
+            <?php if(!isset($lesson_id)){?>
             <form method="post" action="script/addquiz_script.php" enctype="multipart/form-data">
+            <?php }else{ ?>
+            <form method="post" action="script/addquiz_script.php?lesson_id=<?php echo $lesson_id;?>" enctype="multipart/form-data">
+            <?php }?>
               <div class="row">
                 <div class="col-sm-2">
                   <!-- <input id="butt" type="button" value="Test" /> -->
                 </div>
                 <div class="col-sm-8">
+                  <?php if(!isset($lesson_id)){?>
                   <div class="card m-b-0">
                      <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -95,7 +103,7 @@ if ($_SESSION["loggedin"] != True) {
                       </div>
                     </div>
                   </div>
-                 
+                  <?php }?>
                   <div id="clonedInput1" class="clonedInput">
 
 

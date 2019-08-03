@@ -6,7 +6,11 @@
 	require '../class/quiz_class.php';
 	include '../../db_connection.php';
 	#ตรวจสอบ ลำดับ ของ question_number ล่าสุดที่มี
-	$lesson_id = $_POST["lesson_id"]; 
+	if(isset($_GET['lesson_id'])){
+		$lesson_id = $_GET['lesson_id'];
+	}else{
+		$lesson_id = $_POST["lesson_id"];
+	}
 	$sql = "select MAX(question_no) from quiz_detail where lesson_id = '$lesson_id'";
 	$result = $conn->query($sql);
 	echo $sql;
@@ -117,11 +121,11 @@
 		//delete comment for add quiz complete
 		$quiz = new Quiz();
 		if($quiz->add($param_quiz) == true){
-        echo '<script language="javascript" type="text/javascript"> ';
-        echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
-        echo ' location.href="../ManageQuiz.php"';
-        echo '}';
-        echo '</script>';
+        echo "<script language='javascript' type='text/javascript'> ";
+        echo "if(!alert('บันทึกข้อมูลสำเร็จ')) {";//msg
+        echo " location.href='../viewquiz.php?lesson_id=$lesson_id'";
+        echo "}";
+        echo "</script>";
     }
 
 	}
