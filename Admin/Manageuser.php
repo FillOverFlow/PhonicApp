@@ -1,8 +1,8 @@
 <?php
 session_start();
 include '../db_connection.php';
-if($_SESSION["loggedin"]!=True){
-    //if not login redirect to login.php 
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
     header("location:login.php");
 }
 $sql = "SELECT * FROM user_account ORDER BY create_date DESC";

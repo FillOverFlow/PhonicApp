@@ -1,8 +1,9 @@
 <?php 
 session_start();
 include '../db_connection.php';
-if ($_SESSION["loggedin"] != True) {
-  header("location:login.php");
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
+    header("location:login.php");
 }
 if(isset($_GET['lesson_id'])){
     $lesson_id = $_GET['lesson_id'];

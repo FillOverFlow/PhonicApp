@@ -2,10 +2,10 @@
 //1. เชื่อมต่อ database: 
 session_start();
 include '../db_connection.php';
-if ($_SESSION["loggedin"] != True) {
-  //if not login redirect to login.php 
-  header("location:login.php");
-}  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
+    header("location:login.php");
+}//ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
 $lesson_id = $_GET["lesson_id"];
 $sql = "SELECT * FROM quiz_detail WHERE lesson_id = '$lesson_id' ORDER BY create_date DESC";
