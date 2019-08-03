@@ -1,3 +1,11 @@
+<?php
+session_start();
+include '../db_connection.php';
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
+    header("location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 

@@ -2,8 +2,8 @@
 session_start();
 include '../db_connection.php';
 include 'script/checkhave_quizlesson_script.php'; //check for have quiz in lesson or not 
-if ($_SESSION["loggedin"] != True) {
-    //if not login redirect to login.php 
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
     header("location:login.php");
 }
 $sql = "SELECT * FROM lesson_detail ORDER BY create_date";

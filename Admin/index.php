@@ -2,10 +2,12 @@
 session_start();
 include '../db_connection.php';
 include 'script/count_badge.php';
-if ($_SESSION["loggedin"] != True) {
-    //if not login redirect to login.php 
+
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
     header("location:login.php");
 }
+
 $sql = "SELECT * FROM admin_account WHERE admin_id = '".$_SESSION["id"]."'";
 $query = mysqli_query($conn, $sql);
 $objResult = mysqli_fetch_array($query);

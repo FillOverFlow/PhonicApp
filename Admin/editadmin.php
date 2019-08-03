@@ -2,11 +2,10 @@
 //1. เชื่อมต่อ database: 
 session_start();
 include '../db_connection.php';
-if ($_SESSION["loggedin"] != True) {
-    //if not login redirect to login.php 
+if (!isset($_SESSION["loggedin"])){
+    $_SESSION["loggedin"] == '';
     header("location:login.php");
-}  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
-
+}
 $admin_id = $_GET["admin_id"];
 //2. query ข้อมูลจากตาราง: 
 $sql = "SELECT * FROM admin_account WHERE admin_id='$admin_id' ";
