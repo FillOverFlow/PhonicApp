@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f93af068-43dd-4708-abdb-6c7d27f4b2df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Admin/viewExam.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/ManageExam.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/ManageExam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/script/delexam_script.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/script/delexam_script.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin/script/editexam_script.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/script/editexam_script.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin/viewExam.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin/viewExam.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,44 +24,7 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Admin/ManageExam.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Admin/script/delexam_script.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="51" lean-forward="true" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Admin/viewExam.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="103" column="197" selection-start-line="103" selection-start-column="197" selection-end-line="103" selection-end-column="197" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Admin/class/exam_class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -73,6 +33,7 @@
       <find>edit_dataquiz</find>
       <find>showprocessQuiz_script</find>
       <find>edit</find>
+      <find>del</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,8 +64,8 @@
         <option value="$PROJECT_DIR$/Admin/viewquiz.php" />
         <option value="$PROJECT_DIR$/Admin/ManageExam.php" />
         <option value="$PROJECT_DIR$/Admin/script/editexam_script.php" />
-        <option value="$PROJECT_DIR$/Admin/viewExam.php" />
         <option value="$PROJECT_DIR$/Admin/script/delexam_script.php" />
+        <option value="$PROJECT_DIR$/Admin/viewExam.php" />
       </list>
     </option>
   </component>
@@ -119,6 +80,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,7 +110,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,7 +119,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
@@ -219,7 +180,12 @@
       <workItem from="1564804604138" duration="373000" />
       <workItem from="1564805002881" duration="2031000" />
       <workItem from="1564841759074" duration="339000" />
-      <workItem from="1564842532879" duration="10944000" />
+      <workItem from="1564842532879" duration="10998000" />
+      <workItem from="1564898389290" duration="964000" />
+      <workItem from="1564899601035" duration="304000" />
+      <workItem from="1564899953387" duration="522000" />
+      <workItem from="1564920694515" duration="770000" />
+      <workItem from="1564921611663" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1561129371621</created>
@@ -305,11 +271,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564845011067</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update display">
+      <created>1564853560449</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1564853560449</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37711000" />
+    <option name="totallyTimeSpent" value="40600000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,9 +295,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24169184" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -337,10 +309,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.36698717" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" visible="true" weight="0.29421222" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49394855" weight="0.375" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.3301282" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5060514" side_tool="true" weight="0.3478261" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49924356" weight="0.80448717" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.29421222" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
@@ -757,29 +729,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/ManageExam.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/viewExam.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="103" column="197" selection-start-line="103" selection-start-column="197" selection-end-line="103" selection-end-column="197" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/class/exam_class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+        <state relative-caret-position="2580">
+          <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/script/delexam_script.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="51" lean-forward="true" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/class/exam_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-250">
+          <caret line="86" column="32" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/viewExam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
         </state>
       </provider>
     </entry>

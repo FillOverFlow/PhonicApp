@@ -8,6 +8,7 @@ if (!isset($_SESSION["loggedin"])){
 $level = $_GET['level'];
 $sql = "SELECT * FROM exam_detail where level = $level ORDER BY create_date DESC ";
 $query = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($query);
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -17,7 +18,6 @@ $query = mysqli_query($conn, $sql);
     <title>Administrator Phonic App by Aj.Aum</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body>
 <!-- Preloader - style you can find in spinners.css -->
 <div class="preloader">
@@ -57,11 +57,15 @@ $query = mysqli_query($conn, $sql);
             <!-- แสดงตารางข้อมูลผู้ใช้งาน -->
             <div class="card">
                 <!-- ปุ่มเพิ่มข้อมุล -->
-<!--                <div class="card-body">-->
-<!--                    <a href="form-add-exam.php" class="btn btn-success btn-sm"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูล</a>-->
-<!--                </div>-->
+               <div class="card-body">
+               <?php if ($count > 0) { ?>
+                    <button class="btn btn-danger" onclick=delete_data()>ลบข้อมูลของ Exam level <?= $level; ?> ทั้งหมด</button>
+               <?php } ?>
+                </div>
                 <!-- ปุ่มเพิ่มข้อมุล -->
                 <div class="card-body ">
+                    <div class="row">
+
                     <div class="table-responsive">
                         <table id="zero_config" class="table table-bordered table-sm table-hover">
                             <thead class="table-secondary">
@@ -117,9 +121,9 @@ $query = mysqli_query($conn, $sql);
                         mysqli_close($conn);
                         ?>
                     </div>
-                    <button class="btn btn-danger" onclick=delete_data()>
-                            Delete Exam data
-                    </button>
+                    </div>
+                    
+                  
                 </div>
             </div>
             <!-- Sales chart -->
@@ -408,9 +412,9 @@ $query = mysqli_query($conn, $sql);
 <script>
     /* Delete data exam  */
     function delete_data(){
-        var r = confirm("Are you sure?");
+        var r = confirm("คุณต้องการลบข้อมูลทั้งหมดใช่หรือไม่???");
         if(r == true){
-            alert('Delete data success');
+            alert('ลบข้อมูลทั้งหมดเรียบร้อยแล้ว');
             $.ajax({
                 url:'script/delexam_script.php',
                 method:'GET',
@@ -424,7 +428,7 @@ $query = mysqli_query($conn, $sql);
 
             });
         }else{
-            alert('cancel..');
+            alert('คุณทำการยกเลิกแล้ว...');
         }
     }
 </script>
