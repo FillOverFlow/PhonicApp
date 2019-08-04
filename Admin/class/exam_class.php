@@ -104,6 +104,20 @@
               return false;
           }
     }
+    function delete_all($level){
+      include '../../db_connection.php';
+      $sql = "delete from exam_detail where level = '$level'";
+      $delete = $conn->query($sql);
+      if($delete){
+        // return true if success
+        echo '<br>delete success'; 
+        return true;
+      }else{
+        // return false if failk
+        echo '<br> '.$sql;
+        return false;
+      }
+    }
   }
 
 

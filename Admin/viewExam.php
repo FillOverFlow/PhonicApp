@@ -117,7 +117,9 @@ $query = mysqli_query($conn, $sql);
                         mysqli_close($conn);
                         ?>
                     </div>
-
+                    <button class="btn btn-danger" onclick=delete_data()>
+                            Delete Exam data
+                    </button>
                 </div>
             </div>
             <!-- Sales chart -->
@@ -402,6 +404,29 @@ $query = mysqli_query($conn, $sql);
             }
         });
     });
+</script>
+<script>
+    /* Delete data exam  */
+    function delete_data(){
+        var r = confirm("Are you sure?");
+        if(r == true){
+            alert('Delete data success');
+            $.ajax({
+                url:'script/delexam_script.php',
+                method:'GET',
+                data:{
+                    delete_all:'1',
+                    level:<?php echo $level;?>
+                },
+                success: function(data) {
+                    window.location.href='viewExam.php?level=<?php echo $level; ?>'
+                }
+
+            });
+        }else{
+            alert('cancel..');
+        }
+    }
 </script>
 </body>
 
