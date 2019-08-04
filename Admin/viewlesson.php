@@ -144,7 +144,7 @@ $query = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error
                   </div>
                 </div>
               </div>
-              <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน --
+              <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
                 <!-- Sales chart -->
             </div>
             <!-- End Container fluid  -->

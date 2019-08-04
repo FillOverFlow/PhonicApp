@@ -165,8 +165,8 @@ $query = mysqli_query($conn, $sql);
               <!-- Modal แสดงลายละเอียดข้อมูลผู้ใช้งาน -->
 
               <!-- Modal แสดง editQuiz  -->
-              <div class="modal fade" id="dataModalEditQuiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal fade" id="editquiz" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                   <!--Content-->
                   <div class="modal-content">
                     <!--Header-->
@@ -177,153 +177,12 @@ $query = mysqli_query($conn, $sql);
                         <span aria-hidden="true" class="white-text">&times;</span>
                       </button>
                     </div>
+
                     <!--Body-->
                     <div class="modal-body">
-                      <div class="text">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <form action="" method="post">
-                              <div class="form-group">
-                                <label for="">ระดับ level : </label>
-                                <input type="text" id="level" name="level" class="form-control input-lg" placeholder="ระดับ level" value="">
-                              </div>
-                              <div class="form-group">
-                                <label for="">บทเรียน lesson : </label>
-                                <input type="text" id="lesson" name="lesson" class="form-control input-lg" placeholder="บทเรียน lesson" value="" required>
-                              </div>
-                              <hr>
-                              <div class="form-group">
-                                <label for="">หัวข้อคำถาม : </label>
-                                <input type="text" id="quiztitle" name="quiztitle" class="form-control input-lg" placeholder="quiztitle" value="" required>
-                              </div>
-                              <div class="form-group">
-                                <label for="">รูปภาพคำถาม : </label>
-                                <input type="file" id="quizimg" name="quizimg" class="form-control input-lg" placeholder="quizimg" value="" required>
-                              </div>
-                              <div class="form-group">
-                                <label for="">เสียง : </label>
-                                <input type="text" id="quizsound" name="quizsound" class="form-control input-lg" placeholder="quizsound" value="">
-                              </div>
-                              <div class="form-group">
-                                <label for="">รูปแบบคำตอบ : </label>
-                                <select class="form-control" id="type_style" style="width: 100%; height:36px;" required>
-                                  <option value="">-เลือก รูปแบบคำตอบ-</option>
-                                  <option value="0">คำตอบเป็นข้อความ</option>
-                                  <option value="1">คำตอบเป็นภาพ</option>
-                                  <option value="2">คำตอบเป็นเสียง</option>
-                                </select>
-                              </div>
-                              <hr>
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                              <div id="formbox1">
-                                <div class="form-group row">
-                                  <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_a[]" id="ans_a" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_b[]" id="ans_b" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-2 text-right control-label col-form-label">C.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_c[]" id="ans_c" class="form-control">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_d[]" id="ans_d" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_e[]" id="ans_e" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-2 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="Ans[]" id="Ans" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
-                              <div id="formbox2">
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
-                                  <div class="col-sm-9">
-                                    <input type="file" name="ans_a[]" class="form-control" id="ans1_a" placeholder="">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">B.</label>
-                                  <div class="col-sm-9">
-                                    <input type="file" name="ans_b[]" class="form-control" id="ans1_b" placeholder="">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">C.</label>
-                                  <div class="col-sm-9">
-                                    <input type="file" name="ans_c[]" class="form-control" id="ans1_c" placeholder="">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">D.</label>
-                                  <div class="col-sm-9">
-                                    <input type="file" name="ans_d[]" class="form-control" id="ans1_d" placeholder="">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label">E.</label>
-                                  <div class="col-sm-9">
-                                    <input type="file" name="ans_e[]" class="form-control" id="ans1_e" placeholder="">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="cono1" class="col-sm-3 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
-                                  <div class="col-sm-4">
-                                    <input type="text" name="Ans1[]" class="form-control" id="ans" placeholder="">
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input2 -->
-
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                              <div id="formbox3">
-                                <div class="form-group row">
-                                  <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก A.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_a2[]" id="ans_a" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-1 text-right control-label col-form-label">B.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_b2[]" id="ans_b" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-2 text-right control-label col-form-label">C.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_c2[]" id="ans_c" class="form-control">
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label for="" class="col-sm-3 text-right control-label col-form-label">ตัวเลือก D.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_d2[]" id="ans_d" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-1 text-right control-label col-form-label">E.</label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="ans_e2[]" id="ans_e" class="form-control">
-                                  </div>
-                                  <label for="" class="col-sm-2 text-right control-label col-form-label" style="color:red;"><b>Ans</b></label>
-                                  <div class="col-sm-2">
-                                    <input type="text" name="Ans2[]" id="Ans" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- เมื่อเลือกรูปแบบ ให้แสดง input -->
-                              <button type="submit" class="btn btn-primary btn-sm">อัพเดทข้อมูล</button>
-                              <button type="reset" class="btn btn-danger btn-sm">ยกเลิก</button>
-                            </form>
-                          </div>
+                      <div class="text-left">
+                        <div id="editquiz-detail">
+                          <!-- แสดงข้อมูล -->
                         </div>
                       </div>
                     </div>
@@ -335,7 +194,6 @@ $query = mysqli_query($conn, $sql);
                   </div>
                 </div>
               </div>
-
               <!-- Modal แสดง editQuiz -->
 
             </div>
@@ -389,8 +247,8 @@ $query = mysqli_query($conn, $sql);
             id: quiz_id
           },
           success: function(data) {
-            $('#showprocessQuiz_script').html(data);
-            $('#dataModalquiz').modal('show');
+            $('#editquiz-detail').html(data);
+            $('#editquiz').modal('show');
           }
         });
       }
