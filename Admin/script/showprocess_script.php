@@ -50,6 +50,10 @@ $row = mysqli_fetch_array($result);
 						<td><?php echo $row['user_school']; ?></td>
 					</tr>
 					<tr>
+						<td><b>กลุ่ม/หมู่เรียน</b></td>
+						<td><?php echo $row['user_group']; ?></td>
+					</tr>
+					<tr>
 						<td><b>อีเมล์</b></td>
 						<td><?php echo $row['user_email']; ?></td>
 					</tr>

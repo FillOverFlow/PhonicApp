@@ -13,26 +13,27 @@
     
     class User{
         /*add edit delete user*/
-        function add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_email)
+        function add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_group,$user_email)
         {
             $this->user_name = $user_name;
             $this->user_pwd = $user_pwd;
             $this->user_fullname = $user_fullname;
             $this->user_position = $user_position;
             $this->user_school = $user_school;
+            $this->user_group = $user_group;
             $this->user_email = $user_email;
             include '../../db_connection.php';
 
-            $stmt = $conn->prepare("INSERT INTO user_account(user_name,user_pwd,user_fullname,user_position,user_school,user_email) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param('ssssss', $this->user_name, 
+            $stmt = $conn->prepare("INSERT INTO user_account(user_name,user_pwd,user_fullname,user_position,user_school,user_group,user_email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param('sssssss', $this->user_name, 
             $this->user_pwd,
             $this->user_fullname,
             $this->user_position,
             $this->user_school,
+            $this->user_group,
             $this->user_email);
             $stmt->execute();
             $newId = $stmt->insert_id;
-
             if($stmt) {
                 echo '<script language="javascript" type="text/javascript"> ';
                 echo 'if(!alert("บันทึกข้อมูลสำเร็จ")) {';//msg
@@ -51,24 +52,27 @@
             $stmt->close();
             
         }
-        function edit($user_id,$user_fullname,$user_position,$user_school,$user_email){
+        function edit($user_id,$user_fullname,$user_position,$user_school,$user_group,$user_email){
 
             $this->user_id = $user_id;
             $this->user_fullname = $user_fullname;
             $this->user_position = $user_position;
             $this->user_school = $user_school;
+            $this->user_group = $user_group;
             $this->user_email = $user_email;
             include '../../db_connection.php';
 
             $stmt = $conn->prepare("UPDATE user_account SET user_fullname = ?,  
             user_position = ?,  
             user_school = ?,
+            user_group = ?,
             user_email = ?   
             WHERE user_id = ?");
-            $stmt->bind_param('sssss',
+            $stmt->bind_param('ssssss',
             $_POST['edit_fname'],
             $_POST['edit_position'], 
             $_POST['edit_education'],
+            $_POST['edit_usergroup'],
             $_POST['edit_email'],
             $this->user_id);
             

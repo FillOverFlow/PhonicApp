@@ -6,9 +6,10 @@
     $user_fullname = $_POST["fname"]; 
     $user_position = $_POST["Position"];
     $user_school = $_POST["education"]; 
+    $user_group = $_POST["usergroup"];
     $user_email = $_POST["email"];
 
     $user = new User();
-    $user ->add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_email);
+    $user ->add($user_name,$user_pwd,$user_fullname,$user_position,$user_school,$user_group,$user_email);
     
 ?>

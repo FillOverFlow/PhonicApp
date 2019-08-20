@@ -8,7 +8,6 @@ if (!isset($_SESSION["loggedin"])){
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
 <head>
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <title>Administrator Phonic App by Aj.Aum</title>
@@ -107,6 +106,12 @@ if (!isset($_SESSION["loggedin"])){
                                         <label for="education" class="col-sm-3 text-right control-label col-form-label">สถานศึกษา</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="education" id="education" placeholder="กรอกสถานศีกษา" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="usergroup" class="col-sm-3 text-right control-label col-form-label">กลุ่ม/หมู่เรียน</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" name="usergroup" id="usergroup" placeholder="กลุ่ม/หมู่เรียน" required>
                                         </div>
                                     </div>
 

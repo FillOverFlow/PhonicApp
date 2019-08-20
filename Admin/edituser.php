@@ -103,6 +103,12 @@ $row = mysqli_fetch_array($result);
                                             <input type="text" class="form-control" name="edit_education" id="edit_education" value="<?php echo $row["user_school"]; ?>" placeholder="กรอกสถานศีกษา" required>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="edit_usergroup" class="col-sm-3 text-right control-label col-form-label">กลุ่ม/หมู่เรียน</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" name="edit_usergroup" id="edit_usergroup" value="<?php echo $row["user_group"]; ?>" placeholder="กรอกกลุ่ม/หมู่เรียน" required>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
                                         <label for="edit_email" class="col-sm-3 text-right control-label col-form-label">อีเมล์</label>
